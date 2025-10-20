@@ -1,78 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <script src="./assets/js/login.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="banner">
-        <img src="./assets/images/banner_ti.png" alt="" />
-      </div>
-      <div class="barra-info">
-        <nav class="menu">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Sobre nós</a></li>
-          </ul>
-        </nav>
-        <div class="dados-usuario">
-          <span id="userInfo"></span>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Contatos de Emergência</title>
+  <!-- O CSS foi movido para dentro da tag <style> abaixo para funcionar neste ambiente -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #e7f0fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 15px auto;
+      background: #fff;
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section {
+      width: 100%;
+    }
+
+    /* Espaçamento entre os campos do formulário (LEVEMENTE AUMENTADO) */
+    .form-group {
+      margin-bottom: 10px; /* Aumentado de 8px para 10px */
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+      color: #004aad;
+      font-size: 0.95rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px 10px; /* Aumentado de 6px 8px para 8px 10px */
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #004aad;
+      box-shadow: 0 0 5px #a0c4ff;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px; /* Aumentado de 10px para 12px */
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+
+    .insert { background-color: #28a745; }
+    .insert:hover { background-color: #1e7e34; }
+
+    .edit { background-color: #ffc107; color: #333; }
+    .edit:hover { background-color: #e0a800; }
+
+    .delete { background-color: #dc3545; }
+    .delete:hover { background-color: #b21f2d; }
+
+    .clear { background-color: #6c757d; }
+    .clear:hover { background-color: #565e64; }
+
+    .search { background-color: #007bff; }
+    .search:hover { background-color: #0056b3; }
+
+    .tabela-section {
+      margin-top: 15px;
+    }
+
+    .tabela-section h2 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #f4f7fb;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Padding da tabela AUMENTADO */
+    th, td {
+      text-align: center;
+      padding: 8px 10px; /* Aumentado de 6px 8px para 8px 10px */
+      border-bottom: 1px solid #ddd;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background-color: #004aad;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #dbe8ff;
+      cursor: pointer;
+    }
+
+    /* Estilo para a linha selecionada */
+    .selecionado {
+      background-color: #a0c4ff !important;
+      font-weight: 600;
+    }
+
+    /* Ajustes no contêiner de pesquisa */
+    .search-container {
+        display: flex; 
+        gap: 10px; 
+        margin-bottom: 10px !important;
+    }
+    .search-container input {
+        flex-grow: 1; 
+        padding: 8px 10px !important; /* Aumentado para corresponder aos inputs do formulário */
+        border: 1px solid #ccc; 
+        border-radius: 4px;
+        font-size: 0.9rem !important;
+    }
+    .search-container button {
+        padding: 6px 10px !important;
+        font-size: 0.9rem !important;
+    }
+
+
+    @media (max-width: 700px) {
+      main {
+        padding: 10px;
+        margin: 10px auto;
+      }
+
+      button {
+        width: 100%;
+        margin-bottom: 3px;
+      }
+
+      table, th, td {
+        font-size: 0.75rem;
+      }
+      
+      .button-group {
+          gap: 3px;
+      }
+    }
+  </style>
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1><i class="fa-solid fa-triangle-exclamation"></i> Cadastro de Contatos de Emergência</h1>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form id="contatoForm">
+        <div class="form-group">
+          <label><i class="fa-solid fa-user"></i> Nome do Contato*</label>
+          <input type="text" id="nome" placeholder="Digite o nome" required>
         </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-phone"></i> Telefone Principal*</label>
+          <input type="text" id="telefone" placeholder="(xx) xxxxx-xxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-people-arrows"></i> Relação com o Usuário</label>
+          <select id="relacao">
+            <option value="">Selecione</option>
+            <option value="Mãe">Mãe</option>
+            <option value="Pai">Pai</option>
+            <option value="Irmão">Irmão</option>
+            <option value="Amigo">Amigo</option>
+            <option value="Colega">Colega</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-map-location-dot"></i> Endereço</label>
+          <input type="text" id="endereco" placeholder="Rua, número, bairro">
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-building"></i> Local de Trabalho / Escola</label>
+          <input type="text" id="local" placeholder="Nome do local">
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-clock"></i> Disponibilidade</label>
+          <select id="disponibilidade">
+            <option value="">Selecione</option>
+            <option value="Qualquer horário">Qualquer horário</option>
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button type="button" id="inserir" class="insert"><i class="fa-solid fa-plus"></i> Inserir</button>
+          <button type="button" id="alterar" class="edit"><i class="fa-solid fa-pen"></i> Alterar</button>
+          <button type="button" id="excluir" class="delete"><i class="fa-solid fa-trash"></i> Excluir</button>
+          <button type="reset" id="limpar" class="clear"><i class="fa-solid fa-broom"></i> Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tabela-section">
+      <h2><i class="fa-solid fa-list"></i> Contatos Cadastrados</h2>
+      
+      <!-- Container de pesquisa (ajustado para usar classes do CSS embutido) -->
+      <div class="search-container">
+        <input type="text" id="campoPesquisa" placeholder="Digite o nome ou telefone para buscar">
+        <button type="button" id="pesquisarBtn" class="search">
+          <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+        </button>
       </div>
-    </header>
-    <main>
-        <h3>Boas vindas</h3>
-        <p>Sejam bem-vindos à home-page do projeto de TI 1 - Trabalho
-        Interdisciplinar</p>
-        <p>Esse conteúdo que você está lendo foi criado para exemplificar como
-        criar o seu site integrado com o ambiente de login e o back end que
-        utiliza o JSON Server.</p>
-        <p>Ao criar o seu site, você deve adaptar esse código para sua neessidade ou começar do zero, excluindo todo esse conteúdo.
-        </p>
 
-        <h3>Arquivos do site (Front End)</h3>
-        <p>Para montar seu site, edite os arquivos existentes e crie novos arquivos na pasta <code>public</code> que mantem todos os arquivos da parte de Front End do site, a interface que é vista pelo usuário no navegador.</p>
-
-        <p>Nesta pasta <code>public</code>, sugerimos que você organize os arquivos do seu site da seguinte maneira:</p>
-        <ul>
-            <li><strong>Pasta <code>assets</code></strong>: os arquivos de formatação (CSS), os scripts (JS), as imagens utilizadas no site (JPG, PNG, GIF, SVG, etc), fontes (TTF) e outros arquivos gerais utilizados por todo o site.</li>
-            <li><strong>Pasta <code>modulos</code></strong>: os arquivos utilizados na implementação das funcionalidades do site. Separe uma sub-pasta para cada novo módulo ou funcionalidade. Pode também ser utilizado para dividir o trabalho de cada membro do grupo.</li>
-            <li><strong>Arquivo <code>index.html</code></strong>: arquivo que representa a "home page" do site.</li>
-        </ul>
-
-        <h3>Módulo de Login</h3>
-        <p>O módulo de login de usuário traz uma funcionalidade completa de registro de usuários e validação de login e senha.</p>
-        <h4>Integração do site com módulo de Login</h4>
-        <p>Para utilizar o módulo de login, basta incluir o script na sua página colocando a seguinte tag no HEAD</p>
-        <pre>&lt;script src="./assets/js/login.js"&gt&lt;script&gt;</pre>
-        <p>Ao incluir o script de login na sua página, caso o usuário ainda não tenha efetuado login, ao acessar a home-page do site, o navegador será direcionado para o formulário de <strong>Identificação de Usuário</strong>. Se o usuário informar corretamente o login e a senha, o navegador será direcionado para a Home-Page.</p>
-        <h4>Sessão do usuário logado</h4>
-        <p>Assim que o usuário se identifica e acessa a parte privada do site, o módulo de login cria uma chave do sessionStorage do navegador com o título <strong>usuarioCorrente</strong> e cujo conteúdo é um objeto com os atributos: id, nome, login, senha e email. </p>
-        <h4>Base de dados de usuários</h4>
-        <p>Inicialmente o módulo de login é configurado com dois usuários: </p>
-        <ul>
-            <li>admin - Senha: 123</li>
-            <li>user - Senha: 123</li>
-        </ul>
-
-        <h3>Servidor Web e API baseada no JSON Server (Back end)</h3>
-        <p>O ambiente de trabalho disponibilizado para suportar o Trabalho Interdisciplinar 1 é baseado no Node.js. A aplicação de back end utiliza o módulo JSON Server para criar um Servidor Web que prove duas estruturas separadas:
-        <ul>
-            <li><strong>Arquivos estáticos (Pasta <code>public</code>)</strong>: da acesso aos arquivos utilizados no front end (HTML, CSS e JavaScript).</li>
-            <li><strong>API RESTful (pasta <code>db</code>)</strong>: uma interface para acesso aos dados definidos no arquivo db.json.</li>
-        </ul></p>
-
-        <h4>Arquitetura do site</h4>
-        <p>A imagem que se segue apresenta a arquitetura desse ambiente, mostrando as duas refletindo as pastas desse ambiente.</p>
-        <p><img class="img-fluid d-block w-75 m-auto" src="./assets/images/servidor.png" alt=""></p>
-
-        <h4>Arquivo db.json</h4>
-        <p>O arquivo JSON utilizado para definição das estruturas dos dados providos pela aplicação é localizado na pasta db e tem um formato como o mostrado no exemplo da figura a seguir. Esse arquivo define uma estrutura hipotética de contatos que descreve itens com os seguintes atributos: <code>id</code>, <code>nome</code> e <code>cidade</code>. para o JSON Server, é fundamental que toda estrutura tenha um atributo de identificador de nome <code>id</code>.</p>
-        <p><img class="img-fluid d-block w-50 m-auto" src="./assets/images/arquivo_json.png" alt=""></p>
-    </main>
-  </body>
+      <table id="tabelaContatos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Relação</th>
+            <th>Disponibilidade</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+</body>
 </html>

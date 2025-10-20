@@ -1,0 +1,40 @@
+{
+  "contatos": [
+    {
+      "id": "1",
+      "nome": "Exemplo",
+      "telefone": "12345678",
+      "relacao": "Teste",
+      "endereco": "",
+      "local": "",
+      "disponibilidade": "Manhã"
+    },
+    {
+      "nome": "Samuel",
+      "telefone": "31981196676",
+      "relacao": "Pai",
+      "endereco": "rua RUA",
+      "local": "PUC",
+      "disponibilidade": "Qualquer horário",
+      "id": "93c8"
+    },
+    {
+      "nome": "Professor",
+      "telefone": "12345678910",
+      "relacao": "Amigo",
+      "endereco": "R. Dom José Gaspar, 500",
+      "local": "PUC",
+      "disponibilidade": "Noite",
+      "id": "3058"
+    },
+    {
+      "id": "ca55",
+      "nome": "gfhhgfh",
+      "telefone": "2626526165",
+      "relacao": "Pai",
+      "endereco": "bkjbkbk",
+      "local": "PUC",
+      "disponibilidade": "Manhã"
+    }
+  ]
+}
