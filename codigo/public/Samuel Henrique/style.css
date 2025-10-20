@@ -1,0 +1,165 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e7f0fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #004aad;
+  color: white;
+  text-align: center;
+  padding: 12px; /* Reduzido de 15px */
+  font-size: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  max-width: 800px;
+  margin: 15px auto; /* Reduzido de 20px */
+  background: #fff;
+  padding: 15px; /* Reduzido de 20px */
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  width: 100%;
+}
+
+/* Espaçamento entre os campos do formulário */
+.form-group {
+  margin-bottom: 8px; /* Reduzido de 10px */
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px; /* Reduzido de 3px */
+  color: #004aad;
+  font-size: 0.95rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px 8px; /* Reduzido de 8px 10px */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #004aad;
+  box-shadow: 0 0 5px #a0c4ff;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px; /* Reduzido de 8px */
+  margin-top: 10px; /* Reduzido de 15px */
+}
+
+button {
+  border: none;
+  border-radius: 8px; /* Levemente reduzido */
+  padding: 6px 12px; /* Reduzido de 8px 15px */
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.insert { background-color: #28a745; }
+.insert:hover { background-color: #1e7e34; }
+
+.edit { background-color: #ffc107; color: #333; }
+.edit:hover { background-color: #e0a800; }
+
+.delete { background-color: #dc3545; }
+.delete:hover { background-color: #b21f2d; }
+
+.clear { background-color: #6c757d; }
+.clear:hover { background-color: #565e64; }
+
+.search { background-color: #007bff; }
+.search:hover { background-color: #0056b3; }
+
+.tabela-section {
+  margin-top: 15px; /* Reduzido de 25px */
+}
+
+.tabela-section h2 {
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 8px; /* Reduzido de 10px */
+  font-size: 1.1rem; /* Levemente reduzido */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f4f7fb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  text-align: center;
+  padding: 6px 8px; /* Reduzido de 8px 10px */
+  border-bottom: 1px solid #ddd;
+  font-size: 0.85rem; /* Reduzido */
+}
+
+th {
+  background-color: #004aad;
+  color: white;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #dbe8ff;
+  cursor: pointer;
+}
+
+/* Estilo para a linha selecionada */
+.selecionado {
+  background-color: #a0c4ff !important;
+  font-weight: 600;
+}
+
+/* Ajustes no contêiner de pesquisa */
+.search-container {
+    margin-bottom: 10px !important; /* Reduzido de 15px */
+}
+.search-container input, .search-container button {
+    padding: 6px 8px !important; /* Uniformizando o padding */
+    font-size: 0.9rem !important;
+}
+
+
+@media (max-width: 700px) {
+  main {
+    padding: 10px; /* Reduzido de 15px */
+    margin: 10px auto;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 3px; /* Reduzido */
+  }
+
+  table, th, td {
+    font-size: 0.75rem; /* Mais compacto para mobile */
+  }
+  
+  .button-group {
+      gap: 3px; /* Reduzido para mobile */
+  }
+}
