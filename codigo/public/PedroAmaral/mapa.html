@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Emergência</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <span class="icon">▲</span>
+            <span class="text">Emergência</span>
+        </div>
+        <nav class="nav-bar">
+            <a href="#sobre">Sobre</a>
+            <a href="#localizacao" class="active">Localização</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#perfil" class="profile">
+                <span>👤</span> Perfil
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="controls">
+            <button id="filter-toggle" class="active-btn">Serviços de Emergência <span>▼</span></button>
+            <div id="filter-menu" class="dropdown">
+                <a href="#" class="option active" data-type="hospital">Hospitais</a>
+                <a href="#" class="option" data-type="police">Polícia</a>
+                <a href="#" class="option" data-type="fire_station">Bombeiros</a>
+                <hr>
+                <a href="#" class="option" data-type="all">Mostrar Todos</a>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <gmpx-api-loader key="AIzaSyB3z1rLpgAtr37U0xzDxUrp9V8ev4S6UQM"
+                solution-channel="GMP_GE_mapsandplacesautocomplete_v2"></gmpx-api-loader>
+
+            <gmp-map id="map-element" center="-19.922835610378083, -43.99259054280393" zoom="13" map-id="DEMO_MAP_ID">
+                <div slot="control-block-start-inline-start" class="place-picker">
+                    <gmpx-place-picker id="search-box" placeholder="Buscar Local"></gmpx-place-picker>
+                </div>
+                <gmp-advanced-marker id="main-marker"
+                    position="-19.922835610378083, -43.99259054280393"></gmp-advanced-marker>
+            </gmp-map>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <h4>Contatos Úteis</h4>
+            <p>SAMU - 192</p>
+            <p>Bombeiros - 193</p>
+            <p>Polícia Militar - 190</p>
+            <p>Defesa Civil - 199</p>
+        </div>
+        <div class="footer-section">
+            <h4>Links</h4>
+            <a href="#">Sobre</a>
+            <a href="#">Contatos</a>
+            <a href="#">Localização</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>P. Dom João Gaspar, 500 - Coração Eucarístico</p>
+            <p>Belo Horizonte - MG</p>
+        </div>
+        <div class="copyright">
+            ©2025 - Projeto Acadêmico PUC Minas
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3z1rLpgAtr37U0xzDxUrp9V8ev4S6UQM&libraries=places" defer></script>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
