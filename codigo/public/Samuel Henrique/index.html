@@ -1,274 +1,363 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Contatos de Emergência</title>
-  <!-- O CSS foi movido para dentro da tag <style> abaixo para funcionar neste ambiente -->
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #e7f0fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Contatos de Emergência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        /* Estilos do CSS Separado (Corrigido, Adaptado e Tabela Visível) */
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f3f4f6; 
+            margin: 0; 
+            padding: 20px; /* Adicionado padding para a tabela não colar na borda */
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; /* Alinhado ao topo */
+            min-height: 100vh;
+        } 
+        
+        main { 
+            display: flex; 
+            flex-direction: column; /* Agora main contém dois blocos: o topo (formulário de dois painéis) e a tabela (abaixo) */
+            background-color: #ffffff; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+            max-width: 950px; 
+            width: 100%; 
+        } 
+        
+        /* Contêiner para os painéis Lado-a-Lado (Formulário) */
+        .form-tabela-container {
+            display: flex;
+            width: 100%;
+            border-radius: 12px 12px 0 0; /* Arredondar só o topo */
+            overflow: hidden;
+        }
 
-    header {
-      background-color: #004aad;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      font-size: 1.2rem;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    }
+        /* Oculta o cabeçalho original */
+        header { 
+            display: none; 
+        } 
+        
+        /* Painel esquerdo (Estilo 'dark') */
+        .form-section { 
+            flex: 1; 
+            background-color: #1e2f3d; 
+            color: white; 
+            padding: 40px 30px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        } 
+        .form-section h1 { 
+            font-size: 1.8rem; 
+            margin-bottom: 15px; 
+            line-height: 1.3; 
+            font-weight: 700;
+        } 
+        .form-section p { 
+            font-size: 0.95rem; 
+            opacity: 0.9; 
+            margin-bottom: 25px; 
+        } 
+        .form-section .info-button { 
+            background-color: transparent; 
+            border: 2px solid white; 
+            color: white; 
+            padding: 10px 18px; 
+            font-weight: 600; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        } 
+        .form-section .info-button:hover { 
+            background-color: white; 
+            color: #1e2f3d; 
+        } 
+        
+        /* Painel direito (Formulário principal) */
+        form { 
+            flex: 1.2; 
+            background-color: #f9fbfb; 
+            padding: 40px 50px; 
+            display: flex; 
+            flex-direction: column; 
+            /* justify-content: center; */ /* Removido para permitir o scroll se for muito longo */
+        } 
+        
+        h2 { 
+            color: #1e2f3d; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            text-align: center;
+        } 
+        
+        .form-group { 
+            margin-bottom: 15px; /* Ajustado */
+        } 
+        
+        label { 
+            display: block; 
+            font-weight: 600; 
+            color: #1e2f3d; 
+            font-size: 0.9rem; 
+            margin-bottom: 6px; 
+        } 
+        
+        input, select { 
+            width: 100%; 
+            padding: 10px 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            background-color: #ffffff; 
+            font-size: 0.95rem; 
+            transition: all 0.2s ease-in-out; 
+        } 
+        
+        input:focus, select:focus { 
+            outline: none; 
+            border-color: #1e2f3d; 
+            box-shadow: 0 0 5px rgba(30, 47, 61, 0.3); 
+        } 
+        
+        /* Estilos dos botões do formulário principal */
+        .button-group { 
+            margin-top: 20px;
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 8px; 
+        } 
+        .button-group button {
+            background-color: #1e2f3d;
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            padding: 10px 15px; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            cursor: pointer; 
+            transition: 0.3s;
+            flex-grow: 1; 
+            min-width: 100px; 
+        }
+        .button-group button:hover { 
+            background-color: #2d4356; 
+        }
+        /* Cores originais dos botões para diferenciação */
+        .insert { background-color: #28a745; }
+        .insert:hover { background-color: #1e7e34; }
 
-    main {
-      max-width: 800px;
-      margin: 15px auto;
-      background: #fff;
-      padding: 15px;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
+        .edit { background-color: #ffc107; color: #333; }
+        .edit:hover { background-color: #e0a800; }
 
-    .form-section {
-      width: 100%;
-    }
+        .delete { background-color: #dc3545; }
+        .delete:hover { background-color: #b21f2d; }
 
-    /* Espaçamento entre os campos do formulário (LEVEMENTE AUMENTADO) */
-    .form-group {
-      margin-bottom: 10px; /* Aumentado de 8px para 10px */
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 2px;
-      color: #004aad;
-      font-size: 0.95rem;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 8px 10px; /* Aumentado de 6px 8px para 8px 10px */
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      font-size: 0.95rem;
-      transition: 0.2s;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: #004aad;
-      box-shadow: 0 0 5px #a0c4ff;
-    }
-
-    .button-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 12px; /* Aumentado de 10px para 12px */
-    }
-
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background-color 0.3s ease;
-      color: white;
-    }
-
-    .insert { background-color: #28a745; }
-    .insert:hover { background-color: #1e7e34; }
-
-    .edit { background-color: #ffc107; color: #333; }
-    .edit:hover { background-color: #e0a800; }
-
-    .delete { background-color: #dc3545; }
-    .delete:hover { background-color: #b21f2d; }
-
-    .clear { background-color: #6c757d; }
-    .clear:hover { background-color: #565e64; }
-
-    .search { background-color: #007bff; }
-    .search:hover { background-color: #0056b3; }
-
-    .tabela-section {
-      margin-top: 15px;
-    }
-
-    .tabela-section h2 {
-      text-align: center;
-      color: #004aad;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #f4f7fb;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    /* Padding da tabela AUMENTADO */
-    th, td {
-      text-align: center;
-      padding: 8px 10px; /* Aumentado de 6px 8px para 8px 10px */
-      border-bottom: 1px solid #ddd;
-      font-size: 0.85rem;
-    }
-
-    th {
-      background-color: #004aad;
-      color: white;
-      font-weight: 600;
-    }
-
-    tr:hover {
-      background-color: #dbe8ff;
-      cursor: pointer;
-    }
-
-    /* Estilo para a linha selecionada */
-    .selecionado {
-      background-color: #a0c4ff !important;
-      font-weight: 600;
-    }
-
-    /* Ajustes no contêiner de pesquisa */
-    .search-container {
-        display: flex; 
-        gap: 10px; 
-        margin-bottom: 10px !important;
-    }
-    .search-container input {
-        flex-grow: 1; 
-        padding: 8px 10px !important; /* Aumentado para corresponder aos inputs do formulário */
-        border: 1px solid #ccc; 
-        border-radius: 4px;
-        font-size: 0.9rem !important;
-    }
-    .search-container button {
-        padding: 6px 10px !important;
-        font-size: 0.9rem !important;
-    }
+        .clear { background-color: #6c757d; }
+        .clear:hover { background-color: #565e64; }
 
 
-    @media (max-width: 700px) {
-      main {
-        padding: 10px;
-        margin: 10px auto;
-      }
+        /* Seção da Tabela (Agora Visível) */
+        .tabela-section {
+            display: block; /* Tornada visível */
+            padding: 20px 40px 40px 40px; /* Padding ajustado */
+            background-color: #ffffff; /* Fundo branco */
+            border-top: 1px solid #eee;
+            border-radius: 0 0 12px 12px; /* Arredondar só o rodapé */
+        }
+        .tabela-section h2 {
+            margin-bottom: 15px;
+        }
 
-      button {
-        width: 100%;
-        margin-bottom: 3px;
-      }
+        /* Estilos da Tabela (Baseado no seu CSS Original) */
+        .search-container {
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 15px;
+        }
+        .search-container input {
+            flex-grow: 1; 
+            padding: 8px 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .search-container button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            background-color: #007bff; /* Cor de busca */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f4f7fb;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
 
-      table, th, td {
-        font-size: 0.75rem;
-      }
-      
-      .button-group {
-          gap: 3px;
-      }
-    }
-  </style>
-  <script src="script.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        th, td {
+            text-align: left; /* Alinhamento alterado para left, mais profissional */
+            padding: 10px 12px; 
+            border-bottom: 1px solid #ddd;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background-color: #1e2f3d; /* Cor escura do novo tema */
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #dbe8ff;
+            cursor: pointer;
+        }
+
+        .selecionado {
+            background-color: #a0c4ff !important;
+            font-weight: 600;
+        }
+
+
+        /* Responsivo */
+        @media (max-width: 850px) { 
+            body { padding: 10px; }
+            main { 
+                max-width: 100%; 
+                margin: 0;
+            } 
+            .form-tabela-container {
+                flex-direction: column;
+            }
+            .form-section { 
+                align-items: center; 
+                text-align: center; 
+                padding: 30px 20px;
+            } 
+            form { 
+                padding: 30px 25px; 
+            } 
+            .tabela-section {
+                padding: 20px 25px 30px 25px;
+            }
+            .button-group {
+                gap: 5px;
+            }
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1><i class="fa-solid fa-triangle-exclamation"></i> Cadastro de Contatos de Emergência</h1>
-  </header>
+    <main>
+        <div class="form-tabela-container">
+            <section class="form-section">
+                <h1><i class="fa-solid fa-user-plus"></i> Cadastro de Contatos de Emergência</h1>
+                <p>Mantenha suas informações de segurança sempre acessíveis. Preencha todos os campos obrigatórios para garantir um registro completo e confiável.</p>
+                <p>Use a tabela abaixo para consultar, editar ou remover contatos já cadastrados.</p>
+                <a href="#" class="info-button"><i class="fa-solid fa-circle-info"></i> Sobre a Privacidade</a>
+            </section>
 
-  <main>
-    <section class="form-section">
-      <form id="contatoForm">
-        <div class="form-group">
-          <label><i class="fa-solid fa-user"></i> Nome do Contato*</label>
-          <input type="text" id="nome" placeholder="Digite o nome" required>
+            <form id="contatoForm">
+                <h2>Cadastrar Novo Contato</h2>
+                
+                <div class="form-group">
+                    <label for="nome"><i class="fa-solid fa-user"></i> Nome do Contato*</label>
+                    <input type="text" id="nome" placeholder="Digite o nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone"><i class="fa-solid fa-phone"></i> Telefone Principal*</label>
+                    <input type="text" id="telefone" placeholder="(xx) xxxxx-xxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="relacao"><i class="fa-solid fa-people-arrows"></i> Relação com o Usuário</label>
+                    <select id="relacao">
+                        <option value="">Selecione</option>
+                        <option value="Mãe">Mãe</option>
+                        <option value="Pai">Pai</option>
+                        <option value="Irmão">Irmão</option>
+                        <option value="Amigo">Amigo</option>
+                        <option value="Colega">Colega</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco"><i class="fa-solid fa-map-location-dot"></i> Endereço</label>
+                    <input type="text" id="endereco" placeholder="Rua, número, bairro">
+                </div>
+
+                <div class="form-group">
+                    <label for="local"><i class="fa-solid fa-building"></i> Local de Trabalho / Escola</label>
+                    <input type="text" id="local" placeholder="Nome do local">
+                </div>
+                <div class="form-group">
+                    <label for="disponibilidade"><i class="fa-solid fa-clock"></i> Disponibilidade</label>
+                    <select id="disponibilidade">
+                        <option value="">Selecione</option>
+                        <option value="Qualquer horário">Qualquer horário</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                    </select>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" id="inserir" class="insert"><i class="fa-solid fa-plus"></i> Inserir</button>
+                    <button type="button" id="alterar" class="edit"><i class="fa-solid fa-pen"></i> Alterar</button>
+                    <button type="button" id="excluir" class="delete"><i class="fa-solid fa-trash"></i> Excluir</button>
+                    <button type="reset" id="limpar" class="clear"><i class="fa-solid fa-broom"></i> Limpar</button>
+                </div>
+            </form>
         </div>
 
-        <div class="form-group">
-          <label><i class="fa-solid fa-phone"></i> Telefone Principal*</label>
-          <input type="text" id="telefone" placeholder="(xx) xxxxx-xxxx" required>
-        </div>
+        <section class="tabela-section">
+            <h2><i class="fa-solid fa-list"></i> Contatos Cadastrados</h2>
+            
+            <div class="search-container">
+                <input type="text" id="campoPesquisa" placeholder="Digite o nome, telefone ou relação para buscar">
+                <button type="button" id="pesquisarBtn" class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+                </button>
+            </div>
 
-        <div class="form-group">
-          <label><i class="fa-solid fa-people-arrows"></i> Relação com o Usuário</label>
-          <select id="relacao">
-            <option value="">Selecione</option>
-            <option value="Mãe">Mãe</option>
-            <option value="Pai">Pai</option>
-            <option value="Irmão">Irmão</option>
-            <option value="Amigo">Amigo</option>
-            <option value="Colega">Colega</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label><i class="fa-solid fa-map-location-dot"></i> Endereço</label>
-          <input type="text" id="endereco" placeholder="Rua, número, bairro">
-        </div>
-
-        <div class="form-group">
-          <label><i class="fa-solid fa-building"></i> Local de Trabalho / Escola</label>
-          <input type="text" id="local" placeholder="Nome do local">
-        </div>
-
-        <div class="form-group">
-          <label><i class="fa-solid fa-clock"></i> Disponibilidade</label>
-          <select id="disponibilidade">
-            <option value="">Selecione</option>
-            <option value="Qualquer horário">Qualquer horário</option>
-            <option value="Manhã">Manhã</option>
-            <option value="Tarde">Tarde</option>
-            <option value="Noite">Noite</option>
-          </select>
-        </div>
-
-        <div class="button-group">
-          <button type="button" id="inserir" class="insert"><i class="fa-solid fa-plus"></i> Inserir</button>
-          <button type="button" id="alterar" class="edit"><i class="fa-solid fa-pen"></i> Alterar</button>
-          <button type="button" id="excluir" class="delete"><i class="fa-solid fa-trash"></i> Excluir</button>
-          <button type="reset" id="limpar" class="clear"><i class="fa-solid fa-broom"></i> Limpar</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="tabela-section">
-      <h2><i class="fa-solid fa-list"></i> Contatos Cadastrados</h2>
-      
-      <!-- Container de pesquisa (ajustado para usar classes do CSS embutido) -->
-      <div class="search-container">
-        <input type="text" id="campoPesquisa" placeholder="Digite o nome ou telefone para buscar">
-        <button type="button" id="pesquisarBtn" class="search">
-          <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
-        </button>
-      </div>
-
-      <table id="tabelaContatos">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Relação</th>
-            <th>Disponibilidade</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  </main>
+            <div style="overflow-x: auto;"> <table id="tabelaContatos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Relação</th>
+                            <th>Endereço</th> <th>Local</th> <th>Disponibilidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
