@@ -1,0 +1,401 @@
+/* Paleta de Cores Usada:
+   #2F3E57 (Azul Escuro)
+   #FFFFFF (Branco)
+   #000000 (Preto)
+   #E6EEF8 (Azul Claro/Fundo)
+   #C4BCBC (Cinza Claro)
+*/
+
+/* ======================================================= */
+/* --- 1. RESET MINIMALISTA --- */
+/* ======================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+/* Garante que imagens sejam responsivos por padrão */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ======================================================= */
+/* --- 2. ESTILOS GERAIS E LAYOUT --- */
+/* ======================================================= */
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: #000000;
+  overflow-x: hidden; 
+}
+
+a {
+  text-decoration: none;
+  color: #2F3E57;
+}
+
+/* --- CABEÇALHO (header) --- */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  border-bottom: 1px solid #E6EEF8;
+  position: relative;
+  z-index: 100;
+}
+
+/* Oculta o checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Oculta o label (que será o 'X' animado) em desktop */
+.menu-hamburguer {
+  display: none;
+}
+
+.cabecalho-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2F3E57;
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+}
+
+.navegacao a {
+  margin-left: 25px;
+  font-size: 1rem;
+  color: #2F3E57;
+  padding: 5px 0;
+}
+
+.navegacao button {
+  background-color: #FFFFFF;
+  color: #2F3E57;
+  border: 1px solid #2F3E57;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 25px;
+  font-size: 1rem;
+}
+
+/* --- SEÇÃO PRINCIPAL --- */
+.secao-principal {
+  background-color: #E6EEF8;
+  padding: 80px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.conteudo-texto {
+    flex: 1;
+}
+
+.conteudo-texto h1 {
+  font-size: 2.5rem;
+  color: #2F3E57;
+  margin-bottom: 15px; 
+}
+
+.conteudo-texto p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2F3E57;
+}
+
+.ilustracao {
+    flex: 1;
+}
+
+/* --- CARDS DE SERVIÇO --- */
+.container-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 100px;
+  background-color: #FFFFFF;
+  flex-wrap: wrap; 
+}
+
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid #E6EEF8;
+  border-radius: 8px;
+  padding: 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba( 0, 0, 0, 0.1 );
+  margin-bottom: 20px;
+}
+
+.card-icone {
+  font-size: 3rem;
+  color: #2F3E57;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #2F3E57;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.card button {
+  background-color: #2F3E57;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- SEÇÃO INFERIOR --- */
+.secao-inferior {
+  background-color: #E6EEF8;
+  padding: 50px 100px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.secao-inferior h2 {
+  color: #2F3E57;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.o-que-fazer, .perguntas-frequentes {
+    flex: 1;
+    min-width: 300px;
+}
+
+.lista-passos .passo {
+  background-color: #FFFFFF;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #2F3E57;
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #2F3E57;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- RODAPÉ (footer) --- */
+.rodape {
+  background-color: #2F3E57;
+  color: #E6EEF8;
+  padding: 40px 100px 20px;
+}
+
+.rodape-conteudo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.rodape-coluna {
+    flex: 1;
+    min-width: 150px;
+}
+
+.rodape-coluna h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.rodape-coluna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rodape-coluna ul li {
+  margin-bottom: 5px;
+}
+
+.rodape-coluna a {
+  color: #E6EEF8;
+  font-size: 0.9rem;
+}
+
+.rodape-copyright {
+  text-align: center;
+  border-top: 1px solid rgba( 255, 255, 255, 0.2 );
+  padding-top: 15px;
+  font-size: 0.8rem;
+}
+
+/* ======================================================= */
+/* --- 3. MEDIA QUERIES PARA RESPONSIVIDADE E HAMBÚRGUER --- */
+/* ======================================================= */
+
+/* Telas de Tablets e Celulares */
+@media screen and ( max-width: 750px ) {
+  
+  .cabecalho {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  /* --- ESTILO E ANIMAÇÃO DO ÍCONE HAMBÚRGUER --- */
+
+  .menu-hamburguer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+    /* Linha de cima e de baixo criadas via pseudo-elementos */
+  }
+
+  /* Cria a linha central e a base da animação */
+  .menu-hamburguer .linha-hamburguer, 
+  .menu-hamburguer .linha-hamburguer::before, 
+  .menu-hamburguer .linha-hamburguer::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #2F3E57;
+    position: absolute;
+    /* Transição para a animação suave */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .menu-hamburguer .linha-hamburguer::before {
+    transform: translateY( -8px ); /* Linha superior */
+  }
+
+  .menu-hamburguer .linha-hamburguer::after {
+    transform: translateY( 8px ); /* Linha inferior */
+  }
+  
+  /* --- ESTADO ABERTO: TRANSFORMAÇÃO PARA X --- */
+  
+  /* Oculta a linha do meio */
+  .menu-toggle:checked + .menu-hamburguer .linha-hamburguer {
+    background-color: transparent;
+  }
+  
+  /* Gira e centraliza a linha superior */
+  .menu-toggle:checked + .menu-hamburguer .linha-hamburguer::before {
+    transform: rotate( 45deg );
+  }
+
+  /* Gira e centraliza a linha inferior */
+  .menu-toggle:checked + .menu-hamburguer .linha-hamburguer::after {
+    transform: rotate( -45deg );
+  }
+
+
+  /* --- ESTILO DO PAINEL DE NAVEGAÇÃO COMPACTO --- */
+
+  .navegacao {
+    position: fixed;
+    top: 0; 
+    right: 0;
+    /* Menu compacto */
+    width: 250px; 
+    height: 100vh;
+    background-color: #E6EEF8;
+    box-shadow: -2px 0 5px rgba( 0, 0, 0, 0.5 );
+    flex-direction: column;
+    align-items: flex-start;
+    /* Espaçamento para o 'X' ficar no topo do menu */
+    padding: 70px 20px 20px; 
+    
+    transform: translateX( 100% );
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; 
+  }
+
+  /* Estado Aberto */
+  .menu-toggle:checked ~ .navegacao {
+    transform: translateX( 0 );
+  }
+
+  .navegacao a, .navegacao button {
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    padding: 10px;
+    font-size: 1.1rem; 
+  }
+    
+  .navegacao button {
+      background-color: #2F3E57;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+  }
+
+  /* --- OUTRAS SEÇÕES (ajuste de padding e layout) --- */
+  
+  .secao-principal, .container-cards, .secao-inferior, .rodape {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .conteudo-texto h1 {
+    font-size: 2rem;
+  }
+  
+  /* Garante que a ilustração não seja muito grande no mobile */
+  .ilustracao {
+      margin-top: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .o-que-fazer, .perguntas-frequentes {
+      min-width: 100%;
+  }
+  
+  .rodape-conteudo {
+    flex-direction: column;
+  }
+}
