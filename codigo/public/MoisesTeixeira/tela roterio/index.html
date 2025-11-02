@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Emergenciais 911</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div id="seletorServico" class="seletor-container">
+        <h1>Acionar Serviço de Emergência</h1>
+        <p>Selecione o serviço desejado para gerar o roteiro da chamada.</p>
+        <div class="seletor-botoes">
+            <button id="btnSamu" class="botao-selecao theme-samu-btn">
+                SAMU (192)
+            </button>
+            <button id="btnPolicia" class="botao-selecao theme-policia-btn">
+                Polícia Militar (190)
+            </button>
+            <button id="btnBombeiro" class="botao-selecao theme-bombeiro-btn">
+                Bombeiros (193)
+            </button>
+            <button id="btnDefesaCivil" class="botao-selecao theme-defesa-btn">
+                Defesa Civil (199)
+            </button>
+        </div>
+    </div>
+
+    <div id="containerRoteiro" class="container-roteiro" style="display: none;">
+        
+        <div class="sidebar">
+            <h2 id="sidebar-titulo"></h2>
+            <p id="sidebar-texto"></p>
+            <img id="sidebar-logo" alt="Logo do Serviço" style="width: 100px; margin-top: 20px;">
+        </div>
+
+        <div class="content-area">
+            <h3>Roteiro de Informações</h3>
+            
+            <div class="info-grupo">
+                <label id="label-1"></label>
+                <span id="dado-1"></span>
+            </div>
+            <div class="info-grupo">
+                <label id="label-2"></label>
+                <span id="dado-2"></span>
+            </div>
+            
+            <hr>
+
+            <h3>Detalhes do Incidente</h3>
+            <div class="info-grupo">
+                <label id="label-3"></label>
+                <span id="dado-3"></span>
+            </div>
+            <div class="info-grupo">
+                <label id="label-4"></label>
+                <span id="dado-4"></span>
+            </div>
+            <div class="info-grupo">
+                <label id="label-5"></label>
+                <span id="dado-5"></span>
+            </div>
+
+            <hr>
+
+            <div class="info-grupo">
+                <label id="alerta-label" class="label-alerta"></label>
+                <span id="alerta-dado" class="alerta"></span>
+            </div>
+
+            <button id="btnVoltar" class="botao-voltar">Voltar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
