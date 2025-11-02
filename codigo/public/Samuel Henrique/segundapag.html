@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Denúncia</title>
+    <link rel="stylesheet" href="denuncias.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-panel">
+            <h1>Cadastro de <br>Denúncias</h1>
+            <p>Sua participação é essencial para a segurança e saúde de todos. Denuncie focos de risco de forma rápida e segura.</p>
+            <a href="visualizar.html" class="btn-secondary">Ver Denúncias</a>
+        </div>
+
+        <div class="right-panel">
+            <h2>Dados da Denúncia</h2>
+            <form id="denunciaForm">
+                
+                <label for="tipoDenuncia">Tipo de Denúncia</label>
+                <select id="tipoDenuncia" name="tipoDenuncia" required>
+                    <option value="" disabled selected>Selecione o tipo</option>
+                    <option value="dengue">Foco de Dengue/Zika/Chikungunya</option>
+                    <option value="incendio">Incêndio/Fogo</option>
+                    <option value="lixo">Descarte Irregular de Lixo</option>
+                    <option value="outro">Outro Risco à Saúde/Segurança</option>
+                </select>
+
+                <label for="descricao">Descrição do Problema</label>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva detalhadamente o problema e o que está acontecendo..." required></textarea>
+
+                <label for="localizacao">Localização (Endereço e Ponto de Referência)</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Rua das Flores, 123 - Próximo à praça principal" required>
+
+                <label for="midia">Anexar Imagem/Vídeo (Opcional)</label>
+                <input type="file" id="midia" name="midia" accept="image/*,video/*">
+                
+                <hr>
+
+                <h3>Dados do Denunciante (Opcional)</h3>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo (Opcional)">
+                <input type="email" id="email" name="email" placeholder="Email para Acompanhamento (Opcional)">
+
+                <button type="submit" class="btn-primary">Cadastrar Denúncia</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('denunciaForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+
+            const form = event.target;
+            
+            // Coleta os dados do formulário
+            const data = {
+                tipo_denuncia: form.tipoDenuncia.value,
+                descricao_problema: form.descricao.value,
+                localizacao: form.localizacao.value,
+                nome_denunciante: form.nome.value || 'Anônimo',
+                email_denunciante: form.email.value || 'N/A'
+            };
+
+            // Envia os dados para o servidor Node.js na porta 5000
+            try {
+                const response = await fetch('http://localhost:5000/api/denunciar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert(`Sucesso! ${result.message}\nID da Denúncia: ${result.id}`);
+                    form.reset(); 
+                } else {
+                    alert(`Erro ao cadastrar: ${result.message}`);
+                }
+
+            } catch (error) {
+                console.error('Erro de conexão:', error);
+                alert('Erro de conexão com o servidor. Verifique se o Node.js está rodando na porta 5000.');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Denúncias</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        /* Estilos específicos para a tabela */
+        .view-container {
+            width: 900px;
+            max-width: 95%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .denuncias-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .denuncias-table th, .denuncias-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            vertical-align: top;
+        }
+        .denuncias-table th {
+            background-color: #f2f2f2;
+            color: #2f455c;
+            position: sticky; /* Fixa o cabeçalho se houver rolagem */
+            top: 0;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 50px;
+            color: #777;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="view-container">
+        <h1>🔍 Denúncias Cadastradas</h1>
+        <p>Dados lidos diretamente do arquivo <code>denuncias.json</code> no servidor.</p>
+        
+        <a href="segundapag.html" class="btn-secondary" style="background-color: #2f455c; color: white; border: none; padding: 10px 20px;">← Voltar ao Cadastro</a>
+
+        <div id="loading-message" class="empty-message">Carregando denúncias...</div>
+        <div id="empty-message" class="empty-message" style="display:none;">Nenhuma denúncia encontrada. Comece cadastrando uma!</div>
+        
+        <table class="denuncias-table" id="denuncias-tabela" style="display:none;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Tipo</th>
+                    <th>Localização</th>
+                    <th>Denunciante</th>
+                    <th style="width: 30%;">Descrição</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="denuncias-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Use a porta correta 5000 e a rota criada no server.js
+        const API_URL = 'http://localhost:5000/api/denuncias';
+        
+        function formatarData(isoString) {
+            if (!isoString) return 'N/A';
+            const date = new Date(isoString);
+            return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR');
+        }
+
+        async function carregarDenuncias() {
+            const loading = document.getElementById('loading-message');
+            const empty = document.getElementById('empty-message');
+            const tabela = document.getElementById('denuncias-tabela');
+            const tbody = document.getElementById('denuncias-body');
+
+            loading.style.display = 'block';
+            tabela.style.display = 'none';
+            empty.style.display = 'none';
+            tbody.innerHTML = ''; // Limpa a tabela
+
+            try {
+                // Fetch busca os dados da nova rota do servidor
+                const response = await fetch(API_URL);
+                const denuncias = await response.json();
+
+                loading.style.display = 'none';
+
+                if (!denuncias || denuncias.length === 0) {
+                    empty.style.display = 'block';
+                    return;
+                }
+
+                // Preenche a tabela com os dados
+                denuncias.forEach(denuncia => {
+                    const row = tbody.insertRow();
+                    
+                    row.insertCell().textContent = denuncia.id_denuncia ? denuncia.id_denuncia.substring(4, 12) : 'N/A';
+                    row.insertCell().textContent = formatarData(denuncia.data_hora_recebimento);
+                    row.insertCell().textContent = denuncia.tipo_denuncia || 'N/D';
+                    row.insertCell().textContent = denuncia.localizacao || 'N/D';
+                    row.insertCell().textContent = denuncia.nome_denunciante || 'Anônimo';
+                    row.insertCell().textContent = (denuncia.descricao_problema && denuncia.descricao_problema.length > 80) 
+                        ? denuncia.descricao_problema.substring(0, 80) + '...' 
+                        : denuncia.descricao_problema;
+                    row.insertCell().textContent = denuncia.status || 'N/D';
+                });
+
+                tabela.style.display = 'table';
+
+            } catch (error) {
+                loading.textContent = 'Erro ao carregar dados. Verifique se o servidor está rodando e se o arquivo JSON não está corrompido.';
+                console.error('Erro ao buscar denúncias:', error);
+            }
+        }
+
+        // Carrega os dados quando a página é aberta
+        carregarDenuncias();
+    </script>
+
+</body>
+</html>
