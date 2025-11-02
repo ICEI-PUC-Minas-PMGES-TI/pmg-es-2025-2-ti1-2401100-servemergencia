@@ -1,25 +1,120 @@
+[
+    {
+        "id": "hosp_puc",
+        "name": "Hospital PUC Minas (Base de Ambulância)",
+        "type": "hospital",
+        "lat": -19.922835,
+        "lng": -43.992590,
+        "address": "R. Dom João Gaspar, 500 - Coração Eucarístico"
+    },
+    {
+        "id": "pol_22b",
+        "name": "22º Batalhão Polícia Militar",
+        "type": "police",
+        "lat": -19.915000,
+        "lng": -43.985000,
+        "address": "Av. Brasil, 444 - Bairro X"
+    },
+    {
+        "id": "fir_cen",
+        "name": "Posto Central de Bombeiros",
+        "type": "fire_station",
+        "lat": -19.930000,
+        "lng": -43.998000,
+        "address": "Rua Y, 100 - Centro"
+    },
+    {
+        "id": "hosp_fat",
+        "name": "Maternidade Nossa Senhora de Fátima",
+        "type": "hospital",
+        "lat": -19.928000,
+        "lng": -43.990000,
+        "address": "Av. Amazonas, 3000"
+    },
+    {
+        "id": "pol_base",
+        "name": "Base Comunitária Móvel PM",
+        "type": "police",
+        "lat": -19.920000,
+        "lng": -43.980000,
+        "address": "Praça Z, s/n"
+    },
+    {
+        "id": "fir_ur02",
+        "name": "Unidade de Resgate 02",
+        "type": "fire_station",
+        "lat": -19.935000,
+        "lng": -43.985000,
+        "address": "Rua W, 50 - Bairro K"
+    },
+    {
+        "id": "hosp_mun",
+        "name": "Hospital Municipal",
+        "type": "hospital",
+        "lat": -19.910000,
+        "lng": -44.000000,
+        "address": "Rua Leste, 100"
+    },
+
+
+
+
+
+
 {
-  "usuarios": [
+  "prestadores": [
     {
-      "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "id": "1",
+      "nome_completo": "Joaquina Guimarães",
+      "idFuncional": "SAMU-192-8765",
+      "tipo_servico": "SAMU",
+      "especialidade": "Técnica Auxiliar de Regulação Médica (TARM)",
+      "email": "joaquina@samu.gov.br"
+    }
+  ]
+},
+
+
+
+{
+  "contatos": [
+    {
+      "id": "1",
+      "nome": "Exemplo",
+      "telefone": "12345678",
+      "relacao": "Teste",
+      "endereco": "",
+      "local": "",
+      "disponibilidade": "Manhã"
     },
     {
-      "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "nome": "Samuel",
+      "telefone": "31981196676",
+      "relacao": "Pai",
+      "endereco": "rua RUA",
+      "local": "PUC",
+      "disponibilidade": "Qualquer horário",
+      "id": "93c8"
     },
     {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "nome": "Professor",
+      "telefone": "12345678910",
+      "relacao": "Amigo",
+      "endereco": "R. Dom José Gaspar, 500",
+      "local": "PUC",
+      "disponibilidade": "Noite",
+      "id": "3058"
+    },
+    {
+      "id": "ca55",
+      "nome": "gfhhgfh",
+      "telefone": "2626526165",
+      "relacao": "Pai",
+      "endereco": "bkjbkbk",
+      "local": "PUC",
+      "disponibilidade": "Manhã"
     }
   ]
 }
+
+]

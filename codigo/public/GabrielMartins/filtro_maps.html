@@ -7,7 +7,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Gabriel Martins">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -51,6 +51,13 @@
                 <a href="#" class="dropdown-option" data-distance="5000">5 km</a>
                 <a href="#" class="dropdown-option" data-distance="10000">10 km</a>
             </div>
+            <button id="call-ambulance-btn" class="tab-button"
+                style="background-color: #f44336; color: white; margin-top: 10px;">
+                Chamar Ambulância 🚑
+            </button>
+            <div id="route-info"
+                style="display: none; padding: 10px; background-color: #fff; border-radius: 5px; margin-top: 10px; border: 1px solid #ccc;">
+            </div>
         </div>
 
 
@@ -65,9 +72,7 @@
                     <gmpx-place-picker id="place-search" placeholder="Buscar Local"></gmpx-place-picker>
                 </div>
 
-                <gmp-advanced-marker id="my-location-marker" position="-19.922835610378083, -43.99259054280393">
-                    <div slot="content" class="my-location-icon"></div>
-                </gmp-advanced-marker>
+               
             </gmp-map>
             <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3z1rLpgAtr37U0xzDxUrp9V8ev4S6UQM&callback=initMap&libraries=places,geometry"

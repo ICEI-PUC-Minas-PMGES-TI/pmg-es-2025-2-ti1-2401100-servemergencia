@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 /* 1. CABEÇALHO */
 .header {
     display: flex;
@@ -27,7 +28,7 @@ body {
 .logo-icon {
     margin-right: 5px;
     font-weight: 700;
-    color:  #ff4500;
+    color: #ff4500;
 }
 
 .main-nav a {
@@ -181,18 +182,14 @@ body {
 }
 
 .my-location-icon {
-    width: 18px; 
-    height: 18px;
-    background-color: #4285F4; 
-    border: 3px solid white;
+    width: 14px;
+    height: 14px;
+    background: #4285F4;
+    border: 2px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px #4285F4; 
-    transform: translate(-50%, -50%); 
 }
 
-#my-location-marker {
-    z-index: 100; 
-}
+
 
 /* 3. RODAPÉ */
 .footer {

@@ -1,12 +1,14 @@
 [
     {
-        "name": "Hospital PUC Minas",
+        "id": "hosp_puc",
+        "name": "Hospital PUC Minas (Base de Ambulância)",
         "type": "hospital",
         "lat": -19.922835,
         "lng": -43.992590,
         "address": "R. Dom João Gaspar, 500 - Coração Eucarístico"
     },
     {
+        "id": "pol_22b",
         "name": "22º Batalhão Polícia Militar",
         "type": "police",
         "lat": -19.915000,
@@ -14,6 +16,7 @@
         "address": "Av. Brasil, 444 - Bairro X"
     },
     {
+        "id": "fir_cen",
         "name": "Posto Central de Bombeiros",
         "type": "fire_station",
         "lat": -19.930000,
@@ -21,6 +24,7 @@
         "address": "Rua Y, 100 - Centro"
     },
     {
+        "id": "hosp_fat",
         "name": "Maternidade Nossa Senhora de Fátima",
         "type": "hospital",
         "lat": -19.928000,
@@ -28,6 +32,7 @@
         "address": "Av. Amazonas, 3000"
     },
     {
+        "id": "pol_base",
         "name": "Base Comunitária Móvel PM",
         "type": "police",
         "lat": -19.920000,
@@ -35,6 +40,7 @@
         "address": "Praça Z, s/n"
     },
     {
+        "id": "fir_ur02",
         "name": "Unidade de Resgate 02",
         "type": "fire_station",
         "lat": -19.935000,
@@ -42,6 +48,7 @@
         "address": "Rua W, 50 - Bairro K"
     },
     {
+        "id": "hosp_mun",
         "name": "Hospital Municipal",
         "type": "hospital",
         "lat": -19.910000,
