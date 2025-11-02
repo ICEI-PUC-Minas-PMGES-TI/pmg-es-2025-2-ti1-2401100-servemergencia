@@ -1,0 +1,54 @@
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .logo-address {
+        justify-content: center;
+    }
+
+    .main-nav {
+        flex-direction: column;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero .container {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .features .container {
+        flex-direction: column;
+    }
+
+    .main-footer .container {
+        flex-direction: column;
+        text-align: left;
+        align-items: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

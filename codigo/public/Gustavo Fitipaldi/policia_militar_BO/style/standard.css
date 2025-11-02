@@ -1,0 +1,62 @@
+:root {
+    --color-primary-dark: #111;
+    --color-secondary-dark: #212121;
+    --color-tertiary-dark: #333;
+    --color-light: #f4f4f4;
+    --color-white: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #ccc;
+    --color-text-medium: #666;
+    --color-accent: #e53935;
+    /* Vermelho aproximado do "190" */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+/* --- Botões Genéricos --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-light {
+    background-color: var(--color-light);
+    color: var(--color-text-dark);
+}
+
+.btn-light:hover {
+    background-color: #ddd;
+}
+
+.btn-dark {
+    background-color: var(--color-tertiary-dark);
+    color: var(--color-white);
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}

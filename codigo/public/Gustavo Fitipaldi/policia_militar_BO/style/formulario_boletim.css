@@ -1,0 +1,146 @@
+/* --- Estilos da Página de Formulário (Boletim) --- */
+
+/* Ajusta o "hero" da página de formulário para ser menor */
+
+.hero {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: 2rem 0 4rem 0;
+}
+
+.hero-form-intro {
+    padding: 2.5rem 0;
+    text-align: center;
+}
+
+.hero-form-intro .hero-content {
+    padding-right: 0;
+    max-width: 1000px; /* ANTES: 800px */
+    margin: 0 auto;
+}
+/* Seção branca onde o formulário fica */
+.form-section {
+    background-color: var(--color-white);
+    padding: 3rem 0 4rem 0;
+}
+
+/* O formulário em si */
+.boletim-form {
+    max-width: 1000px; /* ANTES: 800px */
+    margin: 0 auto; 
+    background-color: var(--color-light); 
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+/* Títulos dentro do formulário (Ex: "Dados da Ocorrência") */
+.boletim-form h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Agrupador de label + input */
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+    font-size: 0.9rem;
+}
+
+/* Estilo unificado para campos de texto, select e textarea */
+.form-group input[type="text"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif; /* Herda a fonte do projeto */
+    font-size: 1rem;
+    background-color: var(--color-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito de foco (quando clica no campo) */
+.form-group input[type="text"]:focus,
+.form-group input[type="datetime-local"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-tertiary-dark);
+    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.15); /* Destaque sutil */
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical; /* Permite ao usuário aumentar a altura */
+}
+
+/* Layout para Cidade/UF ficarem lado a lado */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1; /* Faz a "Cidade" ocupar o espaço disponível */
+}
+
+.form-row .form-group.uf-field {
+    flex: 0 0 80px; /* Define uma largura fixa para o campo "UF" */
+}
+
+/* Botão de envio */
+.btn-submit {
+    width: 100%; /* Botão ocupa a largura total do formulário */
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+        background: #111;
+    justify-content: center; /* Centraliza o texto no botão */
+}
+
+/* --- Estilos para Botões do Formulário --- */
+
+.form-buttons {
+    display: flex;
+    flex-direction: row-reverse; /* Coloca o botão principal (Registrar) à direita */
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.form-buttons .btn {
+    flex: 1; /* Faz os botões dividirem o espaço */
+    margin-top: 0; /* Remove a margem que estava no .btn-submit */
+    justify-content: center;
+}
+
+/* Estilo para o novo botão de exportar */
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--color-text-dark);
+    border: 1px solid #ccc;
+    font-weight: 500;
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+/* Ajuste para mobile: botões um em cima do outro */
+@media (max-width: 600px) {
+    .form-buttons {
+        flex-direction: column; /* Empilha os botões */
+    }
+}

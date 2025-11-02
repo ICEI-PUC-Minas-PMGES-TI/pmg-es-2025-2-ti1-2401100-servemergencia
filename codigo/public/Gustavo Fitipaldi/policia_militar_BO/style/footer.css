@@ -1,0 +1,57 @@
+/* --- 4. Footer --- */
+.main-footer {
+    background-color: var(--color-tertiary-dark);
+    color: var(--color-text-light);
+    padding: 3rem 0;
+}
+
+.main-footer .container {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    font-size: 0.9rem;
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-white);
+}
+
+.footer-column p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+    color: var(--color-text-light);
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: var(--color-white);
+}
+
+/* --- 5. Sub-Footer --- */
+.sub-footer {
+    background-color: var(--color-primary-dark);
+    color: #aaa;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}

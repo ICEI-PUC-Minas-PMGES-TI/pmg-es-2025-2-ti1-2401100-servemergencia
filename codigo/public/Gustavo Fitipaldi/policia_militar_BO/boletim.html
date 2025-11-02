@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ocorrência - Polícia Militar MG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/standard.css">
+    <link rel="stylesheet" href="style/nav_bar.css">
+    <link rel="stylesheet" href="style/formulario_boletim.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/responsive.css">
+</head>
+<body>
+
+    <header class="top-bar white-bg">
+        <div class="container">
+            <div class="logo-address">
+                <img src="img/sirene.png" alt="Sirene" class="sirene-icon">
+                <div class="logo">
+                    <a href="policia_militar.html"><strong>Polícia Militar</strong></a>
+                    <span class="logo-phone">190</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li> <li><a href="#">Primeiros Socorros</a></li>
+                    <li><a href="#">Localização</a></li>
+                    <li><a href="#">Contatos</a></li>
+                </ul>
+                <a href="#" class="btn btn-login dark-border">
+                    <span>👤</span> Login
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-form-intro">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Registro de Boletim de Ocorrência</h1>
+                    <p>Preencha os campos abaixo com o máximo de detalhes possível. Sua colaboração é fundamental.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                
+                <form id="bo-form" class="boletim-form">
+                    
+                    <h2>Dados da Ocorrência</h2>
+                    
+                    <div class="form-group">
+                        <label for="tipo-ocorrencia">Tipo de ocorrência</label>
+                        <select id="tipo-ocorrencia" name="tipo-ocorrencia" required>
+                            <option value="" disabled selected>Selecione o tipo</option>
+                            <option value="furto">Furto</option>
+                            <option value="roubo">Roubo</option>
+                            <option value="acidente_transito">Acidente de Trânsito (sem vítima)</option>
+                            <option value="perda_documentos">Perda de Documentos</option>
+                            <option value="ameaca">Ameaça</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data-hora">Data e hora do fato</label>
+                        <input type="datetime-local" id="data-hora" name="data-hora" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco-fato">Endereço do fato (Rua, Av, Número...)</label>
+                        <input type="text" id="endereco-fato" name="endereco-fato" placeholder="Ex: Av. Amazonas, 123" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Ex: Belo Horizonte" required>
+                        </div>
+                        <div class="form-group uf-field">
+                            <label for="uf">UF</label>
+                            <input type="text" id="uf" name="uf" placeholder="MG" maxlength="2" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição objetiva e cronológica</label>
+                        <textarea id="descricao" name="descricao" rows="6" placeholder="Descreva o que aconteceu, em ordem, do início ao fim..." required></textarea>
+                    </div>
+
+                    <h2>Envolvidos</h2>
+                    
+                    <div class="form-group">
+                        <label for="vitimas-testemunhas">Outras vítimas ou testemunhas (Nome e Contato)</label>
+                        <textarea id="vitimas-testemunhas" name="vitimas-testemunhas" rows="4" placeholder="Ex: Maria Silva (vítima), (31) 99999-8888&#10;Ex: João Souza (testemunha), joao@email.com"></textarea>
+                    </div>
+
+                    <h2>Bens/Valores (Opcional)</h2>
+                    
+                    <div class="form-group">
+                        <label for="bens-valores">Bens ou valores levados (se houver)</label>
+                        <textarea id="bens-valores" name="bens-valores" rows="4" placeholder="Ex: 1x Celular Samsung S20, cor preta, com capa vermelha&#10;Ex: R$ 50,00 em espécie"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-submit">
+                        Registrar Ocorrência
+                    </button>
+
+                </form>
+            </div>
+        </section>
+    </main>
+<script src="app_boletim.js"></script>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-column">
+                <h4>Telefones Úteis</h4>
+                <ul>
+                    <li>SAMU: 192</li>
+                    <li>BOMBEIROS: 193</li>
+                    <li>POLÍCIA MILITAR: 190</li>
+                    <li>DEFESA CIVIL: 199</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Contatos</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Informações Úteis</h4>
+                <p>R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG</p>
+                <ul>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="#">Tela principal</a></li>
+                    <li><a href="#">Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <p>©2025 - Projeto Acadêmico PUC Minas (TIAW)</p>
+    </div>
+
+</body>
+</html>
