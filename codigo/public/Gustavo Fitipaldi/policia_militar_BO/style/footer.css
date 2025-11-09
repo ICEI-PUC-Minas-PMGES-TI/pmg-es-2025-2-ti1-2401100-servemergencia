@@ -1,4 +1,3 @@
-/* --- 4. Footer --- */
 .main-footer {
     background-color: var(--color-tertiary-dark);
     color: var(--color-text-light);
@@ -47,7 +46,6 @@
     color: var(--color-white);
 }
 
-/* --- 5. Sub-Footer --- */
 .sub-footer {
     background-color: var(--color-primary-dark);
     color: #aaa;

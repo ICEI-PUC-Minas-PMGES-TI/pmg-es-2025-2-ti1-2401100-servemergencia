@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(boForm);
         const novoBoletim = Object.fromEntries(formData.entries());
 
+        novoBoletim.status = "Aberto"; 
+
         try {
             const response = await fetch(apiURL, {
                 method: "POST",
@@ -19,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 alert('Boletim de Ocorrência registrado com sucesso!');
-                boForm.reset(); // Limpa o formulário
+                boForm.reset(); 
+                window.location.href = "minhas_ocorrencias.html"; 
             } else {
                 throw new Error(`Erro na API: ${response.statusText}`);
             }

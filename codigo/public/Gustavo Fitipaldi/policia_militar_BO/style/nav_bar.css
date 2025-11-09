@@ -1,22 +1,16 @@
 
-/* --- 1. Header (Barra Superior) --- */
 
 .top-bar {
     background-color: var(--color-secondary-dark);
-    /* Padrão, será sobrescrito por white-bg */
     color: var(--color-white);
-    /* Padrão, será sobrescrito por white-bg */
     padding: 1rem 0;
     font-size: 0.9rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Adiciona uma pequena sombra */
 }
 
-/* Estilos para a barra de cabeçalho branca */
 .top-bar.white-bg {
     background-color: var(--color-white);
     color: var(--color-text-dark);
-    /* Texto escuro para contraste */
 }
 
 .top-bar .container {
@@ -27,29 +21,23 @@
     justify-content: space-between;
     align-items: center;
 }
-    /* Permite quebrar linha em telas menores */
 
 .logo-address {
     display: flex;
     align-items: center;
     gap: 15px;
-    /* Espaçamento ajustado */
     flex-wrap: wrap;
 }
 
-/* Estilo para o ícone da sirene */
 .sirene-icon {
     height: 30px;
-    /* Ajuste o tamanho conforme necessário */
     width: auto;
     margin-right: 5px;
-    /* Espaçamento à direita do ícone */
 }
 
 .logo {
     font-size: 1.2rem;
     font-weight: 700;
-    /* Deixar o "Polícia Militar" mais destacado */
 }
 
 .logo-phone {
@@ -76,43 +64,31 @@
 
 .main-nav a {
     color: var(--color-text-dark);
-    /* Links da navegação escuros */
 }
 
 .main-nav a:hover {
     color: var(--color-accent);
-    /* Mudar cor no hover */
 }
 
 .btn-login {
     border: 1px solid var(--color-white);
-    /* Padrão, será sobrescrito */
     padding: 8px 16px;
     border-radius: 5px;
     color: var(--color-white);
-    /* Padrão, será sobrescrito */
 }
 
-/* Estilo para o botão de login na barra branca */
 .btn-login.dark-border {
     border-color: var(--color-text-dark);
-    /* Borda escura */
     color: var(--color-text-dark);
-    /* Texto escuro */
 }
 
 .btn-login.dark-border:hover {
     background-color: var(--color-light);
-    /* Fundo claro no hover */
 }
 
-/* --- 2. Seção Hero --- */
-/* Adicione esta definição de .container ao seu CSS, 
-   caso ela não exista. É ela quem faz o alinhamento.
-*/
+
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    /* Centraliza o container */
 }

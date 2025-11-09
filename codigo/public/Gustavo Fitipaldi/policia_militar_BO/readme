@@ -1,0 +1,5 @@
+
+cd codigo/public/'Gustavo Fitipaldi'/policia_militar_BO
+
+json-server --watch db/boletim.json
+

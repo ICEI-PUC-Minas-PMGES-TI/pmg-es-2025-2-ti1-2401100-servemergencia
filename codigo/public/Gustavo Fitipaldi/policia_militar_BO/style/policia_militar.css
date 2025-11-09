@@ -2,7 +2,6 @@
 .address {
     background-color: var(--color-primary-dark);
     padding: 1rem 0 0;
-    /* Adiciona espaçamento ACIMA do texto */
     font-size: 0.8rem;
     color: var(--color-white);
     font-weight: 400;
@@ -16,7 +15,6 @@
 
 .hero>.container {
     display: flex;
-    /* Isso cria o layout lado-a-lado */
     align-items: center;
 }
 
@@ -53,10 +51,8 @@
     max-width: 100%;
     height: auto;
     border-radius: 42px;
-    /* Apenas para o placeholder */
 }
 
-/* --- 3. Seção de Features --- */
 .features {
     background-color: var(--color-white);
     padding: 4rem 0;
