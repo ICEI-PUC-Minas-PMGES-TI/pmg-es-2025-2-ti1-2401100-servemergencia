@@ -87,7 +87,7 @@ async function init() {
                 adjustZoomByDistance(); 
 
                 // já busca hospitais reais ao carregar
-                // searchNearbyHospitals();
+                searchNearbyHospitals();
 
                 // já busca todos os serviços ao carregar
                 searchAllServices();
