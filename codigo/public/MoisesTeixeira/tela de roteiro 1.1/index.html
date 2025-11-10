@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Emergenciais 911</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <div id="seletorServico" class="seletor-container">
+        <h1>Acionar Serviço de Emergência</h1>
+        <p>Selecione o serviço desejado para gerar o roteiro da chamada.</p>
+        <div class="seletor-botoes">
+            <button id="btnSamu" class="botao-selecao theme-samu-btn">SAMU (192)</button>
+            <button id="btnPolicia" class="botao-selecao theme-policia-btn">Polícia Militar (190)</button>
+            <button id="btnBombeiro" class="botao-selecao theme-bombeiro-btn">Bombeiros (193)</button>
+            <button id="btnDefesaCivil" class="botao-selecao theme-defesa-btn">Defesa Civil (199)</button>
+        </div>
+    </div>
+
+    <div id="verificarEndereco" class="seletor-container" style="display: none;">
+        <h1>Verificação de Endereço</h1>
+        <p>Para agilizar o atendimento, confirme sua localização atual:</p>
+        <p><strong>Você está no seu endereço cadastrado?</strong></p>
+        
+        <div class="seletor-botoes">
+            <button id="btnEnderecoSim" class="botao-opcao botao-sim">Sim, estou no endereço que cadastrei</button>
+            <button id="btnEnderecoNao" class="botao-opcao botao-nao">Não, estou em outro endereço</button>
+        </div>
+    </div>
+
+
+    <div id="containerRoteiro" class="container-roteiro" style="display: none;">
+        
+        <div class="sidebar">
+            <h2 id="sidebar-titulo"></h2>
+            <p id="sidebar-texto"></p>
+            <img id="sidebar-logo" alt="Logo do Serviço" style="width: 100px; margin-top: 20px;">
+        </div>
+
+        <div class="content-area">
+            <h3>Roteiro de Informações</h3>
+            
+            <div class="info-grupo">
+                <label id="label-1" for="input-1"></label>
+                <span id="span-1" class="dado-fixo"></span>
+                <input type="text" id="input-1" class="campo-dado" style="display: none;">
+            </div>
+            
+            <div class="info-grupo">
+                <label id="label-2" for="input-2"></label>
+                <span id="span-2" class="dado-fixo"></span>
+                <input type="text" id="input-2" class="campo-dado" style="display: none;">
+            </div>
+            
+            <hr>
+            <h3>Detalhes do Incidente</h3>
+
+            <div class="info-grupo">
+                <label id="label-3" for="input-3"></label>
+                <span id="span-3" class="dado-fixo"></span>
+                <textarea id="input-3" class="campo-dado" rows="3" style="display: none;"></textarea>
+            </div>
+
+            <div class="info-grupo">
+                <label id="label-4" for="input-4"></label>
+                <span id="span-4" class="dado-fixo"></span>
+                <input type="text" id="input-4" class="campo-dado" style="display: none;">
+            </div>
+
+            <div class="info-grupo">
+                <label id="label-5" for="input-5"></label>
+                <span id="span-5" class="dado-fixo"></span>
+                <input type="text" id="input-5" class="campo-dado" style="display: none;">
+            </div>
+
+            <hr>
+
+            <div class="info-grupo">
+                <label id="alerta-label" class="label-alerta" for="input-alerta"></label>
+                <select id="input-alerta" class="campo-dado campo-alerta">
+                    <option value="Alto">Alto</option>
+                    <option value="Médio" selected>Médio</option>
+                    <option value="Baixo">Baixo</option>
+                </select>
+            </div>
+
+            <button id="btnVoltar" class="botao-voltar">Voltar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
