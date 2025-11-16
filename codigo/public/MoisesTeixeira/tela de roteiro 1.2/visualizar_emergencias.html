@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Emergências</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #d90429;
+            padding-bottom: 15px;
+        }
+
+        .botoes-acesso {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #003d82;
+        }
+
+        .btn-danger {
+            background-color: #d90429;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #b30323;
+        }
+
+        .btn-voltar {
+            background-color: #777;
+            color: white;
+        }
+
+        .btn-voltar:hover {
+            background-color: #555;
+        }
+
+        .lista-vazia {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .emergencia-item {
+            background-color: #f9f9f9;
+            border-left: 5px solid #d90429;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .emergencia-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .emergencia-servico {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .emergencia-data {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .emergencia-dados {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+
+        .dado-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        .dado-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .dado-valor {
+            color: #333;
+            word-break: break-word;
+        }
+
+        .botoes-item {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.85em;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: black;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .json-display {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Histórico de Emergências Registradas</h1>
+
+        <div class="botoes-acesso">
+            <button class="btn btn-primary" onclick="exportarJSON()">📥 Exportar JSON</button>
+            <button class="btn btn-danger" onclick="limparTodas()">🗑️ Limpar Histórico</button>
+            <button class="btn btn-voltar" onclick="voltarHome()">← Voltar</button>
+        </div>
+
+        <div id="listaEmergencias"></div>
+    </div>
+
+    <!-- Modal para visualizar JSON -->
+    <div id="jsonModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="fecharModal()">&times;</span>
+            <h2>Dados JSON</h2>
+            <div class="json-display" id="jsonContent"></div>
+        </div>
+    </div>
+
+    <script>
+        function carregarEmergencias() {
+            const emergencias = JSON.parse(localStorage.getItem('emergencias')) || [];
+            const container = document.getElementById('listaEmergencias');
+
+            if (emergencias.length === 0) {
+                container.innerHTML = '<div class="lista-vazia">Nenhuma emergência registrada ainda.</div>';
+                return;
+            }
+
+            container.innerHTML = '';
+            emergencias.forEach((emergencia, index) => {
+                const data = new Date(emergencia.timestamp);
+                const dataFormatada = data.toLocaleString('pt-BR');
+
+                let html = `
+                    <div class="emergencia-item">
+                        <div class="emergencia-header">
+                            <span class="emergencia-servico">${emergencia.servico.toUpperCase()}</span>
+                            <span class="emergencia-data">${dataFormatada}</span>
+                        </div>
+                        <div class="emergencia-dados">
+                `;
+
+                for (const [chave, campo] of Object.entries(emergencia.informacoes)) {
+                    html += `
+                        <div class="dado-item">
+                            <div class="dado-label">${campo.label}</div>
+                            <div class="dado-valor">${campo.valor}</div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                        </div>
+                        <div class="botoes-item">
+                            <button class="btn btn-primary btn-small" onclick="visualizarJSON(${index})">📄 Ver JSON</button>
+                            <button class="btn btn-danger btn-small" onclick="deletarEmergencia(${index})">🗑️ Deletar</button>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += html;
+            });
+        }
+
+        function visualizarJSON(index) {
+            const emergencias = JSON.parse(localStorage.getItem('emergencias')) || [];
+            const json = JSON.stringify(emergencias[index], null, 2);
+            document.getElementById('jsonContent').textContent = json;
+            document.getElementById('jsonModal').style.display = 'block';
+        }
+
+        function fecharModal() {
+            document.getElementById('jsonModal').style.display = 'none';
+        }
+
+        function deletarEmergencia(index) {
+            if (confirm('Tem certeza que deseja deletar este registro?')) {
+                let emergencias = JSON.parse(localStorage.getItem('emergencias')) || [];
+                emergencias.splice(index, 1);
+                localStorage.setItem('emergencias', JSON.stringify(emergencias));
+                carregarEmergencias();
+            }
+        }
+
+        function limparTodas() {
+            if (confirm('Tem certeza que deseja limpar TODOS os registros? Esta ação não pode ser desfeita!')) {
+                localStorage.removeItem('emergencias');
+                carregarEmergencias();
+            }
+        }
+
+        function exportarJSON() {
+            const emergencias = JSON.parse(localStorage.getItem('emergencias')) || [];
+            const json = JSON.stringify(emergencias, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `emergencias_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function voltarHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Carregar emergências ao abrir a página
+        carregarEmergencias();
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('jsonModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

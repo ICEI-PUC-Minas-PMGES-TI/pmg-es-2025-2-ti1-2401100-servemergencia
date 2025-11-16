@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnEnderecoSim = document.getElementById("btnEnderecoSim");
     const btnEnderecoNao = document.getElementById("btnEnderecoNao");
     const btnVoltar = document.getElementById("btnVoltar");
+    const btnAcionarEmergencia = document.getElementById("btnAcionarEmergencia");
 
     // --- Elementos do Roteiro ---
     const sidebarTitulo = document.getElementById("sidebar-titulo");
@@ -162,5 +163,54 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Botão Voltar
     btnVoltar.addEventListener('click', voltarAoSeletor);
+
+    // --- Função para salvar dados da emergência ---
+    async function salvarEmergencia() {
+        const dados = {
+            servico: servicoSelecionado,
+            timestamp: new Date().toISOString(),
+            informacoes: {}
+        };
+
+        // Coleta os dados dos inputs
+        for (let i = 1; i <= 5; i++) {
+            const input = inputs[i];
+            const label = labels[i];
+            
+            if (input.style.display !== "none") {
+                dados.informacoes['campo_' + i] = {
+                    label: label.textContent,
+                    valor: input.value
+                };
+            } else {
+                dados.informacoes['campo_' + i] = {
+                    label: label.textContent,
+                    valor: spans[i].textContent
+                };
+            }
+        }
+
+        // Coleta o nível de alerta
+        dados.informacoes['alerta'] = {
+            label: alertaLabel.textContent,
+            valor: inputAlerta.value
+        };
+
+        // Salva no localStorage (mais organizado e rápido)
+        try {
+            let emergencias = JSON.parse(localStorage.getItem('emergencias')) || [];
+            emergencias.push(dados);
+            localStorage.setItem('emergencias', JSON.stringify(emergencias));
+            
+            alert('✓ Emergência registrada com sucesso!');
+            voltarAoSeletor();
+        } catch (error) {
+            console.error('Erro ao salvar emergência:', error);
+            alert('Erro ao registrar a emergência. Tente novamente.');
+        }
+    }
+
+    // Botão Acionar Emergência
+    btnAcionarEmergencia.addEventListener('click', salvarEmergencia);
 
 });

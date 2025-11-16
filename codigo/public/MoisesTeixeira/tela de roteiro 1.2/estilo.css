@@ -153,6 +153,34 @@ hr {
     background-color: #555;
 }
 
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botao-acionar {
+    flex: 1;
+    background-color: #d90429;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.botao-acionar:hover {
+    background-color: #b30323;
+    transform: translateY(-2px);
+}
+
+.botao-acionar:active {
+    transform: translateY(0);
+}
+
 
 /* --- ESTILO PARA DADOS FIXOS --- */
 .dado-fixo {
