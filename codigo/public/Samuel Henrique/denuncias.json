@@ -1,0 +1,80 @@
+{
+  "denuncias": [
+    {
+      "id_denuncia": "DEN-1730554200000",
+      "data_hora_recebimento": "2025-11-02T14:50:00.123Z",
+      "tipo_denuncia": "dengue",
+      "descricao_problema": "O vizinho do fundo tem uma piscina abandonada cheia de água parada e pneus velhos acumulando água da chuva.",
+      "localizacao": "Rua das Flores, 123 - Próximo à praça principal",
+      "nome_denunciante": "Maria S. A.",
+      "email_denunciante": "maria.s.a@exemplo.com",
+      "status": "Recebida",
+      "id": "8c24"
+    },
+    {
+      "id_denuncia": "DEN-1730554260000",
+      "data_hora_recebimento": "2025-11-02T14:51:00.456Z",
+      "tipo_denuncia": "incendio",
+      "descricao_problema": "Muita fumaça preta saindo do galpão abandonado na esquina. O cheiro é forte.",
+      "localizacao": "Avenida Brasil, 456 - Antiga Fábrica Modelo",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A",
+      "status": "Recebida",
+      "id": "0d39"
+    },
+    {
+      "id_denuncia": "DEN-1762095210196",
+      "data_hora_recebimento": "2025-11-02T14:53:30.196Z",
+      "tipo_denuncia": "incendio",
+      "descricao_problema": "dadasd",
+      "localizacao": "adsasda",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A",
+      "status": "Recebida",
+      "id": "3074"
+    },
+    {
+      "id_denuncia": "DEN-1762109316772",
+      "data_hora_recebimento": "2025-11-02T18:48:36.772Z",
+      "tipo_denuncia": "dengue",
+      "descricao_problema": "sassda\n",
+      "localizacao": "dasdads",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A",
+      "status": "Recebida",
+      "id": "15e6"
+    },
+    {
+      "id": "f142",
+      "tipo_denuncia": "dengue",
+      "descricao_problema": "dasdasd",
+      "localizacao": "asdada",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A"
+    },
+    {
+      "id": "0d46",
+      "tipo_denuncia": "incendio",
+      "descricao_problema": "está pegando fogo",
+      "localizacao": "Rua puc minas 1231",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A"
+    },
+    {
+      "id": "8433",
+      "tipo_denuncia": "lixo",
+      "descricao_problema": "descarte de lixo no local errado",
+      "localizacao": "123131",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A"
+    },
+    {
+      "id": "62a1",
+      "tipo_denuncia": "incendio",
+      "descricao_problema": "fogo na praça",
+      "localizacao": "12346",
+      "nome_denunciante": "Anônimo",
+      "email_denunciante": "N/A"
+    }
+  ]
+}

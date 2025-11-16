@@ -1,134 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizar Denúncias</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <style>
-        /* Estilos específicos para a tabela */
-        .view-container {
-            width: 900px;
-            max-width: 95%;
-            margin: 40px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .denuncias-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        .denuncias-table th, .denuncias-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-            font-size: 0.9em;
-            vertical-align: top;
-        }
-        .denuncias-table th {
-            background-color: #f2f2f2;
-            color: #2f455c;
-            position: sticky; /* Fixa o cabeçalho se houver rolagem */
-            top: 0;
-        }
-        .empty-message {
-            text-align: center;
-            padding: 50px;
-            color: #777;
-            font-size: 1.1em;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Visualizar Denúncias</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f7fa; color:#243b53; }
+    .view-container {
+      width: 900px; max-width:95%; margin:40px auto; background:#fff; padding:24px;
+      border-radius:8px; box-shadow:0 6px 24px rgba(0,0,0,0.08);
+    }
+    h1 { margin:0 0 6px; }
+    p.small { margin-top:4px; color:#6c7b87; }
+    .btn-secondary { display:inline-block; margin-top:10px; text-decoration:none; border-radius:6px; padding:8px 14px; background:#2f455c; color:#fff; }
+    .status-line { margin-top:12px; color:#5b6b77; font-size:0.95rem; }
+    .denuncias-table { width:100%; border-collapse:collapse; margin-top:18px; }
+    .denuncias-table th, .denuncias-table td {
+      border:1px solid #e6e9ee; padding:10px; text-align:left; vertical-align:top; font-size:0.9rem;
+    }
+    .denuncias-table th { background:#f7fafc; position:sticky; top:0; }
+    .empty-message { text-align:center; padding:40px; color:#777; font-size:1.05rem; }
+    .endpoint-used { margin-top:8px; font-size:0.9rem; color:#2f6f6f; }
+    .error { color:#b71c1c; background:#fff0f0; padding:10px; border-radius:6px; margin-top:12px; }
+    .small-muted { font-size:0.85rem; color:#7d8994; }
+    @media (max-width:720px){
+      .denuncias-table th, .denuncias-table td { font-size:0.82rem; padding:8px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="view-container">
+    <h1>🔍 Denúncias Cadastradas</h1>
+    <p class="small">A página tentará encontrar automaticamente o endpoint que serve os dados (Node/JSON Server).</p>
 
-    <div class="view-container">
-        <h1>🔍 Denúncias Cadastradas</h1>
-        <p>Dados lidos diretamente do arquivo <code>denuncias.json</code> no servidor.</p>
-        
-        <a href="segundapag.html" class="btn-secondary" style="background-color: #2f455c; color: white; border: none; padding: 10px 20px;">← Voltar ao Cadastro</a>
+    <a href="segundapag.html" class="btn-secondary">← Voltar ao Cadastro</a>
 
-        <div id="loading-message" class="empty-message">Carregando denúncias...</div>
-        <div id="empty-message" class="empty-message" style="display:none;">Nenhuma denúncia encontrada. Comece cadastrando uma!</div>
-        
-        <table class="denuncias-table" id="denuncias-tabela" style="display:none;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Data</th>
-                    <th>Tipo</th>
-                    <th>Localização</th>
-                    <th>Denunciante</th>
-                    <th style="width: 30%;">Descrição</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="denuncias-body">
-                </tbody>
-        </table>
-    </div>
+    <div id="status" class="status-line">Inicializando verificação de endpoint...</div>
+    <div id="endpoint-used" class="endpoint-used" style="display:none;"></div>
+    <div id="error-box" class="error" style="display:none;"></div>
 
-    <script>
-        // Use a porta correta 5000 e a rota criada no server.js
-        const API_URL = 'http://localhost:5000/api/denuncias';
-        
-        function formatarData(isoString) {
-            if (!isoString) return 'N/A';
-            const date = new Date(isoString);
-            return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR');
+    <div id="loading-message" class="empty-message">Carregando denúncias...</div>
+    <div id="empty-message" class="empty-message" style="display:none;">Nenhuma denúncia encontrada. Comece cadastrando uma!</div>
+
+    <table class="denuncias-table" id="denuncias-tabela" style="display:none;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data</th>
+          <th>Tipo</th>
+          <th>Localização</th>
+          <th>Denunciante</th>
+          <th style="width:30%;">Descrição</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="denuncias-body"></tbody>
+    </table>
+
+    <p class="small-muted" style="margin-top:14px;">
+      Dicas: se nada aparecer, verifique:
+      <ul style="margin:6px 0 0 18px;">
+        <li>Se o servidor Node (ou JSON Server) está rodando.</li>
+        <li>Se o arquivo JSON está no formato correto (ver `{"denuncias":[ ... ]}` para JSON Server).</li>
+        <li>Se o CORS do Node permite acesso do seu frontend (127.0.0.1:5500 / 5501).</li>
+      </ul>
+    </p>
+  </div>
+
+  <script>
+    // Lista de endpoints a tentar (na ordem). A página usará o primeiro que responder OK
+    const CANDIDATE_ENDPOINTS = [
+      'http://localhost:3000/api/denuncias', // Node (seus endpoints originais)
+      'http://localhost:3000/denuncias',     // Node variant or json-server on 3000
+      'http://localhost:3001/denuncias',     // json-server default you used earlier
+      'http://localhost:3001/api/denuncias'  // fallback
+    ];
+
+    const statusEl = document.getElementById('status');
+    const endpointUsedEl = document.getElementById('endpoint-used');
+    const loadingEl = document.getElementById('loading-message');
+    const emptyEl = document.getElementById('empty-message');
+    const tableEl = document.getElementById('denuncias-tabela');
+    const tbody = document.getElementById('denuncias-body');
+    const errorBox = document.getElementById('error-box');
+
+    function formatarData(isoString) {
+      if (!isoString) return 'N/A';
+      const d = new Date(isoString);
+      if (isNaN(d)) return isoString;
+      return d.toLocaleDateString('pt-BR') + ' ' + d.toLocaleTimeString('pt-BR');
+    }
+
+    // Tenta os endpoints sequencialmente e retorna o primeiro que der array válido
+    async function encontrarEndpoint() {
+      statusEl.textContent = 'Procurando endpoint disponível...';
+      for (const url of CANDIDATE_ENDPOINTS) {
+        statusEl.textContent = `Testando ${url} ...`;
+        try {
+          const res = await fetch(url, { method: 'GET' });
+          if (!res.ok) {
+            // resposta 4xx / 5xx -> considerar como falha e tentar próximo
+            console.warn(`Resposta não OK de ${url}:`, res.status);
+            continue;
+          }
+          const body = await res.json();
+
+          // JSON Server retorna array ou objeto. Aceitaremos:
+          // - um array (list of denúncias)
+          // - ou um objeto com chave "denuncias" que é array
+          if (Array.isArray(body)) {
+            return { url, data: body };
+          }
+          if (body && Array.isArray(body.denuncias)) {
+            return { url, data: body.denuncias };
+          }
+
+          // Em alguns Node setups, o resultado pode ser { success: true, data: [...] }
+          if (body && Array.isArray(body.data)) {
+            return { url, data: body.data };
+          }
+
+          // Se chegamos aqui, o endpoint respondeu, mas não com o formato esperado.
+          console.warn(`Formato inesperado em ${url}`, body);
+          // Ainda assim podemos tentar usar se body possui campos esperados (array dentro)
+          // Continuar tentando próximos endpoints.
+        } catch (err) {
+          console.warn(`Erro ao acessar ${url}:`, err.message);
+          // tenta próximo
         }
+      }
+      // nenhum endpoint válido encontrado
+      return null;
+    }
 
-        async function carregarDenuncias() {
-            const loading = document.getElementById('loading-message');
-            const empty = document.getElementById('empty-message');
-            const tabela = document.getElementById('denuncias-tabela');
-            const tbody = document.getElementById('denuncias-body');
+    function renderDenuncias(arr) {
+      tbody.innerHTML = '';
+      arr.forEach(item => {
+        const row = tbody.insertRow();
 
-            loading.style.display = 'block';
-            tabela.style.display = 'none';
-            empty.style.display = 'none';
-            tbody.innerHTML = ''; // Limpa a tabela
+        // id pode ser "id_denuncia" ou "id"
+        const id = item.id_denuncia || item.id || 'N/A';
+        row.insertCell().textContent = id;
 
-            try {
-                // Fetch busca os dados da nova rota do servidor
-                const response = await fetch(API_URL);
-                const denuncias = await response.json();
+        row.insertCell().textContent = formatarData(item.data_hora_recebimento || item.data || item.createdAt);
+        row.insertCell().textContent = item.tipo_denuncia || item.tipo || 'N/D';
+        row.insertCell().textContent = item.localizacao || item.local || 'N/D';
+        row.insertCell().textContent = item.nome_denunciante || item.nome || 'Anônimo';
 
-                loading.style.display = 'none';
+        const desc = item.descricao_problema || item.descricao || '';
+        row.insertCell().textContent = desc.length > 120 ? desc.substring(0,120) + '...' : desc;
 
-                if (!denuncias || denuncias.length === 0) {
-                    empty.style.display = 'block';
-                    return;
-                }
+        row.insertCell().textContent = item.status || 'N/D';
+      });
+    }
 
-                // Preenche a tabela com os dados
-                denuncias.forEach(denuncia => {
-                    const row = tbody.insertRow();
-                    
-                    row.insertCell().textContent = denuncia.id_denuncia ? denuncia.id_denuncia.substring(4, 12) : 'N/A';
-                    row.insertCell().textContent = formatarData(denuncia.data_hora_recebimento);
-                    row.insertCell().textContent = denuncia.tipo_denuncia || 'N/D';
-                    row.insertCell().textContent = denuncia.localizacao || 'N/D';
-                    row.insertCell().textContent = denuncia.nome_denunciante || 'Anônimo';
-                    row.insertCell().textContent = (denuncia.descricao_problema && denuncia.descricao_problema.length > 80) 
-                        ? denuncia.descricao_problema.substring(0, 80) + '...' 
-                        : denuncia.descricao_problema;
-                    row.insertCell().textContent = denuncia.status || 'N/D';
-                });
+    async function carregar() {
+      loadingEl.style.display = 'block';
+      emptyEl.style.display = 'none';
+      tableEl.style.display = 'none';
+      endpointUsedEl.style.display = 'none';
+      errorBox.style.display = 'none';
+      statusEl.textContent = 'Iniciando...';
 
-                tabela.style.display = 'table';
+      const found = await encontrarEndpoint();
 
-            } catch (error) {
-                loading.textContent = 'Erro ao carregar dados. Verifique se o servidor está rodando e se o arquivo JSON não está corrompido.';
-                console.error('Erro ao buscar denúncias:', error);
-            }
-        }
+      loadingEl.style.display = 'none';
 
-        // Carrega os dados quando a página é aberta
-        carregarDenuncias();
-    </script>
+      if (!found) {
+        statusEl.textContent = 'Nenhum endpoint compatível encontrado.';
+        errorBox.style.display = 'block';
+        errorBox.textContent = 'Não foi possível localizar um endpoint retornando a lista de denúncias. Tente iniciar o backend (Node ou json-server) e verifique as portas 3000/3001. Veja o console do navegador para detalhes.';
+        return;
+      }
 
+      // Se chegamos aqui, temos url e dados
+      const { url, data } = found;
+      statusEl.textContent = 'Endpoint encontrado:'; 
+      endpointUsedEl.style.display = 'block';
+      endpointUsedEl.textContent = url;
+
+      if (!data || data.length === 0) {
+        emptyEl.style.display = 'block';
+        return;
+      }
+
+      renderDenuncias(data);
+      tableEl.style.display = 'table';
+    }
+
+    // carrega ao abrir
+    carregar();
+  </script>
 </body>
 </html>

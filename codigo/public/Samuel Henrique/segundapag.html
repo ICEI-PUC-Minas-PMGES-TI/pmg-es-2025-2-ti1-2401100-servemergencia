@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Denúncia</title>
-    <link rel="stylesheet" href="denuncias.css">
+    <link rel="stylesheet" href="oc.css">
 </head>
 <body>
 
@@ -29,10 +29,10 @@
                 </select>
 
                 <label for="descricao">Descrição do Problema</label>
-                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva detalhadamente o problema e o que está acontecendo..." required></textarea>
+                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva detalhadamente o problema..." required></textarea>
 
                 <label for="localizacao">Localização (Endereço e Ponto de Referência)</label>
-                <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Rua das Flores, 123 - Próximo à praça principal" required>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Rua das Flores, 123 - Próximo à praça" required>
 
                 <label for="midia">Anexar Imagem/Vídeo (Opcional)</label>
                 <input type="file" id="midia" name="midia" accept="image/*,video/*">
@@ -53,8 +53,7 @@
             event.preventDefault(); 
 
             const form = event.target;
-            
-            // Coleta os dados do formulário
+
             const data = {
                 tipo_denuncia: form.tipoDenuncia.value,
                 descricao_problema: form.descricao.value,
@@ -63,9 +62,8 @@
                 email_denunciante: form.email.value || 'N/A'
             };
 
-            // Envia os dados para o servidor Node.js na porta 5000
             try {
-                const response = await fetch('http://localhost:5000/api/denunciar', {
+                const response = await fetch('http://localhost:3000/denuncias', { 
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -77,14 +75,14 @@
 
                 if (response.ok) {
                     alert(`Sucesso! ${result.message}\nID da Denúncia: ${result.id}`);
-                    form.reset(); 
+                    form.reset();
                 } else {
-                    alert(`Erro ao cadastrar: ${result.message}`);
+                    alert(`Erro ao cadastrar denúncia: ${result.message}`);
                 }
 
             } catch (error) {
                 console.error('Erro de conexão:', error);
-                alert('Erro de conexão com o servidor. Verifique se o Node.js está rodando na porta 5000.');
+                alert('Erro ao conectar ao servidor Node.js.\nCertifique-se que ele está rodando em http://localhost:3000');
             }
         });
     </script>

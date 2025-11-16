@@ -2,139 +2,159 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors'); 
+const cors = require('cors');
 
 const app = express();
-const PORT = 5000; 
+const PORT = 3000;
+
+// Caminho absoluto do arquivo JSON
 const DENUNCIAS_FILE = path.join(__dirname, 'denuncias.json');
 
-// --- HABILITAÇÃO DO CORS ---
+// ----------------------
+// CONFIGURAÇÃO DO CORS
+// ----------------------
 const allowedOrigins = [
-    'http://localhost:5000',
-    'http://127.0.0.1:5501', 
+    'http://localhost:3000',
+    'http://127.0.0.1:5501',
     'http://localhost:5501'
 ];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      return callback(null, true);
-    }
-    const msg = 'A política CORS para este site não permite acesso da Origem especificada.';
-    return callback(new Error(msg), false);
-  },
-  methods: 'GET,POST',
-  credentials: true
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+        return callback(new Error('Origem não autorizada pelo CORS.'), false);
+    },
+    methods: 'GET,POST',
+    credentials: true
 };
 
-app.use(cors(corsOptions)); 
-
-// --- Configurações do Middleware ---
-
-app.use(express.static(__dirname)); 
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(express.static(__dirname));
 
-// Rota para redirecionar a raiz (/) para o arquivo segundapag.html
+// -------------------------
+// ROTA PRINCIPAL (formulário)
+// -------------------------
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'segundapag.html'));
 });
 
-// --- ROTA ADICIONADA: Busca Todas as Denúncias (para visualizar.html) ---
-
+// ---------------------------
+// ROTA PARA LISTAR DENÚNCIAS
+// ---------------------------
 app.get('/api/denuncias', (req, res) => {
+
+    // Se o arquivo não existir → retorna lista vazia
     if (!fs.existsSync(DENUNCIAS_FILE)) {
-        return res.status(200).json([]); // Retorna array vazio
+        return res.json([]);
     }
 
     try {
         const data = fs.readFileSync(DENUNCIAS_FILE, 'utf8');
-        
-        if (data.trim().length > 0) {
-            const denuncias = JSON.parse(data);
-            if (Array.isArray(denuncias)) {
-                return res.json(denuncias);
-            } else {
-                return res.json([]);
-            }
-        } else {
-            return res.json([]); 
+
+        if (!data.trim()) {
+            return res.json([]); // JSON vazio
         }
+
+        const denuncias = JSON.parse(data);
+
+        if (!Array.isArray(denuncias)) {
+            console.warn("Arquivo não contém um array. Retornando vazio.");
+            return res.json([]);
+        }
+
+        return res.json(denuncias);
+
     } catch (error) {
-        console.error('Erro ao ler/enviar denuncias.json:', error);
-        return res.status(500).json({ error: 'Erro interno ao processar dados.' });
+        console.error("Erro ao ler denuncias.json:", error);
+        return res.status(500).json({ error: "Erro ao processar dados." });
     }
 });
 
-// --- Função Auxiliar para Manipulação de Arquivo ---
+// ---------------------------
+// FUNÇÃO PARA SALVAR DENÚNCIA
+// ---------------------------
+function salvarDenuncia(nova) {
 
-function salvarDenuncia(novaDenuncia) {
-    let denuncias = []; 
-    
-    // 1. Tenta ler o arquivo de denúncias existente
+    let denuncias = [];
+
+    // Lê o arquivo se existir
     if (fs.existsSync(DENUNCIAS_FILE)) {
         try {
             const data = fs.readFileSync(DENUNCIAS_FILE, 'utf8');
-            
+
             if (data.trim().length > 0) {
-                 const parsedData = JSON.parse(data);
-                 if (Array.isArray(parsedData)) {
-                     denuncias = parsedData;
-                 } else {
-                     console.warn('Conteúdo de denuncias.json não é um Array. Reconstruindo array.');
-                 }
+                const parsed = JSON.parse(data);
+                if (Array.isArray(parsed)) {
+                    denuncias = parsed;
+                } else {
+                    console.warn("denuncias.json não era um array. Será recriado.");
+                }
             }
+
         } catch (error) {
-            console.error('Erro de JSON.parse ou leitura do arquivo. Iniciando array vazio.', error.message);
+            console.error("Erro ao ler / parsear JSON:", error.message);
         }
     }
 
-    // 2. Cria um ID e adiciona timestamps
+    // Gera ID único
     const id = `DEN-${Date.now()}`;
-    
-    // 3. Adiciona a nova denúncia ao array
-    denuncias.push({ 
+
+    // Cria o objeto final
+    const novaDenuncia = {
         id_denuncia: id,
         data_hora_recebimento: new Date().toISOString(),
-        ...novaDenuncia, 
+        ...nova,
         status: "Recebida"
-    });
+    };
 
-    // 4. Salva o array atualizado de volta no arquivo
+    denuncias.push(novaDenuncia);
+
+    // Salva no arquivo
     try {
         fs.writeFileSync(DENUNCIAS_FILE, JSON.stringify(denuncias, null, 2));
-        console.log(`Denúncia ${id} salva com sucesso em ${DENUNCIAS_FILE}`);
+        console.log(`Denúncia salva com sucesso: ${id}`);
         return id;
     } catch (error) {
-        console.error('Erro ao salvar a denúncia no arquivo (Permissão/Escrita):', error);
+        console.error("Erro ao salvar JSON:", error);
         return null;
     }
 }
 
-// --- Rota de API para Receber a Denúncia (SALVAMENTO) ---
-
+// ---------------------------
+// ROTA PARA CADASTRAR DENÚNCIA
+// ---------------------------
 app.post('/api/denunciar', (req, res) => {
-    const dadosDenuncia = req.body;
+    const dados = req.body;
 
-    if (!dadosDenuncia || !dadosDenuncia.tipo_denuncia) {
-        return res.status(400).json({ success: false, message: 'Dados da denúncia inválidos (Tipo de Denúncia é obrigatório).' });
-    }
-
-    const idGerado = salvarDenuncia(dadosDenuncia);
-
-    if (idGerado) {
-        res.status(201).json({ 
-            success: true, 
-            message: 'Denúncia cadastrada com sucesso!',
-            id: idGerado
+    if (!dados || !dados.tipo_denuncia) {
+        return res.status(400).json({
+            success: false,
+            message: "Tipo de denúncia é obrigatório."
         });
-    } else {
-        res.status(500).json({ success: false, message: 'Erro interno ao salvar a denúncia no arquivo.' });
     }
+
+    const id = salvarDenuncia(dados);
+
+    if (!id) {
+        return res.status(500).json({
+            success: false,
+            message: "Erro ao salvar denúncia."
+        });
+    }
+
+    return res.status(201).json({
+        success: true,
+        message: "Denúncia cadastrada com sucesso!",
+        id
+    });
 });
 
-// --- Iniciar o Servidor ---
-
+// ---------------------------
+// INICIAR SERVIDOR
+// ---------------------------
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-    console.log(`Acesse o formulário em: http://localhost:${PORT}/`); 
+    console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
