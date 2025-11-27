@@ -14,16 +14,20 @@ authors:
     given-names: Samuel
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: COMPLETAR
-    given-names: Nome completo do professor 1
+    family-names: Andrade
+    given-names: Michelle Hanne Soares de
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: COMPLETAR
-    given-names: Nome completo do professor 2
+    family-names: Lacerda
+    given-names: Lucca Soares de Paiva
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Pereira
+    given-names: Daniel Machado Osório
 keywords:
-  - atendimento de emergência
-  - serviços de saúde
+  - emergencia
+  - saude
 repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-servemergencia.git
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2025-02-01
+date-released: 2025-11-27
