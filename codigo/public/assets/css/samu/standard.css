@@ -1,0 +1,62 @@
+:root {
+    --color-primary-dark: #0f172a;   /* Azul noturno profundo (Background principal) */
+    --color-secondary-dark: #1e293b; /* Azul ardósia escuro (Cards, Menus) */
+    --color-tertiary-dark: #334155;  /* Azul acinzentado (Hover, Bordas) */
+    --color-light: #f1f5f9;          /* Branco gelo (para fundo claro se houver) */
+    --color-white: #ffffff;          /* Branco puro (Texto principal em fundo escuro) */
+    --color-text-dark: #0f172a;      /* Para texto em fundo claro */
+    --color-text-light: #94a3b8;     /* Texto secundário/desabilitado */
+    --color-text-medium: #64748b;    /* Legendas */
+    --color-accent: #ff6b00;         /* Laranja SAMU (Cor principal de destaque) */
+    --color-alert: #dc2626;          /* Vermelho Cruz da Vida */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-light {
+    background-color: var(--color-light);
+    color: var(--color-text-dark);
+}
+
+.btn-light:hover {
+    background-color: #ddd;
+}
+
+.btn-dark {
+    background-color: var(--color-tertiary-dark);
+    color: var(--color-white);
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
