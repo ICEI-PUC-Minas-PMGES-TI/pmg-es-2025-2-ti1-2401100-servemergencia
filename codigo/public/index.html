@@ -5,119 +5,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergência - Serviços no Brasil</title>
-    <link rel="stylesheet" href="./assets/css/home_page/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/home_page/tema.css">
+    <link rel="stylesheet" href="./assets/css/servicos/nav_bar.css">
+    <link rel="stylesheet" href="./assets/css/servicos/barra_main.css">
+    <link rel="stylesheet" href="./assets/css/servicos/footer.css">
+    <link rel="stylesheet" href="./assets/css/servicos/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <header class="cabecalho">
-        <a href="./index.html">
-
-            <div class="cabecalho-logo">
-                <span style="color: #2F3E57;">&#916;</span> Emergencia
-            </div>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-            <label for="menu-toggle" class="menu-hamburguer">
-                <span class="linha-hamburguer"></span>
-            </label>
-        </a>
-
-        <nav class="navegacao">
-        </nav>
-
-        <nav class="navegacao">
-            <a href="./#">Sobre</a>
-            <a href="./modulos/home_page/filtro_maps.html">Localização</a>
-            <a href="./modulos/home_page/contatos_emergencia.html">Contatos</a>
-            <button><a href="./modulos/home_page/cadastro.html">Registrar</a> </button>
-        </nav>
+    <header class="top-bar white-bg">
+        <div class="container">
+            <a href="./index.html">
+                <div class="logo-address">
+                    <img src="./assets/images/policia_militar/sirene.png" alt="Sirene" class="sirene-icon">
+                    <div class="logo">
+                        <strong>Emergência</strong>
+                        <span class="logo-phone">Brasil</span>
+                    </div>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a href="./#">Sobre</a></li>
+                    <li><a href="./modulos/home_page/filtro_maps.html">Localização</a></li>
+                    <li><a href="./modulos/home_page/contatos_emergencia.html">Contatos</a></li>
+                </ul>
+                <a href="./modulos/home_page/cadastro.html" class="btn btn-login dark-border"> <span>👤</span> Registrar
+                </a>
+            </nav>
+        </div>
     </header>
 
-    <section class="secao-principal">
-        <div class="conteudo-texto">
-            <h1>Precisa de Ajuda?</h1>
-            <p>
-                Aqui você encontra os principais serviços de emergência disponíveis no Brasil. Escolha o serviço
-                desejado para mais informações.
-            </p>
-            <p style="font-size: 0.9rem; margin-top: 30px;">
-                R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG
-            </p>
+    <main>
+        <div class="address">
+            <div class="container">
+                <span>Endereço: R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG</span>
+            </div>
         </div>
-        <div class="ilustracao">
-            <img src="./assets/images/home_page/image.png" alt="Image of ambulance, fire truck, police car, and hous">
-        </div>
-    </section>
 
-    <main class="container-cards">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Precisa de Ajuda?</h1>
+                    <p>Aqui você encontra os principais serviços de emergência disponíveis no Brasil. Escolha o serviço desejado para mais informações.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/images/home_page/image.png" alt="Ambulância, Bombeiros e Polícia">
+                </div>
+            </div>
+        </section>
 
-        <a href="./samu.html">
-            <div class="card">
-                <div class="card-icone" aria-hidden="true">&#42;</div>
-                <h3>SAMU 192</h3>
-                <p>Urgências médicas, primeiros socorros e transporte de pacientes.</p>
-                <button>Acessar</button>
-            </div>
-        </a>
+        <section class="features">
+            <div class="container">
+                <div class="feature-card">
+                    <img src="./assets/images/icons/ambulancia.png" alt="SAMU" class="feature-icon">
+                    <h3>SAMU 192</h3>
+                    <p>Urgências médicas, primeiros socorros e transporte de pacientes.</p>
+                    <a href="./samu.html" class="btn btn-dark">Acessar</a>
+                </div>
 
-        <a href="./bombeiros.html">
-            <div class="card">
-                <div class="card-icone" aria-hidden="true">&#x1F692;</div>
-                <h3>BOMBEIRO 193</h3>
-                <p>Resgates, incêndios, acidentes e salvamentos.</p>
-                <button>Acessar</button>
-            </div>
-        </a>
+                <div class="feature-card">
+                    <img src="./assets/images/icons/bombeiro.png" alt="Bombeiros" class="feature-icon">
+                    <h3>BOMBEIRO 193</h3>
+                    <p>Resgates, incêndios, acidentes e salvamentos.</p>
+                    <a href="./bombeiros.html" class="btn btn-dark">Acessar</a>
+                </div>
 
-        <a href="./policia_militar.html">
-            <div class="card">
-                <div class="card-icone" aria-hidden="true">&#x2605;</div>
-                <h3>POLÍCIA MILITAR 190</h3>
-                <p>Segurança pública, ocorrências policiais e combate ao crime.</p>
-                <button>Acessar</button>
+                <div class="feature-card">
+                    <img src="./assets/images/icons/policia.png" alt="Polícia" class="feature-icon">
+                    <h3>POLÍCIA MILITAR 190</h3>
+                    <p>Segurança pública, ocorrências policiais e combate ao crime.</p>
+                    <a href="./policia_militar.html" class="btn btn-dark">Acessar</a>
+                </div>
+
+                <div class="feature-card">
+                    <img src="./assets/images/icons/defesa.png" alt="Defesa Civil" class="feature-icon">
+                    <h3>DEFESA CIVIL 199</h3>
+                    <p>Prevenção, apoio e resposta a desastres naturais.</p>
+                    <a href="./defesa_civil.html" class="btn btn-dark">Acessar</a>
+                </div>
             </div>
-        </a>
-        <a href="./defesa_civil.html">
-            <div class="card">
-                <div class="card-icone" aria-hidden="true">&#x26A0;</div>
-                <h3>DEFESA CIVIL 199</h3>
-                <p>Prevenção, apoio e resposta a desastres naturais.</p>
-                <button>Acessar</button>
+        </section>
+
+        <section class="secao-inferior">
+            <div class="container">
+                <div class="o-que-fazer">
+                    <h2>O que fazer em caso de emergência?</h2>
+                    <div class="lista-passos">
+                        <div class="passo">&#x23F1; Mantenha a calma</div>
+                        <div class="passo">&#x260E; Ligue para o serviço correto</div>
+                        <div class="passo">&#x2757; Informe o local e situação</div>
+                        <div class="passo">&#x27A1; Siga as orientações até a ajuda chegar</div>
+                    </div>
+                </div>
+        
+                <div class="perguntas-frequentes">
+                    <h2>Perguntas frequentes</h2>
+                    <div class="faq-item">Qual a diferença entre SAMU e Bombeiros? <span>+</span></div>
+                    <div class="faq-item">Posso ligar para mais de um serviço ao mesmo tempo? <span>+</span></div>
+                    <div class="faq-item">Se eu não tiver crédito no celular, consigo ligar para os números de emergência? <span>+</span></div>
+                    <div class="faq-item">Posso usar esses números de emergência em qualquer cidade do Brasil? <span>+</span></div>
+                    <div class="faq-item">O que acontece se eu passar um trote para os serviços de emergência? <span>+</span></div>
+                </div>
             </div>
-        </a>
+        </section>
 
     </main>
 
-    <section class="secao-inferior">
-
-        <div class="o-que-fazer">
-            <h2>O que fazer em caso de emergência?</h2>
-            <div class="lista-passos">
-                <div class="passo">&#x23F1; Mantenha a calma</div>
-                <div class="passo">&#x260E; Ligue para o serviço correto</div>
-                <div class="passo">&#x2757; Informe o local e situação</div>
-                <div class="passo">&#x27A1; Siga as orientações até a ajuda chegar</div>
-            </div>
-        </div>
-
-        <div class="perguntas-frequentes">
-            <h2>Perguntas frequentes</h2>
-            <div class="faq-item">Qual a diferença entre SAMU e Bombeiros? <span>+</span></div>
-            <div class="faq-item">Posso ligar para mais de um serviço ao mesmo tempo? <span>+</span></div>
-            <div class="faq-item">Se eu não tiver crédito no celular, consigo ligar para os números de emergência?
-                <span>+</span>
-            </div>
-            <div class="faq-item">Posso usar esses números de emergência em qualquer cidade do Brasil? <span>+</span>
-            </div>
-            <div class="faq-item">O que acontece se eu passar um trote para os serviços de emergência? <span>+</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="rodape">
-        <div class="rodape-conteudo">
-
-            <div class="rodape-coluna">
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-column">
                 <h4>Telefones Úteis</h4>
                 <ul>
                     <li>SAMU - 192</li>
@@ -126,30 +129,30 @@
                     <li>DEFESA CIVIL - 199</li>
                 </ul>
             </div>
-
-            <div class="rodape-coluna">
+            <div class="footer-column">
                 <h4>Links Rápidos</h4>
                 <ul>
                     <li><a href="./#">Sobre</a></li>
-                    <li><a href="./#">Contatos</a></li>
+                    <li><a href="./modulos/home_page/contatos_emergencia.html">Contatos</a></li>
                     <li><a href="./modulos/home_page/filtro_maps.html">Localização</a></li>
                     <li><a href="./#">Fale conosco</a></li>
                 </ul>
             </div>
-
-            <div class="rodape-coluna">
+            <div class="footer-column">
                 <h4>Informações Úteis</h4>
+                <p>R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG</p>
                 <ul>
-                    <li>R. Dom José Gaspar, 500 - Coração</li>
-                    <li>Eucarístico, Belo Horizonte - MG</li>
+                    <li><a href="./#">Fale conosco</a></li>
+                    <li><a href="./index.html">Tela principal</a></li>
+                    <li><a href="./index.html">Perguntas Frequentes</a></li>
                 </ul>
             </div>
         </div>
-
-        <div class="rodape-copyright">
-            ©2025 - Projeto Acadêmico PUC Minas (TIAW)
-        </div>
     </footer>
+
+    <div class="sub-footer">
+        <p>©2025 - Projeto Acadêmico PUC Minas (TIAW)</p>
+    </div>
 
 </body>
 

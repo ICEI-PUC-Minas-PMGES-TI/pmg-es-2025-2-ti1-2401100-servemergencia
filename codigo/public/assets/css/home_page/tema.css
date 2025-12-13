@@ -1,0 +1,57 @@
+:root {
+    --color-primary-dark: #2F3E57;
+    --color-secondary-dark: #E6EEF8;
+    --color-tertiary-dark: #2F3E57;
+    --color-accent: #dc2626;
+    --color-alert: #f59e0b;
+    --color-light: #FFFFFF;
+    --color-white: #ffffff;
+    --color-text-dark: #000000;
+    --color-text-light: #ffffff;
+    --color-text-medium: #4b5563;
+}
+
+.secao-inferior {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.secao-inferior h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.lista-passos,
+.perguntas-frequentes {
+    margin-bottom: 30px;
+}
+
+.passo {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.faq-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item span {
+    font-weight: bold;
+    color: #2F3E57;
+}
