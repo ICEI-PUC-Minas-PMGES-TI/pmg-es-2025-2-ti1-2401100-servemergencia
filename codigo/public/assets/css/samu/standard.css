@@ -1,14 +1,15 @@
 :root {
-    --color-primary-dark: #0f172a;   /* Azul noturno profundo (Background principal) */
-    --color-secondary-dark: #1e293b; /* Azul ardósia escuro (Cards, Menus) */
-    --color-tertiary-dark: #334155;  /* Azul acinzentado (Hover, Bordas) */
-    --color-light: #f1f5f9;          /* Branco gelo (para fundo claro se houver) */
-    --color-white: #ffffff;          /* Branco puro (Texto principal em fundo escuro) */
-    --color-text-dark: #0f172a;      /* Para texto em fundo claro */
-    --color-text-light: #94a3b8;     /* Texto secundário/desabilitado */
-    --color-text-medium: #64748b;    /* Legendas */
-    --color-accent: #ff6b00;         /* Laranja SAMU (Cor principal de destaque) */
-    --color-alert: #dc2626;          /* Vermelho Cruz da Vida */
+
+    --color-primary-dark: #2a0a0a;   
+    --color-secondary-dark: #450a0a; 
+    --color-tertiary-dark: #7f1d1d;  
+    --color-light: #ffffff;          
+    --color-white: #ffffff;          
+    --color-text-dark: BLACK;      
+    --color-text-light:WHITE;     
+    --color-text-medium: BLACK;    
+    --color-accent: #ff0000;         
+    --color-alert: #f59e0b;          
 }
 
 * {
