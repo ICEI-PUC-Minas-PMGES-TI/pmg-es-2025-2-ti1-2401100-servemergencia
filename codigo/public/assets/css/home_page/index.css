@@ -6,17 +6,12 @@
    #C4BCBC (Cinza Claro)
 */
 
-/* ======================================================= */
-/* --- 1. RESET MINIMALISTA --- */
-/* ======================================================= */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; 
 }
 
-/* Garante que imagens sejam responsivos por padrão */
 img {
   max-width: 100%;
   height: auto;
@@ -26,10 +21,6 @@ img {
 ul, ol {
   list-style: none;
 }
-
-/* ======================================================= */
-/* --- 2. ESTILOS GERAIS E LAYOUT --- */
-/* ======================================================= */
 
 body {
   font-family: 'Arial', sans-serif;
@@ -45,7 +36,6 @@ a {
   color: #2F3E57;
 }
 
-/* --- CABEÇALHO (header) --- */
 .cabecalho {
   display: flex;
   justify-content: space-between;
@@ -56,7 +46,6 @@ a {
   z-index: 100;
 }
 
-/* Oculta o checkbox */
 .menu-toggle {
   display: none;
 }

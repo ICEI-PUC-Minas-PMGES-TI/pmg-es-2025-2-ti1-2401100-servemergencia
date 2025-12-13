@@ -1,0 +1,62 @@
+:root {
+    --color-primary-dark: #a16207;    /* Tom Ouro/Cáqui escuro (Uniforme) */
+    --color-secondary-dark: #7c2d12;  /* Laranja ferrugem */
+    --color-tertiary-dark: #451a03;   /* Marrom café */
+    --color-accent: #dc2626;          /* Vermelho como detalhe, não como fundo */
+    --color-alert: #f59e0b;           
+    --color-light: #fef2f2;           /* Branco com leve tom quente/rosado para harmonizar */
+    --color-white: #ffffff;           /* Branco puro */
+    --color-text-dark: #1f2937;       /* Cinza chumbo (melhor leitura que preto puro) */
+    --color-text-light: #ffffff;      /* Branco para textos em fundos escuros */
+    --color-text-medium: #4b5563;     /* Cinza médio para subtítulos */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-light {
+    background-color: var(--color-light);
+    color: var(--color-text-dark);
+}
+
+.btn-light:hover {
+    background-color: #ddd;
+}
+
+.btn-dark {
+    background-color: var(--color-tertiary-dark);
+    color: var(--color-white);
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
