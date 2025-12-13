@@ -1,14 +1,14 @@
 :root {
-    --color-primary-dark: #a16207;    /* Tom Ouro/Cáqui escuro (Uniforme) */
-    --color-secondary-dark: #7c2d12;  /* Laranja ferrugem */
-    --color-tertiary-dark: #451a03;   /* Marrom café */
+    --color-primary-dark: #0f172a; 
+    --color-secondary-dark: #334155; 
+    --color-tertiary-dark: #475569; 
     --color-accent: #dc2626;          /* Vermelho como detalhe, não como fundo */
-    --color-alert: #f59e0b;           
-    --color-light: #fef2f2;           /* Branco com leve tom quente/rosado para harmonizar */
-    --color-white: #ffffff;           /* Branco puro */
-    --color-text-dark: #1f2937;       /* Cinza chumbo (melhor leitura que preto puro) */
-    --color-text-light: #ffffff;      /* Branco para textos em fundos escuros */
-    --color-text-medium: #4b5563;     /* Cinza médio para subtítulos */
+    --color-accent: #dc2626;          /* Vermelho como detalhe, não como fundo */
+    --color-light: #f8fafc; 
+    --color-white: #ffffff; 
+    --color-text-dark: #1e293b; /* Cinza chumbo azulado */
+    --color-text-light: #ffffff; 
+    --color-text-medium: #64748b; 
 }
 
 * {
