@@ -1,0 +1,209 @@
+/* ======================================================= */
+/* ESTILOS DA TELA QUANDO CHAMAR 
+/* ======================================================= */
+
+:root {
+    --color-primary-bombeiros: #A00000; /* Vermelho forte */
+    --color-secondary-bombeiros: #1F1F1F; /* Preto */
+    --color-background-light: #F8F8F8;
+    --color-white: #FFFFFF;
+    --color-text-light: #ffff;
+    
+    /* Cores de Destaque */
+    --color-samu: #28a745; /* Verde SAMU */
+    --color-atencao: #ffc107; /* Amarelo Atenção */
+}
+
+.chamadas-page {
+    background-color: var(--color-background-light);
+    padding-bottom: 80px;
+}
+
+.chamadas-guia {
+    padding: 60px 0;
+}
+
+.chamadas-guia h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-secondary-bombeiros);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-p {
+    font-size: 1.1em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--color-text-light);
+}
+
+/* --- GRID PRINCIPAL (Bombeiros e SAMU lado a lado) --- */
+.servicos-duo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* --- CARD DE SERVIÇO BASE --- */
+.servico-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid; 
+}
+
+.servico-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.servico-card h2 {
+    font-size: 1.7em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.servico-card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--color-secondary-bombeiros);
+    margin: 20px 0 10px;
+}
+
+.servico-icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.telefone-destaque {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+.servico-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.servico-content ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 30px;
+}
+
+.list-check {
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    top: 0;
+}
+
+/* CORES ESPECÍFICAS POR SERVIÇO */
+.bombeiros-card {
+    border-color: var(--color-primary-bombeiros);
+}
+.bombeiros-card h2, .bombeiros-card .list-check {
+    color: var(--color-primary-bombeiros);
+}
+
+.samu-card {
+    border-color: var(--color-samu);
+}
+.samu-card h2, .samu-card .list-check {
+    color: var(--color-samu);
+}
+
+.atencao-card {
+    grid-column: span 2; /* Ocupa as duas colunas */
+    border-color: var(--color-atencao);
+}
+.atencao-card h2, .atencao-card .list-check {
+    color: var(--color-atencao);
+}
+.divisao-nao-ligar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* --- CTA de Emergência --- */
+.call-to-action-bombeiros {
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* ... (O restante dos estilos dos botões de emergência, que já está funcionando) ... */
+
+@media (max-width: 992px) {
+    .servicos-duo-grid, .divisao-nao-ligar {
+        grid-template-columns: 1fr;
+    }
+    .atencao-card {
+        grid-column: span 1;
+    }
+}
+
+/* --- CTA de Emergência com 2 Botões --- */
+.call-to-action-bombeiros {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.call-to-action-bombeiros p {
+    font-size: 1.5em;
+    color: var(--color-secondary-bombeiros);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.btn-emergency-bombeiros, .btn-emergency-samu {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.1s;
+    margin: 0 10px;
+}
+
+.btn-emergency-bombeiros {
+    background-color: var(--color-primary-bombeiros);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(160, 0, 0, 0.4);
+}
+.btn-emergency-bombeiros:hover {
+    background-color: #880000;
+}
+
+.btn-emergency-samu {
+    background-color: var(--color-samu);
+    color: var(--color-white);
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+.btn-emergency-samu:hover {
+    background-color: #218838;
+}
+
+.btn-emergency-bombeiros span, .btn-emergency-samu span {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+    .btn-emergency-bombeiros, .btn-emergency-samu {
+        display: block;
+        width: 80%;
+        margin: 15px auto;
+    }
+}

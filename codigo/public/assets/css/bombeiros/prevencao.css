@@ -1,0 +1,139 @@
+/* ======================================================= */
+/* ESTILOS DA TELA DE PREVENÇÃO (prevencao.css) */
+/* ======================================================= */
+
+:root {
+    --color-primary-bombeiros: #A00000; /* Vermelho forte para destaque */
+    --color-secondary-bombeiros: #1F1F1F; /* Preto para texto */
+    --color-background-light: #F8F8F8; /* Fundo das seções features */
+    --color-white: #FFFFFF;
+    --color-text-light: #ffff;
+    --color-separator: #E0E0E0;
+}
+
+.prevencao-page {
+    background-color: var(--color-background-light);
+    padding-bottom: 80px;
+}
+
+.prevencao-guia {
+    padding: 60px 0;
+}
+
+.prevencao-guia h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-secondary-bombeiros);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-p {
+    font-size: 1.1em;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--color-text-light);
+}
+
+/* --- TÓPICO --- */
+.topico {
+    background-color: var(--color-white);
+    padding: 30px 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-primary-bombeiros);
+}
+
+.topico h2 {
+    font-size: 1.7em;
+    color: var(--color-primary-bombeiros);
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.topico-icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.topico p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--color-secondary-bombeiros);
+}
+
+.topico ul, .topico ol {
+    margin: 15px 0 15px 20px;
+    list-style: none; /* Remove bullet points padrão */
+}
+
+.topico ul li, .topico ol li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: var(--color-text-light);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 25px;
+}
+
+.list-check {
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-bombeiros); /* Checkmark vermelho */
+    font-weight: 700;
+}
+
+.topico ol {
+    list-style-type: decimal;
+    padding-left: 40px;
+}
+.topico ol li {
+    padding-left: 0;
+}
+.topico ol li::marker {
+    color: var(--color-primary-bombeiros);
+    font-weight: 700;
+}
+
+/* --- CTA de Emergência --- */
+.call-to-action-bombeiros {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.call-to-action-bombeiros p {
+    font-size: 1.5em;
+    color: var(--color-secondary-bombeiros);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.btn-emergency-bombeiros {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 35px;
+    background-color: var(--color-primary-bombeiros);
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(160, 0, 0, 0.4);
+}
+
+.btn-emergency-bombeiros:hover {
+    background-color: #880000;
+    transform: translateY(-2px);
+}
+
+.btn-emergency-bombeiros span {
+    margin-right: 15px;
+    font-size: 1.2em;
+}

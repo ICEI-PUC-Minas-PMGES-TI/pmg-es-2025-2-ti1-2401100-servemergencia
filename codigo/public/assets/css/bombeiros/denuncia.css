@@ -1,0 +1,191 @@
+/* ======================================================= */
+/* ESTILOS DA TELA DE CADASTRO DE DENÚNCIA (BOMBEIROS 193) */
+/* ======================================================= */
+
+:root {
+    /* Cores dos Bombeiros (Tema Vermelho / Marrom) */
+    --color-primary-bombeiros: #A00000; /* Vermelho forte */
+    --color-secondary-bombeiros: #ffc107; /* Amarelo/Laranja Atenção */
+    --color-background-light: #f4f7fa;
+    --color-white: #FFFFFF;
+    --color-text-dark: #1F1F1F; /* Preto do tema */
+    --color-text-light: #666666;
+    --color-shadow: rgba(160, 0, 0, 0.2); /* Sombra avermelhada */
+
+    /* CORES ESSENCIAIS DO FOOTER (BOMBEIROS/MARROM) */
+    --color-tertiary-dark: #583216; /* Marrom escuro */
+    --color-primary-dark: #91681a;  /* Marrom/Amarelado sub-footer */
+    --color-text-light-footer: #FFFFFF; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background-light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    background-color: var(--color-white);
+    border-radius: 15px;
+    /* Sombra mais escura e avermelhada */
+    box-shadow: 0 10px 30px var(--color-shadow);
+    overflow: hidden;
+}
+
+/* --- PAINEL ESQUERDO (Informativo) --- */
+.left-panel {
+    flex: 1;
+    /* Fundo em gradiente Vermelho Bombeiros */
+    background: linear-gradient(135deg, var(--color-primary-bombeiros), #880000);
+    color: var(--color-white);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.left-panel h1 {
+    font-size: 2.5em;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.left-panel p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    /* Botão secundário em Amarelo/Laranja (Atenção) */
+    background-color: var(--color-secondary-bombeiros);
+    color: var(--color-text-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    text-align: center;
+    max-width: 250px;
+}
+
+.btn-secondary:hover {
+    background-color: #e0a800;
+}
+
+/* --- PAINEL DIREITO (Formulário) --- */
+.right-panel {
+    flex: 1.5;
+    padding: 40px;
+}
+
+.right-panel h2 {
+    font-size: 1.8em;
+    color: var(--color-primary-bombeiros); /* Título em vermelho */
+    margin-bottom: 30px;
+}
+
+.right-panel h3 {
+    font-size: 1.2em;
+    color: var(--color-text-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#denunciaForm label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+#denunciaForm input[type="text"],
+#denunciaForm input[type="email"],
+#denunciaForm select,
+#denunciaForm textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+#denunciaForm textarea {
+    resize: vertical;
+}
+
+#denunciaForm input:focus,
+#denunciaForm select:focus,
+#denunciaForm textarea:focus {
+    /* Foco em vermelho Bombeiros */
+    border-color: var(--color-primary-bombeiros);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(160, 0, 0, 0.2); 
+}
+
+#denunciaForm hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+/* Botão de Envio Principal */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    /* Botão em vermelho Bombeiros */
+    background-color: var(--color-primary-bombeiros);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #880000;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .left-panel {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .left-panel h1 {
+        font-size: 2em;
+    }
+
+    .right-panel {
+        padding: 30px 20px;
+    }
+    
+    .btn-secondary {
+        max-width: none;
+        width: 100%;
+    }
+}
