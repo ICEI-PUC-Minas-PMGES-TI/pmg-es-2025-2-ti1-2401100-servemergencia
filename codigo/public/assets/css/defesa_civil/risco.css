@@ -1,0 +1,333 @@
+/* ======================================================= */
+/* ESTILOS PARA TELA DE IDENTIFICAÇÃO DE RISCOS (GUIAS DE COR) */
+/* Este arquivo deve substituir o conteúdo antigo de risco.css */
+/* ======================================================= */
+
+:root {
+    /* Cores de Fundo e Texto (Geral) */
+    --color-clean-bg: #F9F9F9;
+    --color-clean-card: #FFFFFF;
+    --color-primary-v3: #1A374D; 
+    --color-text-dark: #333333;
+    --color-text-light: #555555;
+    --color-separator: #EBEBEB;
+
+    /* Cores de Risco */
+    --color-danger-v: #dc3545; /* Vermelho - Alto */
+    --color-alert-v: #ffc107; /* Amarelo - Médio */
+    --color-attention-v: #28a745; /* Verde - Baixo */
+
+    /* CORES ESSENCIAIS DO FOOTER (CORRIGIDAS) */
+    --color-tertiary-dark: #2A3C4D; /* Fundo principal do Footer (Ex: image_521ebf.png) */
+    --color-primary-dark: #1A2833;  /* Fundo do Sub-footer (Ex: image_521ebf.png) */
+    --color-white: #FFFFFF;
+    --color-text-light-footer: #C9D9E9; /* Variável para textos claros no footer */
+}
+
+.riscos-page {
+    background-color: var(--color-clean-bg); 
+    padding-bottom: 80px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --------------------
+    HEADER E INTRODUÇÃO
+-------------------- */
+.riscos-intro {
+    background-color: var(--color-primary-v3); 
+    color: var(--color-clean-card);
+    padding: 70px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.riscos-intro h1 {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.riscos-intro p {
+    font-size: 1.25em;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* --------------------
+    SINAIS VISUAIS DE RISCO (Principal Conteúdo)
+-------------------- */
+.sinais-risco-secao {
+    padding: 60px 0 40px; 
+}
+
+.sinais-risco-secao h2 {
+    color: var(--color-primary-v3);
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.sinais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sinal-card {
+    background-color: var(--color-clean-card);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #ccc; /* Padrão, sobrescrito pelas classes de risco */
+    text-align: left;
+    transition: transform 0.2s;
+    /* Estilo para parecer mais compacto, como na image_520f96.png */
+    min-height: 150px; 
+}
+
+.sinal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sinal-icon {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Título de cada sinal - Destaque pela cor do nível */
+.sinal-card h3 {
+    font-size: 1.2em; 
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.sinal-card p {
+    font-size: 1em;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+
+/* === CLASSES DE COR ESPECÍFICAS === */
+
+/* RISCO ALTO (Vermelho) */
+.risco-alto {
+    border-color: var(--color-danger-v);
+}
+.risco-alto h3 {
+    color: var(--color-danger-v);
+}
+.risco-alto .sinal-icon {
+    color: var(--color-danger-v);
+}
+
+/* RISCO MÉDIO (Amarelo) */
+.risco-medio {
+    border-color: var(--color-alert-v);
+}
+.risco-medio h3 {
+    color: #b88b00; /* Amarelo escuro para contraste */
+}
+.risco-medio .sinal-icon {
+    color: var(--color-alert-v);
+}
+
+/* RISCO BAIXO (Verde) */
+.risco-baixo {
+    border-color: var(--color-attention-v);
+}
+.risco-baixo h3 {
+    color: var(--color-attention-v);
+}
+.risco-baixo .sinal-icon {
+    color: var(--color-attention-v);
+}
+
+
+/* --------------------
+    LEGENDA DE NÍVEIS DE RISCO 
+-------------------- */
+.niveis-risco-secao {
+    padding: 50px 0;
+    background-color: var(--color-separator);
+    margin-top: 40px;
+}
+
+.niveis-risco-secao h2 {
+    color: var(--color-primary-v3);
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.niveis-grid {
+    display: flex;
+    justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.nivel-item {
+    background-color: var(--color-clean-card);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nivel-item span {
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-primary-v3);
+}
+
+.nivel-item .desc {
+    font-size: 0.95em;
+    color: var(--color-text-light);
+}
+
+.nivel-color-block {
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.nivel-alto .nivel-color-block { background-color: var(--color-danger-v); }
+.nivel-medio .nivel-color-block { background-color: var(--color-alert-v); }
+.nivel-baixo .nivel-color-block { background-color: var(--color-attention-v); }
+
+.nivel-alto span { color: var(--color-danger-v); }
+.nivel-medio span { color: #b88b00; }
+.nivel-baixo span { color: var(--color-attention-v); }
+
+/* --------------------
+    AÇÃO DE EMERGÊNCIA 
+-------------------- */
+.emergency-call-to-action {
+    text-align: center;
+    padding: 50px 0;
+    background-color: var(--color-clean-bg);
+}
+
+.emergency-call-to-action p {
+    font-size: 1.5em;
+    color: var(--color-primary-v3);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.btn-emergency {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 35px;
+    background-color: var(--color-danger-v);
+    color: white;
+    font-size: 1.8em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+}
+
+.btn-emergency:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-emergency span {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* --------------------
+    RESPONSIVIDADE
+-------------------- */
+@media (max-width: 992px) {
+    .sinais-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .niveis-grid {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sinais-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.main-footer {
+    /* Usa a cor escura definida acima */
+    background-color: var(--color-tertiary-dark); 
+    color: var(--color-text-light-footer); /* Usando nova variável para clareza */
+    padding: 3rem 0;
+}
+
+.main-footer .container {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    font-size: 0.9rem;
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    /* Usa a cor branca definida acima */
+    color: var(--color-white); 
+}
+
+.footer-column p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+    color: var(--color-text-light-footer); /* Usando nova variável para clareza */
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: var(--color-white);
+}
+
+.sub-footer {
+    /* Usa a cor mais escura definida acima */
+    background-color: var(--color-primary-dark); 
+    color: #aaa;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}

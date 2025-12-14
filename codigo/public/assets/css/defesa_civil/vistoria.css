@@ -1,0 +1,203 @@
+/* ======================================================= */
+/* ESTILOS PARA TELA DE SOLICITAÇÃO DE VISTORIA */
+/* ======================================================= */
+
+:root {
+    --color-clean-bg: #F9F9F9;
+    --color-clean-card: #FFFFFF;
+    --color-primary-v3: #1A374D;
+    --color-accent-v3: #28a745; /* Verde para ação de solicitação/sucesso */
+    --color-text-dark: #333333;
+    --color-separator: #EBEBEB;
+    --color-warning: #ffc107;
+}
+
+.vistoria-page {
+    background-color: var(--color-clean-bg); 
+    padding-bottom: 80px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --------------------
+    HEADER E INTRODUÇÃO
+-------------------- */
+.vistoria-intro {
+    background-color: var(--color-primary-v3); 
+    color: var(--color-clean-card);
+    padding: 70px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vistoria-intro h1 {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.vistoria-intro p {
+    font-size: 1.25em;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* --------------------
+    CONTEÚDO PRINCIPAL (Formulário/Passos)
+-------------------- */
+.steps-container {
+    padding: 60px 0;
+}
+
+.steps-container h2 {
+    color: var(--color-primary-v3);
+    font-size: 2.2em;
+    margin-bottom: 60px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.vistoria-steps {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-clean-card);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilo para cada passo do formulário (Fieldset) */
+.form-step {
+    border: none;
+    padding: 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-separator);
+    padding-bottom: 30px;
+}
+
+.form-step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary-v3);
+    color: var(--color-clean-card);
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.form-step legend {
+    font-size: 1.8em;
+    color: var(--color-primary-v3);
+    font-weight: 700;
+    padding: 0;
+}
+
+/* Estilos de Input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent-v3);
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Campo de observação */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* --------------------
+    BOTÃO DE ENVIO
+-------------------- */
+.btn-submit-vistoria {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-accent-v3);
+    color: white;
+    font-size: 1.4em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 30px;
+}
+
+.btn-submit-vistoria:hover {
+    background-color: #218838;
+}
+
+/* --------------------
+    ALERTA DE RISCO
+-------------------- */
+.risk-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 1em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.risk-warning strong {
+    color: #dc3545;
+}
+
+/* --------------------
+    RESPONSIVIDADE
+-------------------- */
+@media (max-width: 768px) {
+    .vistoria-intro h1 {
+        font-size: 2.2em;
+    }
+    .vistoria-steps {
+        padding: 20px;
+    }
+    .form-step legend {
+        font-size: 1.5em;
+    }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defesa Civil - Solicitar Vistoria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./../../assets/css/servicos/barra_main.css">
+    <link rel="stylesheet" href="./../../assets/css/defesa_civil/tema.css"> 
+    <link rel="stylesheet" href="./../../assets/css/servicos/nav_bar.css">
+    <link rel="stylesheet" href="./../../assets/css/servicos/footer.css">
+    <link rel="stylesheet" href="./../../assets/css/servicos/responsive.css">
+    <link rel="stylesheet" href="./../../assets/css/defesa_civil/vistoria.css"> 
+</head>
+
+<body>
+    <header class="top-bar white-bg">
+        <div class="container">
+            <a href="./../../defesa_civil.html">
+                <div class="logo-address">
+                    <img src="./../../assets//images/sirene.png" alt="Logo Defesa Civil" class="sirene-icon">
+                    <div class="logo">
+                        <strong>Defesa Civil</strong>
+                        <span class="logo-phone">199</span>
+                    </div>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="./../../index.html">Início</a></li>
+                    <!-- <li><a href="./../vistorias/minhas_solicitacoes.html">Minhas Solicitações</a></li> -->
+                    <li><a href="./cadastro_denuncia.html">Cadastrar Denuncias</a></li>
+                    <li><a href="#" class="active-link">Alertas</a></li>
+                </ul>
+                <a href="#" class="btn btn-login dark-border"> <span>👤</span> Login
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="vistoria-page">
+        
+        <section class="vistoria-intro">
+            <div class="container">
+                <h1>Solicitação de Vistoria Técnica</h1>
+                <p>Use este formulário para solicitar a avaliação de um engenheiro da Defesa Civil em seu imóvel. Em caso de risco iminente, ligue 199 imediatamente.</p>
+            </div>
+        </section>
+
+        <section class="steps-container">
+            <div class="container">
+                <h2>Preencha os Passos Abaixo para Abrir sua Solicitação</h2>
+
+                <form class="vistoria-steps" id="vistoria-form">
+                    
+                    <div class="risk-warning">
+                        <strong>ATENÇÃO:</strong> Se houver risco de desabamento ou vida em perigo (estalos, rachaduras grandes e recentes), <strong>LIGUE 199</strong>. Não use o formulário.
+                    </div>
+
+                    <fieldset class="form-step">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <legend>Seus Dados de Contato</legend>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone (com DDD)</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-step">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <legend>Local da Ocorrência</legend>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="Apenas números (Ex: 30190090)" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rua">Rua/Avenida</label>
+                            <input type="text" id="rua" name="rua" placeholder="Nome da rua/avenida" required>
+                        </div>
+                        <div class="form-group" style="display: flex; gap: 20px;">
+                            <div style="flex: 1;">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" name="numero" placeholder="Ex: 500" required>
+                            </div>
+                            <div style="flex: 2;">
+                                <label for="complemento">Complemento (Apartamento, Bloco)</label>
+                                <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto 101 ou Fundos">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-step">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <legend>Detalhes da Ocorrência</legend>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo_risco">Tipo de Risco/Dano</label>
+                            <input type="text" id="tipo_risco" name="tipo_risco" placeholder="Ex: Rachadura na parede, trinca no muro, infiltração grave" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descreva o Problema (Observações importantes)</label>
+                            <textarea id="descricao" name="descricao" placeholder="Descreva o tamanho do dano, quando ocorreu, se houve chuva recente, etc." required></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn-submit-vistoria">
+                        Enviar Solicitação de Vistoria
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-column">
+                <h4>Telefones de Emergência</h4>
+                <ul>
+                    <li>DEFESA CIVIL: 199</li>
+                    <li>BOMBEIROS: 193</li>
+                    <li>SAMU: 192</li>
+                    <li>POLÍCIA MILITAR: 190</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="./../../index.html">Início</a></li>
+                    <li><a href="./../alertas/alerta.html">Cadastro de Alertas</a></li>
+                    <li><a href="#">Sobre a Defesa Civil</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Informações Úteis</h4>
+                <p>R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG</p>
+                <ul>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="./../../index.html">Tela principal</a></li>
+                    <li><a href="./../../index.html">Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <p>©2025 - Projeto Acadêmico PUC Minas (TIAW)</p>
+    </div>
+
+    <script>
+        document.getElementById('vistoria-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value.split(' ')[0] || 'Cidadão';
+            alert(`✅ Solicitação Recebida!\n\nObrigado, ${nome}. Sua solicitação de vistoria será analisada em breve. Acompanhe o status na seção "Minhas Solicitações".`);
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
