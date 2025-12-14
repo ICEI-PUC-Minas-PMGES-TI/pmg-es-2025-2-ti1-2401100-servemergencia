@@ -247,18 +247,71 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 ## Gerenciamento do Projeto
 ***
-Adotamos uma versão adaptada da metodologia scrum, utilizando o GitHub Projects 
-para coordenar e registrar o avanço da equipe. Durante o início do processo 
-realizamos um extenso Design Thinking com diversas etapas como mapeamento de 
-escopo, entrevistas qualitativas, criação de personas, histórias de usuário, brainstorm 
-de ideias, delimitação de funcionalidades e levantamento de requisitos. 
+Adotamos uma versão adaptada da metodologia scrum, utilizando o GitHub Projects
+para coordenar e registrar o avanço da equipe. Durante o início do processo
+realizamos um extenso Design Thinking com diversas etapas como mapeamento de
+escopo, entrevistas qualitativas, criação de personas, histórias de usuário, brainstorm
+de ideias, delimitação de funcionalidades e levantamento de requisitos.
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
+### Kanban de Gerenciamento (atualizado)
+
+Organizamos as tarefas do projeto usando um quadro Kanban simples. Abaixo está o estado atual com base nas atividades já realizadas no repositório.
+
+
+#### Backlog / To Do
+- [ ]
+- [ ]
+- [ ]
+
+
+#### Em Progresso
+- [ ]
+- [ ]
+- [ ]
+
+
+#### Concluído
+- [x] Design Thinking (board Miro) — pesquisa e alinhamento de escopo
+- [x] Entrevistas qualitativas e análise de insights
+- [x] Personas, jornadas e histórias de usuário
+- [x] Protótipos e wireframes (Figma)
+- [x] Páginas principais implementadas: Home, SAMU, Polícia Militar, Bombeiros, Defesa Civil
+- [x] Módulos de suporte: Prestadores, Roteiro, Denúncias, Boletins
+- [x] Estrutura de backend para desenvolvimento com JSON Server (`/codigo` e `db/db.json`)
 
 
 # Solução Implementada
+Esta seção descreve as soluções e componentes já implementados para o sistema de apoio a serviços emergenciais.
 
-Esta seção apresenta todos os detalhes da solução criada no projeto.
+
+## Resumo da Solução
+Nossa aplicação fornece uma plataforma web que integra informação, comunicação e registros para acelerar o atendimento emergencial. A implementação foca em: interface responsiva por serviço (SAMU, Polícia Militar, Bombeiros, Defesa Civil), gestão de registros (boletins, denúncias, prestadores), roteiros e mapas, e um backend leve para desenvolvimento com JSON Server.
+
+
+## Principais Módulos e Funcionalidades Implementadas
+- **Home e Navegação:** página inicial com acesso rápido aos serviços, instruções e FAQ.
+- **Autenticação básica / Perfil:** telas de login e cadastro com papéis padrões para usuário e prestador.
+- **SAMU:** formulário de roteiro de atendimento, informações de paciente, e chat para suporte (arquivos em `public/assets/js/samu/`).
+- **Polícia Militar:** criação e gerenciamento de boletins (CRUD) com visualização de ocorrências (`public/modulos/policia_militar/`).
+- **Bombeiros e Defesa Civil:** páginas específicas com orientações e funcionalidades de denúncia/registro de emergências (`public/modulos/bombeiros/`, `public/modulos/defesa_civil/`).
+- **Denúncias:** módulo para cadastro e listagem de denúncias públicas com fluxo de acompanhamento (`public/modulos/defesa_civil/cadastro_denuncia.html`).
+- **Prestadores:** CRUD de prestadores de serviço (dados e especialidades) para integrar equipes locais (`public/modulos/prestadores/`).
+- **Roteiro e Mapas:** funcionalidades de rota/visualização no mapa para apoiar deslocamento de equipes (`public/modulos/roteiro/`).
+- **APIs de desenvolvimento:** backend baseado em JSON Server, com `db/db.json` como fonte de dados para contatos, prestadores, boletins, denúncias e demais entidades.
+
+
+## Arquitetura e Tecnologias
+- **Frontend:** HTML/CSS/JavaScript (estrutura modular em `public/`), estilos por serviço em `public/assets/css/`.
+- **Backend (dev):** JSON Server (via `codigo/package.json` script `start`) que expõe endpoints REST e serve os arquivos estáticos.
+- **Ferramentas de design:** Miro (Design Thinking), Figma (protótipos), imagens e wireframes em `docs/images`.
+
+
+## Como Executar Localmente (desenvolvimento)
+1. Abra o terminal na pasta `codigo`.
+2. Instale dependências: `npm install` (se necessário).
+3. Inicie o servidor: `npm start` — o JSON Server é executado e também serve os arquivos estáticos em `http://localhost:3000`. (Execute esse comando **uma única vez**; o mesmo servidor provê a API e os arquivos estáticos.)
+4. Acesse a interface no navegador em `http://localhost:3000` e utilize os endpoints API (ex.: `http://localhost:3000/boletins`, `http://localhost:3000/denuncias`).
+
 
 ## Vídeo do Projeto
 
@@ -274,67 +327,76 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.Info
+Esta seção apresenta, de forma resumida, as funcionalidades oferecidas pelo sistema. Abaixo estão as funcionalidades principais implementadas e um espaço reservado para inserir prints de tela futuramente (adicione imagens em `docs/images/funcionalidades/`).
 
-##### Funcionalidade 1 - Cadastro de Contatos 
+##### Funcionalidade - Home e Navegação
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+Página inicial com acesso rápido aos serviços emergenciais, instruções, FAQs e links para os módulos específicos.
 
-* **Estrutura de dados:** [Contatos](#ti_ed_contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login
-  * Acesse o menu principal e escolha a opção Contatos
-  * Em seguida, preencha o formulário
-* **Tela da funcionalidade**:
+- **Estrutura de dados:** navegação, serviços (lista de serviços disponíveis)
+- **Instruções de acesso:** Acesse a raiz do site (`codigo/public/index.hmtl`) para visualizar a Home.
+- **Tela da funcionalidade:** [![Home e Navegação](images/telaincialHTML.png)]
 
-![Tela de Cadastro de Contato](images/CadastroContato.png)
+##### Funcionalidade - Autenticação e Perfil
 
-##### Funcionalidade 2 - Tela principal
+Login e cadastro de usuários (usuários comuns e prestadores), gerenciamento de perfil e permissões básicas.
 
+- **Estrutura de dados:** usuários, perfis
+- **Instruções de acesso:** Acesse `/login` para autenticar ou `/cadastro` para criar conta.
+- **Tela da funcionalidade:** [![Tela de Cadastro](images/cadastroHTML.png)]
 
-* **Estrutura de dados:** [Tela principal](#ti_ed_contatos)
-* **Instruções de acesso:**
-  * Abra o site 
-  * Possivel acessar qualquer serviço de emergência 
-* **Tela da funcionalidade**:
+##### Funcionalidade - SAMU
 
-![Tela principal](images/ImagemPaginaPrincipal.png)
+Formulário de solicitação/roteiro de atendimento, informações do paciente e chat de suporte.
+
+- **Estrutura de dados:** roteiros, atendimentos, mensagens de chat
+- **Instruções de acesso:** Escolha o serviço SAMU na Home para abrir o módulo SAMU.
+- **Tela da funcionalidade:** [![Tela do Samu](images/samuHTML.png)]
+
+##### Funcionalidade - Polícia Militar
+
+Criação e gerenciamento de boletins de ocorrência (CRUD) e visualização de ocorrências.
+
+- **Estrutura de dados:** boletins, ocorrências
+- **Instruções de acesso:** Selecione Polícia Militar na Home ou menu de serviços.
+- **Tela da funcionalidade:** [![Tela da Policia Civil](images/policiaHTML.png)]
+
+##### Funcionalidade - Bombeiros
+
+Informações e orientações, além de funcionalidades para registro de emergências relacionadas a incêndios e salvamentos.
+
+- **Estrutura de dados:** registros de ocorrências de incêndio, guias de orientação
+- **Instruções de acesso:** Selecione Bombeiros na Home.
+- **Tela da funcionalidade:** [![Tela do Bombeiro](images/bombeiroHTML.png)]
+
+##### Funcionalidade - Defesa Civil / Denúncias
+
+Cadastro e listagem de denúncias, acompanhamento do status e fluxo de acompanhamento público.
+
+- **Estrutura de dados:** denúncias
+- **Instruções de acesso:** Acesse o módulo Defesa Civil/Denúncias no menu principal.
+- **Tela da funcionalidade:** [![Tela da Defesa Civil](images/defesacivilHTML.png)]
+
+##### Funcionalidade - Prestadores de Serviço
+
+CRUD de prestadores (dados pessoais, especialidades, ID funcional) para integrar equipes locais.
+
+- **Estrutura de dados:** prestadores
+- **Instruções de acesso:** Menu de administração → Prestadores (requer permissões).
+- **Tela da funcionalidade:** Espaço reservado para prints [![Tela de Cadastro Prestadores](images/prestadoresHTML.png)]
+
+##### Funcionalidade - Roteiro e Mapas
+
+Visualização de rotas e mapas para apoiar deslocamento de equipes e atendimento emergencial.
+
+- **Estrutura de dados:** roteiros, localizações
+- **Instruções de acesso:** Acesse o módulo Roteiro/Mapas pela Home.
+- **Tela da funcionalidade:** [![TELA MAPA](images/mapaHTML.png)]
 
 ## Estruturas de Dados
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
-
-Contatos da aplicação
-
-```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
-```
-
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema
-
-```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
-```
 ##### Estrutura de Dados - Localização 
         {
             "id": "hosp_puc",
@@ -484,17 +546,27 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
 
 * APIs do navegador / técnicas: Fetch API (fetch()), Web Components, uso de tel: para chamadas telefônicas.
 
+
 # Referências
 
-As referências utilizadas no trabalho foram:
+As referências utilizadas no trabalho (formatadas em estilo ABNT, para fontes eletrônicas):
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+ - TYPOICODE. json-server [repositório na internet]. Disponível em: https://github.com/typicode/json-server. 
+     (TYPOICODE, repositório do projeto; sem local/ano explícitos)
+
+ - EXPRESS. Express — Fast, unopinionated, minimalist web framework for Node.js [site na internet]. Disponível em: https://expressjs.com/. 
+     (Express.js Foundation)
+
+ - NODE.JS. Node.js — JavaScript runtime [site na internet]. Disponível em: https://nodejs.org/. 
+     (OpenJS Foundation)
+
+ - GOOGLE. Google Maps JavaScript API [documentação online]. Disponível em: https://developers.google.com/maps/documentation/javascript/overview. 
+     (Google LLC)
+
+ - TWBS. Bootstrap [site na internet]. Disponível em: https://getbootstrap.com/. 
+     (The Bootstrap Authors)
+
+ - ICEI-PUC-MINAS-PMGES-TI. pmg-es-2025-2-ti1-2401100-servemergencia [repositório na internet]. Disponível em: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-2401100-servemergencia. 
+
+
