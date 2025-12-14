@@ -31,6 +31,7 @@ function initLoginApp() {
 
         document.addEventListener('DOMContentLoaded', function () {
             showUserInfo('userInfo');
+            atualizarBotaoCabecalho();
         });
     } else {
         // Estamos na página de LOGIN
@@ -185,3 +186,26 @@ document.getElementById('login-form').addEventListener('submit', processaFormLog
 
 // Associar salvamento ao botao
 document.getElementById('btn_salvar').addEventListener('click', salvaLogin);        
+
+function atualizarBotaoCabecalho() {
+    var usuarioLogado = sessionStorage.getItem('usuarioCorrente');
+    var btnLogin = document.getElementById('btn-login-header');
+
+    if (btnLogin && usuarioLogado) {
+        var usuario = JSON.parse(usuarioLogado);
+
+        btnLogin.innerHTML = `<span>👤</span> ${usuario.login}`; 
+        
+        btnLogin.href = "#"; 
+
+        btnLogin.onclick = function (event) {
+            event.preventDefault(); // Evita navegar
+            
+            if (confirm("Olá " + usuario.nome + ", deseja sair da sua conta?")) {
+                logoutUser(); // Chama sua função de logout existente
+            }
+        };
+        
+        btnLogin.classList.add('usuario-logado');
+    }
+}
