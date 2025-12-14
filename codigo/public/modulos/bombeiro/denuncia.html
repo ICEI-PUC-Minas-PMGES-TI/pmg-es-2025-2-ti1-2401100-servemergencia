@@ -1,105 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Denúncia de Risco - Bombeiros</title>
-    
-        <link rel="stylesheet" href="../../assets/css/bombeiros/denuncia.css">
+       
+    <meta charset="UTF-8">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar Denúncia de Risco - Bombeiros</title>
+       
+       
+    <link rel="stylesheet" href="../../assets/css/bombeiros/denuncia.css">
     <link rel="stylesheet" href="../../assets/css/bombeiros/tema.css">
-    <link rel="stylesheet" href="../../assets/css/servicos/footer.css">
+       
+    <link rel="stylesheet" href="../../assets/css/servicos/footer.css">
+    <script src="./assets/js/login.js"></script>
 </head>
+
 <body>
-    
+       
 
-    <div class="container">
-        <div class="left-panel">
-            <h1>Denunciar Risco <br>Bombeiros 193</h1>
-<!--             <p>Use este formulário apenas para riscos que não são emergências imediatas. Em caso de fogo, resgate ou perigo à vida, **LIGUE 193** imediatamente.</p>
+        <div class="container">
+                <div class="left-panel">
+                        <h1>Denunciar Risco <br>Bombeiros 193</h1>
+            <!--             <p>Use este formulário apenas para riscos que não são emergências imediatas. Em caso de fogo, resgate ou perigo à vida, **LIGUE 193** imediatamente.</p>
             <a href="../home_page/como_denunciar.html" class="btn-secondary">Orientações de Emergência</a> -->
-        </div>
+                   
+        </div>
 
-        <div class="right-panel">
-            <h2>Dados da Denúncia de Risco</h2>
-            <form id="denunciaForm">
-                
-                <label for="tipoDenuncia">Tipo de Risco/Denúncia</label>
-                <select id="tipoDenuncia" name="tipoDenuncia" required>
-                    <option value="" disabled selected>Selecione o tipo</option>
-                    <option value="incendio_risco">Risco de Incêndio (Local Abandonado, Fiação Exposta)</option>
-                    <option value="animal_silvestre">Captura de Animal Silvestre (Sem Perigo Imediato)</option>
-                    <option value="vazamento_gas">Vazamento de Gás (Odôres fora de casa)</option>
+                <div class="right-panel">
+                        <h2>Dados da Denúncia de Risco</h2>
+                        <form id="denunciaForm">
+                               
+                                <label for="tipoDenuncia">Tipo de Risco/Denúncia</label>
+                                <select id="tipoDenuncia" name="tipoDenuncia" required>
+                                        <option value="" disabled selected>Selecione o tipo</option>
+                                        <option value="incendio_risco">Risco de Incêndio (Local Abandonado, Fiação
+                        Exposta)</option>
+                                        <option value="animal_silvestre">Captura de Animal Silvestre (Sem Perigo
+                        Imediato)</option>
+                                        <option value="vazamento_gas">Vazamento de Gás (Odôres fora de casa)</option>
                     <option value="arvore_risco">Árvore com Risco de Queda (Não iminente)</option>
                     <option value="entulho">Risco de Desabamento/Entulho (Avaliação)</option>
-                    <option value="outro_bombeiro">Outro Risco de Salvamento/Resgate</option>
-                </select>
+                                        <option value="outro_bombeiro">Outro Risco de Salvamento/Resgate</option>
+                                   
+                </select>
 
-                <label for="descricao">Descrição Detalhada do Risco</label>
-                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva detalhadamente o que você observou..." required></textarea>
+                                <label for="descricao">Descrição Detalhada do Risco</label>
+                                <textarea id="descricao" name="descricao" rows="4"
+                    placeholder="Descreva detalhadamente o que você observou..." required></textarea>
 
-                <label for="localizacao">Localização (Endereço e Ponto de Referência)</label>
-                <input type="text" id="localizacao" name="localizacao" placeholder="Ex: Rua Bombeiros, 193 - Em frente ao quartel" required>
+                                <label for="localizacao">Localização (Endereço e Ponto de Referência)</label>
+                                <input type="text" id="localizacao" name="localizacao"
+                    placeholder="Ex: Rua Bombeiros, 193 - Em frente ao quartel" required>
 
-                <label for="midia">Anexar Imagem/Vídeo (Opcional)</label>
-                <input type="file" id="midia" name="midia" accept="image/*,video/*">
-                
-                <hr>
+                                <label for="midia">Anexar Imagem/Vídeo (Opcional)</label>
+                                <input type="file" id="midia" name="midia" accept="image/*,video/*">
+                               
+                               
+                <hr>
 
-                <h3>Dados do Denunciante (Opcional)</h3>
-                <input type="text" id="nome" name="nome" placeholder="Seu Nome Completo (Opcional)">
-                <input type="email" id="email" name="email" placeholder="Email para Acompanhamento (Opcional)">
+                                <h3>Dados do Denunciante (Opcional)</h3>
+                                <input type="text" id="nome" name="nome" placeholder="Seu Nome Completo (Opcional)">
+                                <input type="email" id="email" name="email"
+                    placeholder="Email para Acompanhamento (Opcional)">
 
-                <button type="submit" class="btn-primary">Registrar Denúncia</button>
-            </form>
-        </div>
-    </div>
+                                <button type="submit" class="btn-primary">Registrar Denúncia</button>
+                           
+            </form>
+                    </div>
+            </div>
 
-    <script>
-        document.getElementById('denunciaForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); 
+       
+    <script>
+        document.getElementById('denunciaForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-            const form = event.target;
-            
-            // Geração de dados no frontend para garantir formato JSON
-            const dataAtual = new Date();
-            const timestampId = `DEN-${dataAtual.getTime()}`;
+            const form = event.target;
 
-            const data = {
-                id: timestampId, // Adicionando o ID
-                tipo_denuncia: form.tipoDenuncia.value,
-                descricao_problema: form.descricao.value,
-                localizacao: form.localizacao.value,
-                nome_denunciante: form.nome.value || 'Anônimo',
-                email_denunciante: form.email.value || 'N/A',
-                data_hora_recebimento: dataAtual.toISOString(), // Adicionando data e hora
-                status: 'Recebida' // Status inicial
-            };
+            // Geração de dados no frontend para garantir formato JSON
+            const dataAtual = new Date();
+            const timestampId = `DEN-${dataAtual.getTime()}`;
 
-            try {
-                // Enviando para o endpoint /denuncias
-                const response = await fetch('http://localhost:3000/denuncias', { 
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
+            const data = {
+                id: timestampId, // Adicionando o ID
+                tipo_denuncia: form.tipoDenuncia.value,
+                descricao_problema: form.descricao.value,
+                localizacao: form.localizacao.value,
+                nome_denunciante: form.nome.value || 'Anônimo',
+                email_denunciante: form.email.value || 'N/A',
+                data_hora_recebimento: dataAtual.toISOString(), // Adicionando data e hora
+                status: 'Recebida' // Status inicial
+            };
 
-                const result = await response.json();
+            try {
+                // Enviando para o endpoint /denuncias
+                const response = await fetch('http://localhost:3000/denuncias', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
 
-                if (response.ok) {
-                    alert(`Sucesso! Denúncia de risco registrada. ID: ${result.id || timestampId}`);
-                    form.reset();
-                } else {
-                    alert(`Erro ao registrar denúncia: ${result.message || response.statusText}`);
-                }
+                const result = await response.json();
 
-            } catch (error) {
-                console.error('Erro de conexão:', error);
-                alert('Erro ao conectar ao servidor.\nCertifique-se que o JSON Server está rodando.');
-            }
-        });
-    </script>
+                if (response.ok) {
+                    alert(`Sucesso! Denúncia de risco registrada. ID: ${result.id || timestampId}`);
+                    form.reset();
+                } else {
+                    alert(`Erro ao registrar denúncia: ${result.message || response.statusText}`);
+                }
+
+            } catch (error) {
+                console.error('Erro de conexão:', error);
+                alert('Erro ao conectar ao servidor.\nCertifique-se que o JSON Server está rodando.');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
