@@ -1,0 +1,111 @@
+       .page-title {
+           text-align: center;
+           padding: 40px 0 20px;
+       }
+
+       .page-title h1 {
+           color: #1f1f1f;
+           font-size: 2.5rem;
+           margin-bottom: 10px;
+       }
+
+       .contact-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+           gap: 30px;
+           padding: 40px 0;
+       }
+
+       .contact-card {
+           background: white;
+           border-radius: 12px;
+           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+           padding: 30px;
+           text-align: center;
+           transition: transform 0.3s ease;
+           border-top: 5px solid transparent;
+       }
+
+       .contact-card:hover {
+           transform: translateY(-5px);
+       }
+
+       .border-samu {
+           border-color: #dc3545;
+       }
+
+       .border-bombeiros {
+           border-color: #fd7e14;
+       }
+
+       .border-policia {
+           border-color: #0d6efd;
+       }
+
+       .border-defesa {
+           border-color: #ffc107;
+       }
+
+       .big-number {
+           font-size: 3rem;
+           font-weight: 700;
+           margin: 15px 0;
+           display: block;
+           color: #333;
+       }
+
+       .card-icon {
+           font-size: 2.5rem;
+           margin-bottom: 15px;
+       }
+
+       .color-samu {
+           color: #dc3545;
+       }
+
+       .color-bombeiros {
+           color: #fd7e14;
+       }
+
+       .color-policia {
+           color: #0d6efd;
+       }
+
+       .color-defesa {
+           color: #d39e00;
+       }
+
+       .btn-call {
+           background-color: #28a745;
+           color: white;
+           padding: 12px 25px;
+           border-radius: 50px;
+           text-decoration: none;
+           display: inline-block;
+           margin-top: 15px;
+           font-weight: bold;
+           width: 100%;
+           transition: background 0.3s;
+       }
+
+       .btn-call:hover {
+           background-color: #218838;
+       }
+
+       .btn-details {
+           display: inline-block;
+           margin-top: 10px;
+           color: #666;
+           text-decoration: underline;
+           font-size: 0.9rem;
+       }
+
+       .warning-box {
+           background-color: #fff3cd;
+           border: 1px solid #ffeeba;
+           color: #856404;
+           padding: 20px;
+           border-radius: 8px;
+           margin-bottom: 40px;
+           text-align: center;
+       }
