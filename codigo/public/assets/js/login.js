@@ -13,45 +13,43 @@ var usuarioCorrente = {};
 function initLoginApp() {
     let pagina = window.location.pathname;
 
-    // CORREÇÃO: Verifica se NÃO estamos na página de login usando includes
-    // Isso evita erros se o caminho das pastas for diferente
-    if (!pagina.includes('login.html')) {
-        // Estamos em uma página interna, salva ela para voltar depois
-        sessionStorage.setItem('returnURL', pagina);
-        RETURN_URL = pagina;
+    // Tenta carregar o usuário do logado
+    var usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
+    
+    if (usuarioCorrenteJSON) {
+        // Se tem usuário, carrega os dados dele
+        usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
+    }
+    
+    // VERIFICAÇÃO INTELIGENTE:
+    // Só redireciona para o login SE estivermos em uma página que OBRIGA login.
+    // Como seu site é público (Início, Sobre, Contato), não precisamos redirecionar ninguém agora.
+    
+    // Se você tiver uma página restrita no futuro (ex: 'perfil.html'), você faria assim:
+    // if (!usuarioCorrenteJSON && pagina.includes('perfil.html')) {
+    //     window.location.href = LOGIN_URL;
+    // }
 
-        // Lógica de verificar usuário logado...
-        var usuarioCorrenteJSON = sessionStorage.getItem('usuarioCorrente');
-        if (usuarioCorrenteJSON) {
-            usuarioCorrente = JSON.parse(usuarioCorrenteJSON);
-        } else {
-            // Se não tem usuário, manda pro login
-            window.location.href = LOGIN_URL;
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
+    // Configura o evento para carregar informações na tela (se houver placeholder)
+    document.addEventListener('DOMContentLoaded', function () {
+        // Se existir um elemento 'userInfo' na tela, preenche
+        if (document.getElementById('userInfo')) {
             showUserInfo('userInfo');
-            atualizarBotaoCabecalho();
-        });
-    } else {
-        // Estamos na página de LOGIN
-
-        // Tenta recuperar para onde ir, mas se for nulo OU se for a própria login, manda pra home
-        let returnURL = sessionStorage.getItem('returnURL');
-
-        // CORREÇÃO: Evita loop infinito se a returnURL for o próprio login
-        if (!returnURL || returnURL.includes('login.html')) {
-            RETURN_URL = "/codigo/public/index.html"; // Força a home page
-        } else {
-            RETURN_URL = returnURL;
         }
+        
+        // Atualiza o botão do cabeçalho (aquela função nova que criamos)
+        if (typeof atualizarBotaoCabecalho === "function") {
+            atualizarBotaoCabecalho();
+        }
+    });
 
-        // Inicializa banco de dados
+    // Se estivermos NA página de login, carrega a lista de usuários do banco
+    if (pagina.includes('login.html')) {
         carregarUsuarios(() => {
             console.log('Usuários carregados...');
         });
     }
-};
+}
 
 
 function carregarUsuarios(callback) {
