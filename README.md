@@ -1,6 +1,8 @@
-# Nome do projeto
+# Serviços Emergenciais - 911
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+Este projeto propõe um portal web integrado, "Serviços Emergenciais - 911", que facilita a comunicação entre cidadãos e órgãos de emergência (Bombeiros, SAMU, Polícia Militar e Defesa Civil). O sistema reúne informações, orientações de socorro, cadastro e visualização de denúncias, gestão de ocorrências e ferramentas para prestadores, com foco em reduzir o tempo de resposta, orientar a população em situações críticas e fornecer dados úteis para as equipes de atendimento.
+
+Além das funcionalidades básicas, o portal conta com mapas interativos para localização de ocorrências, chat de atendimento, formulários para registro de eventos e um painel de gestão para respondentes e prestadores. A interface é responsiva e acessível, com filtros para priorização de chamados e geração de relatórios, apoiando a coordenação eficiente das equipes e a tomada de decisões em tempo real.
 
 ## Alunos integrantes da equipe
 
