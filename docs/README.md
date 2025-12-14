@@ -465,20 +465,20 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
         "alerta_dado": "Medio"
     },
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
-
 ## Módulos e APIs
 
-Esta seção apresenta os módulos e APIs utilizados na solução
+* Backend (Node): express, json-server, body-parser, cors, fs, path.
+
+* Banco/Mock API: JSON Server expondo recursos do db.json (ex.: /localizacao, /boletins, /prestadores, /contatos, /denuncias, /samu, /policia, /bombeiro, /defesa, /emergencias, etc.) 
+
+* Google Maps / Geolocation: Google Maps JavaScript API (maps, places, geometry) e Google Maps Web Components (gmpx-api-loader, gmp-map) 
+
+* IA Generativa (chat): Google Generative Language API (Gemini) chamada em chat.js via https://generativelanguage.googleapis.com (requere API key).
+
+* Front-end / CDNs: Bootstrap (CDN), jQuery, Popper.js, Font Awesome (CDN), Google Fonts.
+
+* APIs do navegador / técnicas: Fetch API (fetch()), Web Components, uso de tel: para chamadas telefônicas.
+
 
 **Images**:
 
