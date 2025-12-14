@@ -397,6 +397,15 @@
     "alerta_label": "Gravidade da Situação:",
     "alerta_dado": "Medio"
   },
+  "usuarios": [
+    {
+      "id": "c896",
+      "login": "Gustavo",
+      "senha": "123",
+      "nome": "Gustavo Fitipaldi",
+      "email": "gu.fit@hotmail.com"
+    }
+  ],
   "emergencias": [],
   "liveServer.settings.port": 5501
 }

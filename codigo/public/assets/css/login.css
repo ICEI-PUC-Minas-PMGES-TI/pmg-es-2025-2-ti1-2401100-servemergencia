@@ -1,0 +1,254 @@
+#login-scope {
+    --login-primary-dark: #2F3E57;
+    --login-secondary-dark: #E6EEF8;
+    --login-text-medium: #4b5563;
+    --login-white: #ffffff;
+    background-color: #eeecec;
+    min-height: 60vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#login-scope .main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#login-scope .login-wrapper {
+    background-color: var(--login-white);
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#login-scope .side-info {
+    background-color: var(--login-primary-dark);
+    padding: 1rem !important;
+}
+
+#login-scope .side-info h2 {
+    font-weight: 800;
+    color: var(--login-white) !important;
+    margin-bottom: 1rem;
+}
+
+#login-scope .side-info p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#login-scope .btn-outline-light {
+    border: 2px solid var(--login-white);
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 600;
+    color: var(--login-white);
+    background: transparent;
+}
+
+#login-scope .btn-outline-light:hover {
+    background-color: var(--login-white);
+    color: var(--login-primary-dark);
+}
+
+#login-scope .side-form {
+    background-color: var(--login-secondary-dark);
+    display: flex;
+    align-items: center;
+    padding: 3rem !important;
+}
+
+#login-scope .login-box {
+    width: 100%;
+}
+
+#login-scope h3 {
+    color: var(--login-primary-dark) !important;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Garante centralização */
+}
+
+#login-scope label {
+    color: var(--login-text-medium) !important;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#login-scope .input-group-text {
+    background-color: transparent;
+    border: none;
+    color: var(--login-text-medium);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    border-radius: 0;
+}
+
+#login-scope .form-control {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--login-primary-dark);
+    font-weight: 500;
+    box-shadow: none !important; 
+}
+
+#login-scope .form-control:focus {
+    background-color: #fff !important;
+    border: 1px solid var(--login-primary-dark);
+}
+
+#login-scope .form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#login-scope .form-check-input {
+    margin-top: 0;
+}
+
+#login-scope .form-check-input:checked {
+    background-color: var(--login-primary-dark);
+    border-color: var(--login-primary-dark);
+}
+
+#login-scope .btn-login {
+    background-color: #cfd4da; 
+    color: var(--login-primary-dark);
+    font-weight: 800;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+#login-scope .btn-login:hover {
+    background-color: var(--login-primary-dark);
+    color: var(--login-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+#loginModal {
+    --modal-primary: #2F3E57;
+    --modal-bg-light: #E6EEF8;
+    --modal-text: #4b5563;
+    --modal-white: #ffffff;
+}
+
+#loginModal .modal-content {
+    border-radius: 20px; /* Cantos bem arredondados */
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+#loginModal .modal-header {
+    background-color: var(--modal-bg-light);
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+#loginModal .modal-title {
+    color: var(--modal-primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+#loginModal .close {
+    opacity: 0.7;
+    color: var(--modal-primary);
+    text-shadow: none;
+    outline: none;
+}
+
+#loginModal .close:hover {
+    opacity: 1;
+}
+
+#loginModal .modal-body {
+    padding: 2rem;
+    background-color: var(--modal-white);
+}
+
+#loginModal h3.text-info {
+    color: var(--modal-primary) !important; 
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#loginModal label.text-info {
+    color: var(--modal-text) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#loginModal .form-control {
+    background-color: #f1f5f9; /* Um cinza bem claro */
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: var(--modal-primary);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#loginModal .form-control:focus {
+    background-color: #fff;
+    border-color: var(--modal-primary);
+    box-shadow: 0 0 0 3px rgba(47, 62, 87, 0.1);
+}
+
+#loginModal .modal-footer {
+    border-top: none;
+    background-color: #f8fafc;
+    padding: 1rem 2rem;
+}
+
+#loginModal .btn-secondary {
+    background-color: transparent;
+    border: 1px solid #cbd5e1;
+    color: var(--modal-text);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 20px;
+}
+
+#loginModal .btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: #000;
+}
+
+#loginModal #btn_salvar.btn-info {
+    background-color: var(--modal-primary);
+    border-color: var(--modal-primary);
+    color: var(--modal-white);
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 25px;
+    box-shadow: 0 4px 6px rgba(47, 62, 87, 0.2);
+}
+
+#loginModal #btn_salvar.btn-info:hover {
+    background-color: #1e2a3b; /* Versão mais escura do azul */
+    transform: translateY(-1px);
+}
