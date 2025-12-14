@@ -276,7 +276,7 @@ O vídeo a seguir traz uma apresentação do problema que a equipe está tratand
 
 Esta seção apresenta as funcionalidades da solução.Info
 
-##### Funcionalidade 1 - Cadastro de Contatos ⚠️ EXEMPLO ⚠️
+##### Funcionalidade 1 - Cadastro de Contatos 
 
 Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
@@ -289,11 +289,16 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 ![Tela de Cadastro de Contato](images/CadastroContato.png)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+##### Funcionalidade 2 - Tela principal
+
+
+* **Estrutura de dados:** [Tela principal](#ti_ed_contatos)
+* **Instruções de acesso:**
+  * Abra o site 
+  * Possivel acessar qualquer serviço de emergência 
+* **Tela da funcionalidade**:
+
+![Tela principal](images/ImagemPaginaPrincipal.png)
 
 ## Estruturas de Dados
 
