@@ -1,0 +1,97 @@
+     .hero-banner {
+         background-color: #f4f4f4;
+         padding: 40px 0;
+         text-align: center;
+         border-bottom: 4px solid #cc0000;
+     }
+
+     .hero-banner h1 {
+         color: #333;
+         font-size: 2.5rem;
+         margin-bottom: 10px;
+     }
+
+     .hero-banner p {
+         color: #666;
+         font-size: 1.2rem;
+     }
+
+     .instructions-container {
+         padding: 50px 0;
+     }
+
+     .cards-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         gap: 20px;
+         margin-top: 20px;
+     }
+
+     .instruction-card {
+         background: white;
+         border: 1px solid #e0e0e0;
+         border-radius: 8px;
+         padding: 25px;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+         transition: transform 0.2s;
+     }
+
+     .instruction-card:hover {
+         transform: translateY(-5px);
+         border-color: #cc0000;
+     }
+
+     .card-icon {
+         font-size: 2.5rem;
+         margin-bottom: 15px;
+         display: block;
+     }
+
+     .instruction-card h3 {
+         color: #cc0000;
+         margin-bottom: 15px;
+     }
+
+     .instruction-card ul {
+         list-style-type: none;
+         padding: 0;
+     }
+
+     .instruction-card ul li {
+         margin-bottom: 10px;
+         padding-left: 20px;
+         position: relative;
+     }
+
+     .instruction-card ul li::before {
+         content: "•";
+         color: #cc0000;
+         font-weight: bold;
+         position: absolute;
+         left: 0;
+     }
+
+     .alert-box {
+         background-color: #fff3cd;
+         color: #856404;
+         border: 1px solid #ffeeba;
+         padding: 20px;
+         border-radius: 8px;
+         margin-top: 40px;
+         text-align: center;
+     }
+
+     .btn-delegacia {
+         display: inline-block;
+         margin-top: 20px;
+         padding: 12px 25px;
+         background-color: #333;
+         color: white;
+         text-decoration: none;
+         border-radius: 5px;
+         font-weight: bold;
+     }
+
+     .btn-delegacia:hover {
+         background-color: #000;
+     }
