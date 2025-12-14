@@ -330,6 +330,140 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
     senha: "123"
   }
 ```
+##### Estrutura de Dados - Localização 
+        {
+            "id": "hosp_puc",
+            "name": "Hospital PUC Minas (Base de Ambulância)",
+            "type": "hospital",
+            "lat": -19.922835,
+            "lng": -43.992590,
+            "address": "R. Dom João Gaspar, 500 - Coração Eucarístico"
+        },
+
+##### Estrutura de Dados - Boletins
+{
+            "id": "716d",
+            "tipo-ocorrencia": "furto",
+            "status": "Pendente",
+            "data-hora": "2025-11-02T20:42",
+            "endereco-fato": "rua das flores",
+            "cidade": "Belo horizonte",
+            "uf": "MG",
+            "descricao": "Dona cleusa roubou o meu bolo de pote",
+            "vitimas-testemunhas": "Dona cirlene viu o ocorrido",
+            "bens-valores": "20 reais o bolo"
+        },
+##### Estrutura de Dados - Prestadores
+ {
+            "id": "1",
+            "nome_completo": "Joaquina Guimarães",
+            "idFuncional": "SAMU-192-8765",
+            "tipo_servico": "SAMU",
+            "especialidade": "Técnica Auxiliar de Regulação Médica (TARM)",
+            "email": "joaquina@samu.gov.br"
+        }
+##### Estrutura de Dados - Contatos
+ {
+            "id": "1",
+            "nome": "Exemplo",
+            "telefone": "12345678",
+            "relacao": "Teste",
+            "endereco": "",
+            "local": "",
+            "disponibilidade": "Manhã"
+        },
+##### Estrutura de Dados - Denuncias
+{
+            "id_denuncia": "DEN-1730554200000",
+            "data_hora_recebimento": "2025-11-02T14:50:00.123Z",
+            "tipo_denuncia": "dengue",
+            "descricao_problema": "O vizinho do fundo tem uma piscina abandonada cheia de água parada e pneus velhos acumulando água da chuva.",
+            "localizacao": "Rua das Flores, 123 - Próximo à praça principal",
+            "nome_denunciante": "Maria S. A.",
+            "email_denunciante": "maria.s.a@exemplo.com",
+            "status": "Recebida",
+            "id": "8c24"
+        },
+##### Estrutura de Dados - Samu
+{
+        "servico": "SAMU (192)",
+        "tema": "theme-samu",
+        "logo": "https://imgs.search.brave.com/X8Mt2xpOR0MTdtdAM-ZqchSzHlrYjdIkSZoheT14wio/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9i/L2JlL1NhbXUxOTIu/cG5n",
+        "titulo_sidebar": "Roteiro SAMU",
+        "texto_sidebar": "Mantenha a calma. Preencha os campos e leia as informações para o atendente.",
+        "label_1": "Nome do Paciente:",
+        "dado_1": "Antônio",
+        "label_2": "Idade:",
+        "dado_2": "81 anos",
+        "label_3": "Sintoma Principal:",
+        "dado_3": "Ex: Forte dor no peito, dificuldade de respirar...",
+        "label_4": "Alergia a medicamentos? Qual(is)?",
+        "dado_4": "Ex: Não / Sim: Dipirona",
+        "label_5": "Endereço Exato:",
+        "dado_5": "Rua Rio de Janeiro, 1234 – Centro, Belo Horizonte – MG, 30160-042",
+        "alerta_label": "Gravidade da Situação:",
+        "alerta_dado": "Alto"
+    },
+##### Estrutura de Dados - Policia
+{
+        "servico": "Polícia Militar (190)",
+        "tema": "theme-policia",
+        "logo": "https://images.seeklogo.com/logo-png/11/1/policia-militar-de-minas-gerais-logo-png_seeklogo-110355.png",
+        "titulo_sidebar": "Roteiro Polícia",
+        "texto_sidebar": "Mantenha a calma e preencha os fatos de forma clara.",
+        "label_1": "Nome do Solicitante:",
+        "dado_1": "Carla Mendes",
+        "label_2": "Tipo de Ocorrência:",
+        "dado_2": "Ex: Acidente de Carro, Assalto, Briga...",
+        "label_3": "Endereço Exato:",
+        "dado_3": "Avenida do Contorno, 8561 – Savassi, Belo Horizonte – MG, 30110-017",
+        "label_4": "Descrição do Ocorrido:",
+        "dado_4": "Ex: Dois carros colidiram, suspeito armado...",
+        "label_5": "Houve fuga ?",
+        "dado_5": "Ex: Não / Sim, suspeito fugiu em um carro preto",
+        "alerta_label": "Gravidade da Situação:",
+        "alerta_dado": "Medio"
+    },
+  ##### Estrutura de Dados - Bombeiros
+  {
+        "servico": "Bombeiros (193)",
+        "tema": "theme-bombeiro",
+        "logo": "https://images.seeklogo.com/logo-png/3/1/corpo-de-bombeiros-minas-gerais-logo-png_seeklogo-35619.png",
+        "titulo_sidebar": "Roteiro Bombeiros",
+        "texto_sidebar": "Sua segurança primeiro. Preencha os fatos.",
+        "label_1": "Nome do Solicitante:",
+        "dado_1": "Juliana Bonde",
+        "label_2": "Tipo de Emergência:",
+        "dado_2": "Ex: Incêndio (Cozinha), Vazamento de gás...",
+        "label_3": "Endereço Exato:",
+        "dado_3": "Rua Padre Eustáquio, 975 – Padre Eustáquio, Belo Horizonte – MG, 30720-100",
+        "label_4": "O que está queimando?",
+        "dado_4": "Ex: Panela no fogão, vazamento de gás no botijão...",
+        "label_5": "Há Pessoas no Local?",
+        "dado_5": "Ex: Moro sozinha, 3 pessoas no apartamento...",
+        "alerta_label": "Gravidade da Situação:",
+        "alerta_dado": "Alto"
+    },
+  ##### Estrutura de Dados - Defesa Civil
+   "defesa": {
+        "servico": "Defesa Civil (199)",
+        "tema": "theme-defesa",
+        "logo": "https://images.seeklogo.com/logo-png/34/1/defesa-civil-minas-gerais-logo-png_seeklogo-349357.png",
+        "titulo_sidebar": "Roteiro Defesa Civil",
+        "texto_sidebar": "Priorize sua segurança e preencha os detalhes.",
+        "label_1": "Nome do Solicitante:",
+        "dado_1": "Marcos Oliveira",
+        "label_2": "Tipo de Risco:",
+        "dado_2": "Ex: Risco de Deslizamento, Desabamento, Enchente...",
+        "label_3": "Endereço do Risco:",
+        "dado_3": "Rua Professor Moraes, 45 – Funcionários, Belo Horizonte – MG, 30150-370",
+        "label_4": "Sinais Observados:",
+        "dado_4": "Ex: Estalos na parede, grandes rachaduras, água subindo...",
+        "label_5": "Pessoas no Local:",
+        "dado_5": "Ex: 3 pessoas, estamos saindo de casa...",
+        "alerta_label": "Gravidade da Situação:",
+        "alerta_dado": "Medio"
+    },
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
