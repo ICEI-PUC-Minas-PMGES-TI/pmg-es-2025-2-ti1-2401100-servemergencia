@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./assets/css/servicos/barra_main.css">
     <link rel="stylesheet" href="./assets/css/servicos/footer.css">
     <link rel="stylesheet" href="./assets/css/servicos/responsive.css">
+    <link rel="stylesheet" href="./assets/css/home_page/dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -118,14 +119,70 @@
 
                 <div class="perguntas-frequentes">
                     <h2>Perguntas frequentes</h2>
-                    <div class="faq-item">Qual a diferença entre SAMU e Bombeiros? <span>+</span></div>
-                    <div class="faq-item">Posso ligar para mais de um serviço ao mesmo tempo? <span>+</span></div>
-                    <div class="faq-item">Se eu não tiver crédito no celular, consigo ligar para os números de
-                        emergência? <span>+</span></div>
-                    <div class="faq-item">Posso usar esses números de emergência em qualquer cidade do Brasil?
-                        <span>+</span></div>
-                    <div class="faq-item">O que acontece se eu passar um trote para os serviços de emergência?
-                        <span>+</span></div>
+
+                    <div class="faq-item">
+                        <button class="faq-pergunta">
+                            Qual a diferença entre SAMU e Bombeiros?
+                            <span class="icone">+</span>
+                        </button>
+                        <div class="faq-resposta">
+                            <p>O <strong>SAMU (192)</strong> deve ser acionado para emergências clínicas (infartos, AVC,
+                                crises convulsivas, trabalho de parto). Já os <strong>Bombeiros (193)</strong> são
+                                focados em traumas e resgates (acidentes de trânsito com vítimas presas nas ferragens,
+                                incêndios, afogamentos, choques elétricos e tentativas de suicídio).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-pergunta">
+                            Posso ligar para mais de um serviço ao mesmo tempo?
+                            <span class="icone">+</span>
+                        </button>
+                        <div class="faq-resposta">
+                            <p>Não é recomendado para não congestionar as linhas. O ideal é identificar o problema
+                                principal. Se você ligar para o número "errado" (por exemplo, ligar para o 190 em caso
+                                de incêndio), os atendentes são treinados para redirecionar sua chamada ou acionar a
+                                viatura correta via rádio.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-pergunta">
+                            Se eu não tiver crédito no celular, consigo ligar?
+                            <span class="icone">+</span>
+                        </button>
+                        <div class="faq-resposta">
+                            <p>Sim. Todas as chamadas para serviços de emergência (190, 192, 193) são
+                                <strong>gratuitas</strong> por lei. Elas funcionam mesmo sem crédito, e em muitos casos,
+                                até mesmo se o celular estiver bloqueado ou sem o chip da operadora (chamada de
+                                emergência apenas).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-pergunta">
+                            Posso usar esses números em qualquer cidade do Brasil?
+                            <span class="icone">+</span>
+                        </button>
+                        <div class="faq-resposta">
+                            <p>Sim, os números são padronizados nacionalmente: 190 (Polícia), 192 (SAMU) e 193
+                                (Bombeiros). Ao ligar, o sistema de telefonia direciona sua chamada automaticamente para
+                                a central mais próxima da sua localização geográfica.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-pergunta">
+                            O que acontece se eu passar um trote?
+                            <span class="icone">+</span>
+                        </button>
+                        <div class="faq-resposta">
+                            <p>Passar trote aos serviços de emergência é <strong>crime</strong> previsto no Código
+                                Penal. Além de poder ser multado ou processado, você ocupa uma linha e uma viatura que
+                                poderiam estar salvando uma vida real naquele momento.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -164,5 +221,6 @@
     </div>
 
 </body>
+<script src="./assets/js/home_page/dropdown.js"></script>
 
 </html>
