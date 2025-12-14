@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defesa Civil - Alertas e Notificações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./../../assets/css/servicos/barra_main.css">
+    <link rel="stylesheet" href="./../../assets/css/defesa_civil/tema.css">
+    <link rel="stylesheet" href="./../../assets/css/servicos/nav_bar.css">
+    <link rel="stylesheet" href="./../../assets/css/servicos/footer.css">
+    <link rel="stylesheet" href="./../../assets/css/servicos/responsive.css">
+    <link rel="stylesheet" href="./../../assets/css/defesa_civil/alerta.css">
+</head>
+
+<body>
+    
+
+    <header class="top-bar white-bg">
+        <div class="container">
+            <a href="./../../defesa_civil.html">
+                <div class="logo-address">
+                    <img src="./../../assets//images/sirene.png" alt="Logo Defesa Civil" class="sirene-icon">
+                    <div class="logo">
+                        <strong>Defesa Civil</strong>
+                        <span class="logo-phone">199</span>
+                    </div>
+                </div>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="./../../index.html">Início</a></li>
+                    <!-- <li><a href="./../vistorias/minhas_solicitacoes.html">Minhas Solicitações</a></li> -->
+                    <li><a href="./cadastro_denuncia.html">Cadastrar Denuncias</a></li>
+                    <li><a href="#" class="active-link">Alertas</a></li>
+                </ul>
+                <a href="#" class="btn btn-login dark-border"> <span>👤</span> Login
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="alertas-page">
+        <div class="address">
+            <div class="container">
+                <span id="current-address">Endereço: R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte -
+                    MG</span>
+            </div>
+        </div>
+        <section class="alertas-content">
+            <div class="container">
+
+                <div class="main-info">
+                    <h1>Alertas da Defesa Civil por SMS 📱</h1>
+                    <p>Mantenha sua família segura. Receba mensagens gratuitas sobre riscos de chuvas fortes,
+                        inundações, vendavais e tempestades.</p>
+
+                    <div class="como-cadastrar">
+                        <h2>Como Cadastrar o seu Celular:</h2>
+                        <ol>
+                            <li>Envie um SMS para o número **40199**.</li>
+                            <li>No corpo da mensagem, digite o **CEP** de interesse (apenas números).</li>
+                            <li>Você receberá uma mensagem de confirmação do cadastro.</li>
+                        </ol>
+                        <p>É possível cadastrar mais de um CEP por celular.</p>
+                        <!-- <a href="#cadastro-online" class="btn-cadastro-rapido">Fazer Cadastro Rápido</a> -->
+                    </div>
+
+                </div>
+
+                <div class="cadastro-form-container" id="cadastro-online">
+                    <h2>Cadastre-se aqui, online:</h2>
+                    <form class="alertas-form" id="alert-signup-form">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="celular">Celular com DDD</label>
+                            <input type="tel" id="celular" name="celular" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP para Alerta</label>
+                            <input type="text" id="cep" name="cep" placeholder="Apenas números (Ex: 30190090)" required>
+                        </div>
+                        <button type="submit" class="btn-confirmar">Confirmar Cadastro de Alerta</button>
+                        <p class="privacy-note">Seus dados serão usados apenas para envio de alertas oficiais da Defesa
+                            Civil.</p>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="orientacoes-section">
+            <div class="container">
+                <h2>Orientações Importantes sobre Alertas</h2>
+                <div class="orientacoes-grid">
+
+                    <div class="orientacao-card">
+                        <span class="orientacao-icon">⚠️</span>
+                        <h3>Fique Atento</h3>
+                        <p>Ao receber um alerta, verifique as instruções e as recomendações específicas para sua região.
+                        </p>
+                    </div>
+
+                    <div class="orientacao-card">
+                        <span class="orientacao-icon">🏠</span>
+                        <h3>Plano de Emergência</h3>
+                        <p>Tenha um plano de fuga e um kit de emergência preparado, especialmente em áreas de risco.</p>
+                    </div>
+
+                    <div class="orientacao-card">
+                        <span class="orientacao-icon">📞</span>
+                        <h3>Acione Ajuda</h3>
+                        <p>Em caso de risco iminente, ligue imediatamente para a Defesa Civil (199) ou Bombeiros (193).
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-column">
+                <h4>Telefones de Emergência</h4>
+                <ul>
+                    <li>DEFESA CIVIL: 199</li>
+                    <li>BOMBEIROS: 193</li>
+                    <li>SAMU: 192</li>
+                    <li>POLÍCIA MILITAR: 190</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="./../../index.html">Início</a></li>
+                    <li><a href="#">Cadastro de Alertas</a></li>
+                    <li><a href="#">Sobre a Defesa Civil</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Informações Úteis</h4>
+                <p>R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG</p>
+                <ul>
+                    <li><a href="#">Fale conosco</a></li>
+                    <li><a href="./../../index.html">Tela principal</a></li>
+                    <li><a href="./../../index.html">Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <p>©2025 - Projeto Acadêmico PUC Minas (TIAW)</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ====================================================
+            // A) LÓGICA DO ENDEREÇO DINÂMICO (COM GEOCERTIFICAÇÃO REVERSA)
+            // ====================================================
+            const addressSpan = document.getElementById('current-address');
+
+            // Endereço Padrão (Fallback)
+            const defaultAddress = "Endereço: R. Dom José Gaspar, 500 - Coração Eucarístico, Belo Horizonte - MG";
+            addressSpan.textContent = defaultAddress; // Começa com o padrão
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+
+                        // Chamada para a API Nominatim (OpenStreetMap)
+                        // IMPORTANTE: Esta API deve ser usada com moderação.
+                        const nominatimUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+                        fetch(nominatimUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                let address = data.address;
+                                let displayAddress = "Sua Localização";
+
+                                // Tenta extrair rua, número e cidade.
+                                let road = address.road || address.pedestrian || address.neighbourhood;
+                                let houseNumber = address.house_number ? `, ${address.house_number}` : '';
+                                let city = address.city || address.town || address.village || '';
+
+                                if (road && city) {
+                                    // Puxa rua e cidade (se disponíveis)
+                                    displayAddress = `Local Próximo: ${road}${houseNumber}, ${city}`;
+                                } else if (city) {
+                                    // Puxa apenas a cidade
+                                    displayAddress = `Localização: ${city}`;
+                                } else {
+                                    // Último recurso: coordenadas
+                                    displayAddress = `Localização Aproximada (Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)})`;
+                                }
+
+                                addressSpan.textContent = displayAddress;
+                                addressSpan.style.color = '#fff';
+                                addressSpan.style.fontWeight = 'bold';
+                            })
+                            .catch((error) => {
+                                console.error("Erro ao obter endereço da API Nominatim:", error);
+                                // Em caso de falha da API, volta para o padrão
+                                addressSpan.textContent = defaultAddress;
+                            });
+
+                    },
+                    (error) => {
+                        // Se o usuário negar a permissão
+                        console.warn("Geolocation negada ou falhou. Usando endereço padrão.");
+                        addressSpan.textContent = defaultAddress;
+                    },
+                    { timeout: 10000, enableHighAccuracy: false }
+                );
+            }
+            // Se o navegador não suportar Geolocation, mantém o defaultAddress
+
+            // ====================================================
+            // B) LÓGICA DO POP-UP DE CONFIRMAÇÃO
+            // ====================================================
+            const alertForm = document.getElementById('alert-signup-form');
+
+            if (alertForm) {
+                alertForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const nome = document.getElementById('nome').value || 'cidadão';
+
+                    // Usa alert() para o pop-up de confirmação
+                    alert(`🥳 Cadastro de Alerta Confirmado!\n\nObrigado, ${nome}. Você receberá notificações no celular cadastrado em breve. Mantenha o seu celular próximo para receber os alertas SMS.`);
+
+                    alertForm.reset();
+                });
+            }
+
+        });
+    </script>
+</body>
+
+</html>

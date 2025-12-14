@@ -1,0 +1,210 @@
+
+
+/* --------------------
+    ESTILOS GERAIS DA PÁGINA
+-------------------- */
+
+.alertas-page {
+    /* Garante que o conteúdo não fique colado no topo */
+    padding-bottom: 50px; 
+}
+
+/* --------------------
+    MIGRAÇÃO DE HERO/BANNER PARA O CONTEÚDO
+-------------------- */
+
+.alertas-content {
+    background-color: var(--color-primary-dark);
+    color: var(--color-light);
+    padding: 60px 0;
+}
+
+.alertas-content .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.main-info {
+    max-width: 65%;
+}
+
+.main-info h1 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.main-info p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+/* Informações de Cadastro por SMS (40199) */
+.como-cadastrar {
+    margin-bottom: 30px;
+}
+
+.como-cadastrar h2 {
+    color: var(--color-accent);
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.como-cadastrar ol {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.como-cadastrar strong {
+    font-weight: 700;
+}
+
+/* Estilo para o link "Fazer Cadastro Rápido" */
+.btn-cadastro-rapido {
+    display: inline-block;
+    color: var(--color-light);
+    border: 2px solid var(--color-accent);
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: var(--color-accent);
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-cadastro-rapido:hover {
+    background-color: #bb4936;
+    border-color: #bb4936;
+}
+
+/* --------------------
+    FORMULÁRIO DE CADASTRO
+-------------------- */
+.cadastro-form-container {
+    max-width: 30%; /* Lado direito do container */
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--color-text-dark);
+}
+
+.cadastro-form-container h2 {
+    font-size: 1.2em;
+    color: var(--color-primary-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.btn-confirmar {
+    width: 100%;
+    background-color: var(--color-primary-dark);
+    color: var(--color-light);
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-confirmar:hover {
+    background-color: var(--color-secondary-dark);
+}
+
+.privacy-note {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* --------------------
+    SEÇÃO DE ORIENTAÇÕES
+-------------------- */
+.orientacoes-section {
+    padding: 50px 0;
+    background-color: var(--color-light);
+}
+
+.orientacoes-section h2 {
+    text-align: center;
+    color: var(--color-primary-dark);
+    font-size: 1.8em;
+    margin-bottom: 40px;
+}
+
+.orientacoes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.orientacao-card {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-top: 4px solid var(--color-accent);
+}
+
+.orientacao-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.orientacao-card h3 {
+    color: var(--color-primary-dark);
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.orientacao-card p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* --------------------
+    RESPONSIVIDADE
+-------------------- */
+@media (max-width: 900px) {
+    .alertas-content .container {
+        flex-direction: column;
+    }
+    .main-info {
+        max-width: 100%;
+    }
+    .cadastro-form-container {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+    .orientacoes-grid {
+        grid-template-columns: 1fr;
+    }
+}
