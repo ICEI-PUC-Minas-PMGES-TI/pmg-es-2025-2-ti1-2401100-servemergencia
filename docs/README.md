@@ -343,8 +343,8 @@ Login e cadastro de usuários (usuários comuns e prestadores), gerenciamento de
 
 - **Estrutura de dados:** usuários, perfis
 - **Instruções de acesso:** Acesse `/login` para autenticar ou `/cadastro` para criar conta.
-- **Tela da funcionalidade:** [![Tela de Cadastro](images/cadastroHTML.png)]
-
+- **Tela da funcionalidade:** [![Tela de Cadastro](images/telacadastroHTML.png)] [![Tela de Login](images/telaloginHTML.png)] 
+                            
 ##### Funcionalidade - SAMU
 
 Formulário de solicitação/roteiro de atendimento, informações do paciente e chat de suporte.
@@ -376,14 +376,6 @@ Cadastro e listagem de denúncias, acompanhamento do status e fluxo de acompanha
 - **Estrutura de dados:** denúncias
 - **Instruções de acesso:** Acesse o módulo Defesa Civil/Denúncias no menu principal.
 - **Tela da funcionalidade:** [![Tela da Defesa Civil](images/defesacivilHTML.png)]
-
-##### Funcionalidade - Prestadores de Serviço
-
-CRUD de prestadores (dados pessoais, especialidades, ID funcional) para integrar equipes locais.
-
-- **Estrutura de dados:** prestadores
-- **Instruções de acesso:** Menu de administração → Prestadores (requer permissões).
-- **Tela da funcionalidade:** Espaço reservado para prints [![Tela de Cadastro Prestadores](images/prestadoresHTML.png)]
 
 ##### Funcionalidade - Roteiro e Mapas
 
