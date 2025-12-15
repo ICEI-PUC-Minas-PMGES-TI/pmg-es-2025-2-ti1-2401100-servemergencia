@@ -1,9 +1,12 @@
-# Emergencia [Brasil]
+# Serviços Emergenciais - 911
 
-O objetivo do nosso trabalho é encontrar formas de reduzir os problemas causados 
-pela falta de acesso aos serviços emergenciais. A ideia é pensar em alternativas que 
-tornem o atendimento mais rápido e eficiente em casos de urgência, ajudando a salvar 
-vidas, evitar maiores prejuízos e trazer mais segurança para a população.
+
+![Logo](docs/images/logo.png)
+
+
+Este projeto propõe um portal web integrado, "Serviços Emergenciais - 911", que facilita a comunicação entre cidadãos e órgãos de emergência (Bombeiros, SAMU, Polícia Militar e Defesa Civil). O sistema reúne informações, orientações de socorro, cadastro e visualização de denúncias, gestão de ocorrências e ferramentas para prestadores, com foco em reduzir o tempo de resposta, orientar a população em situações críticas e fornecer dados úteis para as equipes de atendimento.
+
+Além das funcionalidades básicas, o portal conta com mapas interativos para localização de ocorrências, chat de atendimento, formulários para registro de eventos e um painel de gestão para respondentes e prestadores. A interface é responsiva e acessível, com filtros para priorização de chamados e geração de relatórios, apoiando a coordenação eficiente das equipes e a tomada de decisões em tempo real.
 
 ## Alunos integrantes da equipe
 
@@ -18,3 +21,9 @@ vidas, evitar maiores prejuízos e trazer mais segurança para a população.
 * Michelle Hanne Soares de Andrade
 * Lucca Soares de Paiva Lacerda
 * Daniel Machado Osório Pereira
+
+
+Toda a documentação do projeto é estruturada por meio da linguagem Markdown adotada pelo GitHub e por diversas outras plataformas. Aprenda Markdown e use para documentar o projeto:
+
+* [Sintaxe básica de gravação e formatação no GitHub - GitHub Docs](https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [Markdown® Básico: Sintaxe, Uso &amp; Exemplos [Passo a Passo]](https://markdown.net.br/sintaxe-basica/)
