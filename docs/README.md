@@ -8,15 +8,11 @@ Repositório GitHub: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti
 
 Membros da equipe:
 
-•  Pedro Henrique Amaral Morais
-
 •  Moises Carvalho Alves Teixeira
 
 •  Samuel Henrique Alvarenga e Lopes
 
 •  Gabriel Eduardo de Oliveira Martins
-
-•  Gabriel Rangel de Toledo
 
 •  Gustavo Fitipaldi Moreira
 
