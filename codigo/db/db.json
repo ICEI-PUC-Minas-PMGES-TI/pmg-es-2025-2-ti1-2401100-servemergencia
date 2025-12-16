@@ -404,6 +404,20 @@
       "senha": "123",
       "nome": "Gustavo Fitipaldi",
       "email": "gu.fit@hotmail.com"
+    },
+    {
+      "id": "78a0",
+      "login": "samuel",
+      "senha": "123",
+      "nome": "samuel h",
+      "email": "samuel@gmail"
+    },
+    {
+      "id": "fa72",
+      "login": "Administrador",
+      "senha": "123",
+      "nome": "Administrador sistema",
+      "email": "admin@gmail.com"
     }
   ],
   "emergencias": [],

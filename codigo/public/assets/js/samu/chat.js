@@ -21,7 +21,7 @@ chatForm.addEventListener('submit', async (e) => { //Recebe o input, envia para 
     appendMessage('Você', message);
     userInput.value = '';
 
-    const response = await callGeminiFlash("---GEMINI API KEY AQUI---", message);
+    const response = await callGeminiFlash("AIzaSyCDolJHZ3K6eWj05eH4dg7N9ZfdophzhCc", message);
     if (response?.candidates[0]?.content?.parts[0]?.text) {
         appendMessage('SAMU', response?.candidates[0]?.content?.parts[0]?.text);
     } else {
