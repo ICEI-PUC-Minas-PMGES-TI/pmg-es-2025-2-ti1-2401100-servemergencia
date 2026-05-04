@@ -10,8 +10,6 @@ authors:
     given-names: Moises
   - family-names: Henrique Alvarenga e Lopes
     given-names: Samuel
-    name-suffix: Professor
-    affiliation: PUC Minas
   - family-names: Soares de Andrade
     given-names: Michelle Hanne
     name-suffix: Professor
@@ -21,7 +19,9 @@ authors:
     name-suffix: Professor
     affiliation: PUC Minas
   - family-names: Machado Osório Pereira
-    given-names: Daniel 
+    given-names: Daniel
+    name-suffix: Professor
+    affiliation: PUC Minas
 keywords:
   - emergencia
   - saude
