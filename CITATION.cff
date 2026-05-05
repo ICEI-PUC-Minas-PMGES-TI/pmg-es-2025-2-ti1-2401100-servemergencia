@@ -1,8 +1,8 @@
-cff-version: 1.0.1
+cff-version: 1.2.0
 message: Please cite this software using these metadata.
 title: ServEmergencia
 authors:
-  - family-names: de Oliveita Martins Martins
+  - family-names: de Oliveira Martins Martins
     given-names: Gabriel Eduardo
   - family-names: Fitipaldi Moreira
     given-names: Gustavo
@@ -15,7 +15,7 @@ authors:
     name-suffix: Professor
     affiliation: PUC Minas
   - family-names: Soares de Paiva Lacerda
-    given-names: Lucca 
+    given-names: Lucca
     name-suffix: Professor
     affiliation: PUC Minas
   - family-names: Machado Osório Pereira
@@ -32,5 +32,3 @@ repository-code: https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-2-ti1-24
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2025-11-27
-
-
