@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: ServEmergencia
 authors:
@@ -10,18 +10,18 @@ authors:
     given-names: Moises
   - family-names: Henrique Alvarenga e Lopes
     given-names: Samuel
-  - family-names: Soares de Andrade
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Soares de Andrade
     given-names: Michelle Hanne
-    name-suffix: Professor
+  - name-suffix: Professor
     affiliation: PUC Minas
-  - family-names: Soares de Paiva Lacerda
+    family-names: Soares de Paiva Lacerda
     given-names: Lucca
-    name-suffix: Professor
+  - name-suffix: Professor
     affiliation: PUC Minas
-  - family-names: Machado Osório Pereira
+    family-names: Machado Osório Pereira
     given-names: Daniel
-    name-suffix: Professor
-    affiliation: PUC Minas
 keywords:
   - emergencia
   - saude
